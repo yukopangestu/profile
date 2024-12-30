@@ -26,6 +26,10 @@ body {
 .section {
   margin-bottom: 25px;
 }
+.section p {
+  display: flex;
+  vertical-align: middle;
+}
 h1 {
   color: #1a73e8;
 }
