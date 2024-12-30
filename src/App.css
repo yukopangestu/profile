@@ -38,3 +38,7 @@ h2 {
   border-bottom: 2px solid #1a73e8;
   padding-bottom: 5px;
 }
+a{
+  color: black;
+  text-decoration: none;
+}
