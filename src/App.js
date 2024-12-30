@@ -27,8 +27,8 @@ function App() {
 
         <div class="section">
             <h2>Contact</h2>
-            <p>Email: john.doe@example.com</p>
-            <p>LinkedIn: linkedin.com/in/johndoe</p>
+            <p>Email: yuko.pangestu@gmail.com</p>
+            <p>LinkedIn: <a href='www.linkedin.com/in/yukopangestu' target='_blank'>www.linkedin.com/in/yukopangestu</a></p>
             <p>GitHub: github.com/johndoe</p>
         </div>
     </div>
