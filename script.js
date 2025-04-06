@@ -19,3 +19,7 @@ skillCards.forEach(card => {
         card.style.transform = 'scale(1)';
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+});
