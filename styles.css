@@ -485,6 +485,11 @@ nav {
     color: #1a2a6c;
 }
 
+/* Fix margin between About and Experience sections */
+#experience {
+    padding-top: 4rem;
+}
+
 /* Contact Section */
 .contact-container {
     display: flex;
@@ -584,10 +589,6 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
     .timeline::before {
         left: 30px;
     }
@@ -733,6 +734,7 @@ footer {
     list-style-type: disc;
     padding-left: 1.2rem;
     margin: 0.8rem 0;
+    text-align: left;
 }
 
 .timeline-description ul li {
@@ -925,10 +927,6 @@ footer {
 
 /* Responsive fixes */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
     .timeline::before {
         left: 30px;
     }
@@ -964,4 +962,39 @@ footer {
     .level-bar {
         width: 100%;
     }
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #333;
+}
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    .nav-links.active {
+        max-height: 500px;
+    }
+    .nav-links li {
+        margin: 1rem;
+    }
+}
+
+/* Adjust margin for Education section */
+#education {
+    margin: 2rem auto; /* Reduce the margin for better spacing */
 }
