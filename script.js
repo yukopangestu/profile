@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observe all timeline items, skill cards, and contact cards
-    document.querySelectorAll('.timeline-item, .skill-card, .contact-card').forEach(item => {
+    document.querySelectorAll('.timeline-item, .skill-card, .contact-card, .tech-category, .education-card, .award-card').forEach(item => {
         item.classList.add('animate-item');
         observer.observe(item);
     });
