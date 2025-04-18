@@ -128,12 +128,14 @@ nav {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 600px;
+    max-width: 1000px;
+    padding: 0 20px;
 }
 
 /* ID Card Styling - Enhanced */
 .id-card {
-    max-width: 500px;
+    width: 90%;
+    max-width: 900px;
     margin: 0 auto;
     background: white;
     border-radius: 15px;
@@ -150,8 +152,11 @@ nav {
 
 .id-card-header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 25px;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
     background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
     color: white;
     position: relative;
@@ -187,7 +192,7 @@ nav {
     height: 120px;
     border-radius: 50%;
     background-color: #f0f0f0;
-    margin-right: 25px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -206,6 +211,11 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.id-card-info {
+    text-align: center;
+    width: 100%;
 }
 
 .id-card-info h1 {
@@ -236,17 +246,35 @@ nav {
 }
 
 .id-card-body {
-    padding: 25px;
+    padding: 30px;
+    max-width: 100%;
+}
+
+@media (min-width: 992px) {
+    .id-card-detail {
+        padding: 18px;
+        margin-bottom: 20px;
+    }
+    
+    .id-card-info h1 {
+        font-size: 2.2rem;
+    }
+    
+    .id-card-info h2 {
+        font-size: 1.4rem;
+    }
 }
 
 .id-card-detail {
     margin-bottom: 15px;
     font-size: 1.1rem;
     color: #333;
-    padding: 10px;
+    padding: 15px;
     border-radius: 8px;
     background: #f8f9fa;
     transition: transform 0.3s ease, background 0.3s ease;
+    display: flex;
+    align-items: flex-start;
 }
 
 .id-card-detail:hover {
@@ -257,31 +285,42 @@ nav {
 .id-card-detail span {
     font-weight: bold;
     color: #1a2a6c;
-    margin-right: 5px;
+    margin-right: 15px;
+    min-width: 100px;
+    flex-shrink: 0;
+}
+
+.id-card-detail div {
+    flex: 1;
 }
 
 .id-card-detail i {
-    margin-right: 5px;
+    margin-right: 8px;
     color: #b21f1f;
+}
+
+.id-card-detail div {
+    line-height: 1.5;
 }
 
 .social-icons {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 .social-icons a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    margin: 0 10px;
+    margin: 0 15px;
     color: white;
     background: linear-gradient(135deg, #1a2a6c, #b21f1f);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.2rem;
 }
 
 .social-icons a:hover {
@@ -514,6 +553,89 @@ nav {
     transform: translateY(-10px);
 }
 
+/* Responsive adjustments for the id-card-body */
+@media (max-width: 768px) {
+    .id-card {
+        width: 95%;
+    }
+    
+    .profile-image {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+    
+    .id-card-info h1 {
+        font-size: 1.8rem;
+    }
+    
+    .id-card-info h2 {
+        font-size: 1.2rem;
+    }
+    
+    .id-card-body {
+        padding: 1rem;
+    }
+    
+    .id-card-detail {
+        margin-bottom: 0.75rem;
+        flex-direction: column;
+        padding: 12px;
+    }
+    
+    .id-card-detail span {
+        display: block;
+        margin-bottom: 0.5rem;
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .id-card-detail div {
+        width: 100%;
+    }
+    
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+    }
+    
+    .social-icons a {
+        margin: 0 0.5rem 0.5rem;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .cta-button {
+        display: block;
+        text-align: center;
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .id-card-body {
+        padding: 0.75rem;
+    }
+    
+    .id-card-detail {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .social-icons a {
+        font-size: 1.2rem;
+        margin: 0 0.4rem 0.4rem;
+    }
+    
+    .cta-button {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+}
+
 .contact-icon {
     width: 70px;
     height: 70px;
@@ -717,6 +839,7 @@ footer {
 .id-location {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     background-color: rgba(255, 255, 255, 0.15);
     padding: 3px 8px;
     border-radius: 4px;

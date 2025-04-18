@@ -6,6 +6,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             behavior: 'smooth'
         });
     });
+            
+            // Adjust card body layout on window resize
+            function adjustCardBody() {
+        const cardBody = document.querySelector('.id-card-body');
+        if (!cardBody) return;
+        
+        if (window.innerWidth <= 480) {
+            // Extra small screens
+            cardBody.classList.add('xs-screen');
+            cardBody.classList.remove('sm-screen', 'md-screen');
+        } else if (window.innerWidth <= 768) {
+            // Small screens
+            cardBody.classList.add('sm-screen');
+            cardBody.classList.remove('xs-screen', 'md-screen');
+        } else {
+            // Medium and larger screens
+            cardBody.classList.add('md-screen');
+            cardBody.classList.remove('xs-screen', 'sm-screen');
+        }
+            }
+            
+            // Initial adjustment
+            adjustCardBody();
+            
+            // Adjust on resize
+            window.addEventListener('resize', adjustCardBody);
 });
 
 // Add a subtle animation to skill cards on hover
