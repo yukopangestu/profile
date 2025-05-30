@@ -1,0 +1,96 @@
+@use '../abstracts' as *;
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  z-index: 1000;
+  @include box-shadow(0 2px 10px rgba(0, 0, 0, 0.1));
+  @include transition;
+  
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    padding: 0.75rem 0;
+  }
+  
+  .nav-container {
+    @include section-container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-purple;
+    text-decoration: none;
+    @include transition(transform);
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  .nav-links {
+    @include flex(row, center, center, 2rem);
+    list-style: none;
+    
+    a {
+      text-decoration: none;
+      color: $text-dark;
+      font-weight: 500;
+      @include transition(color);
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $primary-purple;
+        @include transition(width);
+      }
+      
+      &:hover {
+        color: $primary-purple;
+        
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+    
+    @include mobile {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: white;
+      flex-direction: column;
+      padding: 1rem;
+      @include box-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+      
+      &.active {
+        display: flex;
+      }
+    }
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: $primary-purple;
+    
+    @include mobile {
+      display: block;
+    }
+  }
+}

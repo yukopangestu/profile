@@ -1,0 +1,26 @@
+@use '../abstracts' as *;
+
+.btn {
+  @include button(transparent, $text-dark);
+  
+  &-primary {
+    background: white;
+    color: $primary-purple;
+    
+    &:hover {
+      transform: translateY(-2px);
+      @include box-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    }
+  }
+  
+  &-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    
+    &:hover {
+      background: white;
+      color: $primary-purple;
+    }
+  }
+}

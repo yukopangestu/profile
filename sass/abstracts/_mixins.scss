@@ -1,0 +1,57 @@
+// Flexbox mixins
+@mixin flex($direction: row, $justify: center, $align: center, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  @if $gap != 0 {
+    gap: $gap;
+  }
+}
+
+// Transition mixin
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// Box shadow mixin
+@mixin box-shadow($shadow...) {
+  box-shadow: $shadow;
+}
+
+// Media query mixins
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+// Animation mixin
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// Button mixin
+@mixin button($bg, $color, $padding: 0.875rem 2rem, $radius: 50px) {
+  padding: $padding;
+  border: none;
+  border-radius: $radius;
+  background: $bg;
+  color: $color;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  @include transition;
+  cursor: pointer;
+}
+
+// Section container mixin
+@mixin section-container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
