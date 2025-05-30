@@ -1,0 +1,17 @@
+// Main SASS file
+// Import all partials
+
+// Import abstracts (variables, mixins, etc.)
+@use 'abstracts';
+
+// Import base styles
+@use 'base';
+
+// Import components
+@use 'components';
+
+// Import layout
+@use 'layout';
+
+// Import pages (if any)
+// @use 'pages';

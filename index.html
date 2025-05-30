@@ -3,96 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yuko Pangestu - Technical Lead at Paper.id specializing in Golang, PHP, and web development">
-    <meta name="keywords" content="Technical Lead, Web Developer, Golang, PHP, ArangoDB, Laravel, Jakarta">
-    <title>Yuko Pangestu | Technical Lead</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@300;400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <title>Yuko Pangestu - Technical Lead & Full Stack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- This CSS is compiled from SASS files in the /sass directory -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-    <nav>
-        <div class="logo">
-            <span class="logo-text">YP</span>
-            <span class="logo-full">Yuko Pangestu</span>
-        </div>
-        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-        <ul class="nav-links">
-            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-            <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-            <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
-            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-container">
+        <a href="#home" class="logo">YP</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-    </nav>
-</header>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
 
-<section id="home" class="hero">
-    <div class="particles-container" id="particles-js"></div>
-    <div class="hero-content">
-        <div class="id-card">
-            <div class="id-card-header">
-                <div class="profile-image">
-                    <!-- Replace with your actual image or keep the placeholder -->
-                    <div class="profile-placeholder">YP</div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1>Yuko Pangestu</h1>
+            <h2>Technical Lead & Lifelong Learner</h2>
+            <p>Passionate website programmer ready to take on any challenge. Leading teams and building innovative solutions at Paper.id.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i>
+                    Get In Touch
+                </a>
+                <a href="#projects" class="btn btn-secondary">
+                    <i class="fas fa-folder"></i>
+                    View Projects
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/500x600" alt="Yuko Pangestu">
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about fade-in" id="about">
+    <div class="section-container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Technical Lead with 5+ years of experience in full-stack development</p>
+
+        <div class="about-grid">
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Experience</div>
                 </div>
-                <div class="id-card-info">
-                    <h1>Yuko Pangestu</h1>
-                    <h2>Technical Lead at Paper.id</h2>
-                    <p class="tagline">Driving Innovation, Delivering Excellence.</p>
-                    <p class="id-location"><i class="fas fa-map-marker-alt"></i> Jakarta Metropolitan Area</p>
-                    <p class="id-number">Lifelong Learner</p>
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Team Members Led</div>
                 </div>
             </div>
-            <div class="id-card-body">
-                <div class="id-card-detail">
-                    <span><i class="fas fa-quote-left"></i> Summary:</span>
-                    <div>Technical Lead with 8+ years of experience leading engineering teams and delivering scalable solutions. Proven track record of architecting systems, mentoring developers, and driving technical excellence while aligning with business objectives.</div>
-                </div>
-                <div class="id-card-detail">
-                    <span><i class="fas fa-laptop-code"></i> Focus:</span>
-                    <div>Backend Engineering & Technical Leadership</div>
-                </div>
-                <div class="id-card-detail">
-                    <span><i class="fas fa-bolt"></i> Status:</span>
-                    <div>Open to New Challenges</div>
-                </div>
-                <div class="social-icons">
-                    <a href="mailto:yuko.pangestu@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://www.linkedin.com/in/yukopangestu" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://yukopangestu.github.io/profile" target="_blank" title="Portfolio"><i class="fas fa-globe"></i></a>
-                    <a href="https://medium.com/@yuko.pangestu" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>
+
+            <div class="about-content">
+                <h3>Building Digital Excellence</h3>
+                <p>As a Technical Lead at Paper.id, I orchestrate the development of innovative solutions while mentoring a diverse team of engineers. My journey in tech has equipped me with a comprehensive skill set spanning from backend architecture to frontend implementation.</p>
+                <p>I specialize in creating scalable web applications, implementing microservices architectures, and ensuring code quality across teams. My approach combines technical expertise with strong leadership to deliver products that make a difference.</p>
+
+                <h3>Technical Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Laravel</span>
+                    <span class="skill-tag">Golang</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Redis</span>
+                    <span class="skill-tag">RabbitMQ</span>
+                    <span class="skill-tag">ArangoDB</span>
+                    <span class="skill-tag">Jenkins</span>
+                    <span class="skill-tag">RESTful APIs</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="about" class="section">
-    <h2 class="animate-item">About Me <i class="fas fa-user"></i></h2>
-    <div class="about-container">
-        <div class="about-content">
-            <p>I am a Technical Lead with extensive experience in web development, specializing in backend technologies and team leadership. With a strong background in PHP, Golang, and various database systems, I've successfully led engineering teams to deliver high-quality products.</p>
+<!-- Projects Section -->
+<section class="projects fade-in" id="projects">
+    <div class="section-container">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Showcasing my work and contributions</p>
 
-            <p>My passion lies in solving complex technical challenges and mentoring team members to reach their full potential. I have experience with modern development practices including microservices architecture, containerization, and CI/CD pipelines.</p>
-
-            <div class="language-section">
-                <h3><i class="fas fa-language"></i> Languages</h3>
-                <div class="language-items">
-                    <div class="language-item">
-                        <span>Indonesian</span>
-                        <div class="language-level">
-                            <span>Native or Bilingual</span>
-                            <div class="level-bar"><div class="level-fill" style="width: 100%"></div></div>
-                        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Paper.id Platform</h3>
+                    <p>Leading the development of invoice management features, implementing microservices architecture, and ensuring scalability for thousands of users.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Golang</span>
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">RabbitMQ</span>
                     </div>
-                    <div class="language-item">
-                        <span>English</span>
-                        <div class="language-level">
-                            <span>Full Professional</span>
-                            <div class="level-bar"><div class="level-fill" style="width: 90%"></div></div>
-                        </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Bandingin.com</h3>
+                    <p>Built and maintained a comprehensive comparison platform as Full Stack Developer, implementing real-time features and managing the entire system architecture.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Socket.io</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Healthcare Platforms</h3>
+                    <p>Developed healthcare solutions at PesanLab, creating responsive web applications for medical services and home care management.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">MySQL</span>
                     </div>
                 </div>
             </div>
@@ -100,357 +155,100 @@
     </div>
 </section>
 
-<section id="experience" class="section">
-    <h2 class="animate-item">Experience <i class="fas fa-briefcase"></i></h2>
-    <div class="timeline">
-        <div class="timeline-item animate-item">
-            <div class="timeline-icon">
-                <i class="fas fa-laptop-code"></i>
-            </div>
-            <div class="timeline-content">
-                <h3 style="text-align: left;">Technical Lead - Paper.id</h3>
-                <span class="timeline-date" style="text-align: left; display: block;"><i class="far fa-calendar-alt"></i> February 2023 - Present</span>
-                <div class="timeline-description" style="text-align: left;">
-                    • Leading cross-functional team of 15+ engineers (Backend, Frontend, QA)<br>
-                    • Reduced deployment time by 40% through CI/CD optimization<br>
-                    • Architected microservices platform handling 10M+ transactions monthly<br>
-                    • Interviewed and hired 8 senior engineers, improving team capability by 30%<br>
-                    • Implemented technical roadmap aligned with business goals, increasing revenue by 25%<br>
-                    • Established coding standards and review processes, reducing bugs by 35%
-                </div>
-                <div class="timeline-tags">
-                    <span>Team Leadership</span>
-                    <span>Technical Strategy</span>
-                    <span>Architecture Design</span>
-                    <span>5+ Engineers</span>
-                </div>
-            </div>
-        </div>
+<!-- Experience Section -->
+<section class="experience fade-in" id="experience">
+    <div class="section-container">
+        <h2 class="section-title">Professional Journey</h2>
+        <p class="section-subtitle">My career progression and achievements</p>
 
-        <div class="timeline-item animate-item">
-            <div class="timeline-icon">
-                <i class="fas fa-server"></i>
-            </div>
-            <div class="timeline-content">
-                <h3 style="text-align: left;">Back End Engineer (Senior) - Paper.id</h3>
-                <span class="timeline-date" style="text-align: left; display: block;"><i class="far fa-calendar-alt"></i> April 2022 - February 2023</span>
-                <div class="timeline-description" style="text-align: left;">
-                    • Designed and implemented payment gateway integration processing $2M+ daily<br>
-                    • Led migration from monolith to microservices, improving response time by 60%<br>
-                    • Mentored 5 junior developers on best practices and code quality<br>
-                    • Optimized database queries reducing load time from 5s to 300ms<br>
-                    • Achieved 99.9% uptime for critical payment services
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Feb 2023 - Present</div>
+                    <h3>Technical Lead</h3>
+                    <h4>Paper.id</h4>
+                    <p>Leading cross-functional teams, conducting technical interviews, coordinating with product teams, and making critical technical decisions.</p>
                 </div>
-                <div class="timeline-tags">
-                    <span>Golang</span>
-                    <span>Laravel</span>
-                    <span>ArangoDB</span>
-                    <span>Payment Systems</span>
-                </div>
+                <div class="timeline-dot"></div>
             </div>
-        </div>
 
-        <div class="timeline-item animate-item">
-            <div class="timeline-icon">
-                <i class="fas fa-code-branch"></i>
-            </div>
-            <div class="timeline-content">
-                <h3 style="text-align: left;">Back End Engineer (Middle) - Paper.id</h3>
-                <span class="timeline-date" style="text-align: left; display: block;"><i class="far fa-calendar-alt"></i> September 2019 - April 2022</span>
-                <div class="timeline-description" style="text-align: left;">
-                    • Developed REST APIs serving 1M+ daily requests with 99.5% availability<br>
-                    • Built event-driven architecture using RabbitMQ processing 500K messages/day<br>
-                    • Implemented caching strategy that reduced database load by 70%<br>
-                    • Collaborated with team of 8 engineers to deliver 20+ features on schedule<br>
-                    • Reduced technical debt by refactoring legacy code, improving test coverage from 40% to 85%
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Apr 2022 - Feb 2023</div>
+                    <h3>Senior Backend Engineer</h3>
+                    <h4>Paper.id</h4>
+                    <p>Delivered high-quality code, mentored junior developers, and architected scalable solutions.</p>
                 </div>
-                <div class="timeline-tags">
-                    <span>Microservices</span>
-                    <span>Docker</span>
-                    <span>RabbitMQ</span>
-                    <span>High Volume</span>
-                </div>
+                <div class="timeline-dot"></div>
             </div>
-        </div>
 
-        <div class="timeline-item animate-item">
-            <div class="timeline-icon">
-                <i class="fas fa-laptop"></i>
-            </div>
-            <div class="timeline-content">
-                <h3 style="text-align: left;">Full Stack Developer - Bandingin</h3>
-                <span class="timeline-date" style="text-align: left; display: block;"><i class="far fa-calendar-alt"></i> July 2018 - August 2019</span>
-                <div class="timeline-description" style="text-align: left;">
-                    Full system design and coding (frontend & backend)<br>
-                    Mentoring new team members<br>
-                    Code stack: PHP (Laravel), HTML/CSS/JS, AngularJS, Redis, Socket, MongoDB, MySQL<br>
-                    Managed insurance e-commerce backend (non-coding role)<br>
-                    Tools: Microsoft Project, Pencil (wireframing), Insurance Knowledge
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Sep 2019 - Apr 2022</div>
+                    <h3>Backend Engineer</h3>
+                    <h4>Paper.id</h4>
+                    <p>Built and maintained backend services using Golang and Laravel, implemented Docker for local development.</p>
                 </div>
-                <div class="timeline-tags">
-                    <span>Laravel</span>
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>MongoDB</span>
-                </div>
+                <div class="timeline-dot"></div>
             </div>
-        </div>
 
-        <div class="timeline-item animate-item">
-            <div class="timeline-icon">
-                <i class="fas fa-code"></i>
-            </div>
-            <div class="timeline-content">
-                <h3 style="text-align: left;">Full Stack Web Developer - INDOWEBDEVELOPER</h3>
-                <span class="timeline-date" style="text-align: left; display: block;"><i class="far fa-calendar-alt"></i> February 2017 - June 2018</span>
-                <div class="timeline-description" style="text-align: left;">
-                    PSD to HTML slicing<br>
-                    Bug fixing, client meetings, backend services<br>
-                    Tech stack: Laravel, AngularJS, JQuery, Loopback, Socket.js
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Jul 2018 - Aug 2019</div>
+                    <h3>Full Stack Developer</h3>
+                    <h4>Bandingin</h4>
+                    <p>Responsible for full system design, database architecture, and leading IT initiatives.</p>
                 </div>
-                <div class="timeline-tags">
-                    <span>Laravel</span>
-                    <span>Frontend</span>
-                    <span>Loopback</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="timeline-item animate-item">
-            <div class="timeline-icon">
-                <i class="fas fa-desktop"></i>
-            </div>
-            <div class="timeline-content">
-                <h3 style="text-align: left;">Full Stack Engineer - Outpost Interactive</h3>
-                <span class="timeline-date" style="text-align: left; display: block;"><i class="far fa-calendar-alt"></i> October 2016 - December 2016</span>
-                <div class="timeline-description" style="text-align: left;">
-                    Full-stack development with Laravel<br>
-                    Responsive design, bug fixing, cloud/server management
-                </div>
-                <div class="timeline-tags">
-                    <span>Laravel</span>
-                    <span>Responsive Design</span>
-                    <span>Server Management</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="timeline-item animate-item">
-            <div class="timeline-icon">
-                <i class="fas fa-browser"></i>
-            </div>
-            <div class="timeline-content">
-                <h3 style="text-align: left;">Frontend Web Developer - PesanLab</h3>
-                <span class="timeline-date" style="text-align: left; display: block;"><i class="far fa-calendar-alt"></i> February 2016 - September 2016</span>
-                <div class="timeline-description" style="text-align: left;">
-                    Developed Pesanlab.com & Homecare.id<br>
-                    Tech stack: Laravel, MySQL, AngularJS, JQuery<br>
-                    Server maintenance, GIT collaboration
-                </div>
-                <div class="timeline-tags">
-                    <span>Laravel</span>
-                    <span>AngularJS</span>
-                    <span>GIT</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="timeline-item animate-item">
-            <div class="timeline-icon">
-                <i class="fas fa-university"></i>
-            </div>
-            <div class="timeline-content">
-                <h3 style="text-align: left;">IT Intern - Universitas Siswa Bangsa Internasional</h3>
-                <span class="timeline-date" style="text-align: left; display: block;"><i class="far fa-calendar-alt"></i> May 2013 - December 2013</span>
-                <div class="timeline-description" style="text-align: left;">
-                    Device and IT room maintenance
-                </div>
-                <div class="timeline-tags">
-                    <span>IT Support</span>
-                    <span>Maintenance</span>
-                </div>
+                <div class="timeline-dot"></div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="skills" class="section">
-    <h2 class="animate-item">Skills <i class="fas fa-code"></i></h2>
-    <div class="skills-section">
-        <h3 class="animate-item">Leadership & Management</h3>
-        <div class="skills-container">
-            <div class="skill-card animate-item">
-                <i class="fas fa-users"></i>
-                <span>Team Leadership</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fas fa-chalkboard-teacher"></i>
-                <span>Technical Mentoring</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fas fa-chess"></i>
-                <span>Strategic Planning</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fas fa-tasks"></i>
-                <span>Agile/Scrum</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fas fa-handshake"></i>
-                <span>Stakeholder Management</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fas fa-chart-line"></i>
-                <span>Technical Roadmapping</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fas fa-comments"></i>
-                <span>Cross-team Collaboration</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fas fa-user-tie"></i>
-                <span>Talent Acquisition</span>
-            </div>
-        </div>
-    </div>
-    
-    <div class="skills-section">
-        <h3 class="animate-item">Technical Excellence</h3>
-        <div class="skills-container">
-            <div class="skill-card animate-item">
-                <i class="fas fa-sitemap"></i>
-                <span>System Architecture</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fab fa-golang"></i>
-                <span>Golang</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fab fa-laravel"></i>
-                <span>Laravel/PHP</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fas fa-project-diagram"></i>
-                <span>Microservices</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fab fa-docker"></i>
-                <span>Docker/K8s</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fas fa-database"></i>
-                <span>ArangoDB/MySQL</span>
-            </div>
-            <div class="skill-card animate-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <span>Performance Optimization</span>
-            </div>
-        </div>
-    </div>
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <div class="section-container">
+        <div class="contact-container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p>I'm always interested in new opportunities and collaborations</p>
 
-    <div class="skills-section">
-        <h3 class="animate-item">Tech Stack</h3>
-        <div class="tech-stack-container">
-            <div class="tech-category animate-item">
-                <h4>Backend</h4>
-                <div class="tech-pills">
-                    <span>Golang (Gin)</span>
-                    <span>PHP (Laravel)</span>
-                    <span>Loopback</span>
-                    <span>REST API</span>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:yuko.pangestu@gmail.com">yuko.pangestu@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Jakarta, Indonesia</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <a href="https://yukopangestu.github.io/profile/" target="_blank">Portfolio</a>
                 </div>
             </div>
 
-            <div class="tech-category animate-item">
-                <h4>Frontend</h4>
-                <div class="tech-pills">
-                    <span>AngularJS</span>
-                    <span>jQuery</span>
-                    <span>HTML/CSS</span>
-                    <span>JavaScript</span>
-                </div>
-            </div>
-
-            <div class="tech-category animate-item">
-                <h4>Database</h4>
-                <div class="tech-pills">
-                    <span>ArangoDB</span>
-                    <span>MySQL</span>
-                    <span>MongoDB</span>
-                    <span>Redis</span>
-                </div>
-            </div>
-
-            <div class="tech-category animate-item">
-                <h4>DevOps</h4>
-                <div class="tech-pills">
-                    <span>Docker</span>
-                    <span>Jenkins</span>
-                    <span>RabbitMQ</span>
-                    <span>GIT</span>
-                </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/yukopangestu" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/yukopangestu" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:yuko.pangestu@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
     </div>
 </section>
 
-<section id="education" class="section">
-    <h2 class="animate-item">Education <i class="fas fa-graduation-cap"></i></h2> <!-- Updated title -->
-    <div class="education-container">
-        <div class="education-card animate-item">
-            <div class="edu-icon">
-                <i class="fas fa-university"></i>
-            </div>
-            <div class="edu-content">
-                <h3>Bachelor's Degree, Education</h3>
-                <p>Universitas Siswa Bangsa Internasional</p>
-                <span class="edu-date">2011 - 2015</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Achievements Section - Will be added by JavaScript if not present -->
-<section id="achievements" class="section">
-    <h2 class="animate-item">Achievements <i class="fas fa-trophy"></i></h2>
-    <div class="achievements-container">
-        <!-- Example Achievement Card (if adding statically) -->
-        <!-- <div class="achievement-card animate-item"> ... </div> -->
-    </div>
-</section>
-
-<!-- Testimonials Section - Will be added by JavaScript if not present -->
-<section id="testimonials" class="section">
-    <h2 class="animate-item">Testimonials <i class="fas fa-comments"></i></h2>
-    <div class="testimonials-container">
-        <!-- Example Testimonial Card (if adding statically) -->
-        <!-- <div class="testimonial-card animate-item"> ... </div> -->
-    </div>
-</section>
-
-<!-- Contact Section - Will be added by JavaScript if not present -->
-<section id="contact" class="section">
-    <h2 class="animate-item">Contact <i class="fas fa-envelope"></i></h2>
-    <div class="contact-container">
-        <!-- Example Contact Card (if adding statically) -->
-        <!-- <div class="contact-card animate-item"> ... </div> -->
-    </div>
-</section>
-
+<!-- Footer -->
 <footer>
-    <div class="footer-content">
-        <div class="footer-logo">YP</div>
-        <div class="footer-social">
-            <a href="mailto:yuko.pangestu@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/yukopangestu" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://yukopangestu.github.io/profile" target="_blank" title="Portfolio"><i class="fas fa-globe"></i></a>
-            <a href="https://medium.com/@yuko.pangestu" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>
-        </div>
-        <p>&copy; <span id="current-year"></span> Yuko Pangestu. All rights reserved.</p>
+    <div class="section-container">
+        <p>&copy; 2024 Yuko Pangestu. All rights reserved.</p>
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
