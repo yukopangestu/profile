@@ -1,3 +1,46 @@
+// Initialize language system
+let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+
+// Apply translations to all elements with data-i18n attribute
+function applyTranslations(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            if (element.tagName === 'TITLE') {
+                element.textContent = translations[lang][key];
+            } else {
+                element.innerHTML = translations[lang][key];
+            }
+        }
+    });
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+    
+    // Update active language button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+    
+    // Save preference
+    localStorage.setItem('preferredLanguage', lang);
+    currentLang = lang;
+}
+
+// Language toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Apply saved language preference
+    applyTranslations(currentLang);
+    
+    // Add click handlers to language buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            applyTranslations(lang);
+        });
+    });
+});
+
 // Navigation scroll effect
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
@@ -64,9 +107,8 @@ document.querySelectorAll('.fade-in').forEach(el => {
 });
 
 // Typing effect for hero title
-const heroTitle = document.querySelector('.hero-content h1');
-const text = heroTitle.textContent;
-heroTitle.textContent = '';
+let heroTitle;
+let text;
 let i = 0;
 
 function typeWriter() {
@@ -79,7 +121,17 @@ function typeWriter() {
 
 // Start typing effect when page loads
 window.addEventListener('load', () => {
+    heroTitle = document.querySelector('.hero-content h1');
+    text = heroTitle.textContent;
+    heroTitle.textContent = '';
+    i = 0;
+    
     setTimeout(typeWriter, 500);
+    
+    // Animate skill bars
+    setTimeout(() => {
+        animateSkillBars();
+    }, 1500);
 });
 
 // Add parallax effect to hero section
@@ -98,5 +150,31 @@ document.querySelectorAll('.project-card').forEach(card => {
 
     card.addEventListener('mouseleave', function() {
         this.style.transform = 'translateY(0) rotateX(0)';
+    });
+});
+
+// Animate skill bars
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-bar');
+    
+    skillBars.forEach((bar, index) => {
+        const level = bar.getAttribute('data-level');
+        setTimeout(() => {
+            bar.style.setProperty('--level', level + '%');
+            bar.classList.add('animate');
+        }, index * 200);
+    });
+}
+
+// Add hover effect to skill items
+document.querySelectorAll('.skill-item').forEach(item => {
+    item.addEventListener('mouseenter', function() {
+        const icon = this.querySelector('.skill-icon i');
+        icon.style.transform = 'scale(1.2) rotate(10deg)';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+        const icon = this.querySelector('.skill-icon i');
+        icon.style.transform = 'scale(1) rotate(0deg)';
     });
 });

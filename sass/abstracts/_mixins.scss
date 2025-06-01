@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 // Flexbox mixins
 @mixin flex($direction: row, $justify: center, $align: center, $gap: 0) {
   display: flex;
@@ -10,8 +12,8 @@
 }
 
 // Transition mixin
-@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
-  transition: $property $duration $timing;
+@mixin transition($property: all, $duration: 0.3s, $timing: ease, $delay: 0s) {
+  transition: $property $duration $timing $delay;
 }
 
 // Box shadow mixin

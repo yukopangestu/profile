@@ -96,26 +96,121 @@
     }
   }
   
-  &-image {
+  &-skills {
     position: relative;
     animation: fadeIn 1s ease 0.8s both;
     
-    img {
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      border-radius: 20px;
-      @include box-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
-      @include transition(transform);
-    }
-    
-    &:hover img {
-      transform: rotate(2deg) scale(1.05);
-    }
-    
     @include mobile {
       order: -1;
+      margin-bottom: 2rem;
     }
+  }
+}
+
+// Skills Grid in Hero
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.skill-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  @include transition;
+  animation: fadeInUp 0.8s ease calc(var(--delay, 0) * 0.1s) both;
+  
+  &:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    @include box-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+  }
+  
+  &:nth-child(1) { --delay: 1; }
+  &:nth-child(2) { --delay: 2; }
+  &:nth-child(3) { --delay: 3; }
+  &:nth-child(4) { --delay: 4; }
+  &:nth-child(5) { --delay: 5; }
+  &:nth-child(6) { --delay: 6; }
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: $light-purple;
+  
+  i {
+    @include transition(transform);
+  }
+  
+  .skill-item:hover & i {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+.skill-name {
+  display: block;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.skill-level {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-bar {
+  height: 100%;
+  background: linear-gradient(90deg, $light-purple, white);
+  border-radius: 10px;
+  width: 0;
+  @include transition(width, 1.5s, ease-out, 1s);
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+    animation: shine 2s ease-in-out infinite;
+  }
+  
+  &.animate {
+    width: var(--level);
+  }
+}
+
+.skills-summary {
+  text-align: center;
+  color: white;
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: $light-purple;
+  }
+  
+  p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
   }
 }
 
@@ -153,6 +248,29 @@
       margin-bottom: 1.5rem;
       line-height: 1.8;
     }
+  }
+}
+
+// Skills list in about section
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.skill-tag {
+  background: $primary-purple;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  @include transition(transform);
+  
+  &:hover {
+    transform: translateY(-2px);
+    background: $secondary-purple;
   }
 }
 
@@ -278,6 +396,22 @@ footer {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+@include keyframes(fadeInUp) {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@include keyframes(shine) {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
 // Loading Animation
