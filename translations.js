@@ -13,51 +13,54 @@ const translations = {
         "nav.contact": "Contact",
         
         // Hero section
-        "hero.subtitle": "Technical Lead & Lifelong Learner",
-        "hero.description": "Passionate website programmer ready to take on any challenge. Leading teams and building innovative solutions at Paper.id.",
+        "hero.subtitle": "Technical Lead & People-Centered Engineer",
+        "hero.description": "Engineering lead at Paper.id connecting product vision with resilient web platforms. I rally backend, frontend, QA, and principal engineers to ship dependable billing and financing experiences.",
         "hero.getInTouch": "Get In Touch",
         "hero.viewProjects": "View Projects",
-        "hero.technicalExpertise": "Technical Expertise",
-        "hero.experience": "8+ years building scalable web applications",
+        "hero.technicalExpertise": "Hands-on Technical Leadership",
+        "hero.experience": "8+ years delivering full-stack platforms across finance and healthcare",
+
+        // Loader
+        "loader.message": "load yuko's profile right now",
 
         // Swipe spotlight section
         "swipe.title": "Swipe Spotlight",
-        "swipe.subtitle": "Explore key wins by swiping right to save or left to skip",
+        "swipe.subtitle": "Dive into signature wins - swipe right to save or left to skip",
         "swipe.feedback.accept": "Saved \"{{title}}\"",
         "swipe.feedback.reject": "Skipped \"{{title}}\"",
         "swipe.feedback.replay": "Replaying \"{{title}}\"",
         "swipe.feedback.none": "No cards left to replay",
         "swipe.feedback.complete": "You're all caught up!",
         "swipe.cards.paperid.tag": "Leadership",
-        "swipe.cards.paperid.title": "Paper.id Platform Evolution",
-        "swipe.cards.paperid.description": "Scaled the flagship product to process millions of secure transactions each month while shipping experiments weekly.",
-        "swipe.cards.bandingin.tag": "Full Stack",
-        "swipe.cards.bandingin.title": "Bandingin.com Growth Loop",
-        "swipe.cards.bandingin.description": "Bootstrapped real-time comparison flows that doubled activation with resilient microservices and streamlined UX.",
+        "swipe.cards.paperid.title": "Paper.id Growth Pods",
+        "swipe.cards.paperid.description": "Lead cross-functional engineers through billing and financing launches while coaching teammates with reviews, pairing, and rituals.",
+        "swipe.cards.bandingin.tag": "System Design",
+        "swipe.cards.bandingin.title": "Bandingin Platform Revamp",
+        "swipe.cards.bandingin.description": "Redesigned the insurance comparison stack with Laravel, AngularJS, sockets, and MongoDB to power new subproducts and real-time journeys.",
         "swipe.cards.pesanlab.tag": "Healthcare",
-        "swipe.cards.pesanlab.title": "PesanLab Care Network",
-        "swipe.cards.pesanlab.description": "Delivered a unified scheduling platform for labs and homecare teams with uptime-critical infrastructure.",
+        "swipe.cards.pesanlab.title": "PesanLab Digital Clinic",
+        "swipe.cards.pesanlab.description": "Launched care portals on Laravel and AngularJS, unifying scheduling, home-care workflows, and VPS operations.",
 
         // About section
         "about.title": "About Me",
-        "about.subtitle": "Technical Lead with 8+ years of experience in full-stack development",
+        "about.subtitle": "Technical Lead with 8+ years building and scaling customer-facing platforms",
         "about.stats.experience": "Years Experience",
         "about.stats.technologies": "Technologies",
         "about.stats.projects": "Projects Delivered",
-        "about.stats.teamLed": "Teams Led & 9 Associate Consultants",
-        "about.heading": "Building Digital Excellence",
-        "about.paragraph1": "As a Technical Lead at Paper.id, I orchestrate the development of innovative solutions while mentoring a diverse team of engineers. My journey in tech has equipped me with a comprehensive skill set spanning from backend architecture to frontend implementation.",
-        "about.paragraph2": "I specialize in creating scalable web applications, implementing microservices architectures, and ensuring code quality across teams. My approach combines technical expertise with strong leadership to deliver products that make a difference.",
+        "about.stats.teamLed": "Product squads led",
+        "about.heading": "Leading With Empathy & Execution",
+        "about.paragraph1": "I orchestrate cross-functional pods at Paper.id, pairing hands-on coding with mentoring to keep our billing and financing journeys reliable. Partnering with product stakeholders, I translate goals into plans the team can confidently deliver.",
+        "about.paragraph2": "My background spans system design, service development, and front-end integration across fintech, insurance, and healthcare. I love coaching engineers, refining processes, and keeping delivery balanced with craftsmanship.",
         
         // Projects section
         "projects.title": "Featured Projects",
         "projects.subtitle": "Showcasing my work and contributions",
         "projects.paperid.title": "Paper.id Platform",
-        "projects.paperid.description": "Leading the development of invoice management features, implementing microservices architecture, and ensuring scalability for thousands of users.",
+        "projects.paperid.description": "Coordinate backend, frontend, and QA teams to evolve Paper.id's invoicing and financing ecosystem with resilient Go and Laravel services.",
         "projects.bandingin.title": "Bandingin.com",
-        "projects.bandingin.description": "Built and maintained a comprehensive comparison platform as Full Stack Developer, implementing real-time features and managing the entire system architecture.",
-        "projects.healthcare.title": "Healthcare Platforms",
-        "projects.healthcare.description": "Developed healthcare solutions at PesanLab, creating responsive web applications for medical services and home care management.",
+        "projects.bandingin.description": "Architected the insurance comparison platform end-to-end, partnering with stakeholders while mentoring engineers on Laravel, AngularJS, and real-time sockets.",
+        "projects.healthcare.title": "PesanLab & Homecare.id",
+        "projects.healthcare.description": "Delivered healthcare portals on Laravel and AngularJS, managing VPS infrastructure, integrations, and responsive patient experiences.",
         
         // Experience section
         "experience.title": "Professional Journey",
@@ -66,22 +69,22 @@ const translations = {
         // Technical Lead
         "experience.techLead.date": "Feb 2023 - Present",
         "experience.techLead.title": "Technical Lead",
-        "experience.techLead.description": "• Leading cross-functional team of 15+ engineers (Backend, Frontend, QA)<br>• Reduced deployment time by 40% through CI/CD optimization<br>• Architected microservices platform handling 10M+ transactions monthly<br>• Interviewed and hired 8 senior engineers, improving team capability by 30%<br>• Implemented technical roadmap aligned with business goals, increasing revenue by 25%<br>• Established coding standards and review processes, reducing bugs by 35%",
+        "experience.techLead.description": "• Lead backend, frontend, QA, and principal engineers delivering payment and invoicing journeys<br>• Collaborate with product leads to balance roadmap priorities with technical health<br>• Own hiring loops from interviewing to onboarding while coaching emerging leaders<br>• Facilitate architecture decisions and rituals that keep teams shipping with confidence",
         
         // Senior Backend Engineer
         "experience.seniorBackend.date": "Apr 2022 - Feb 2023",
         "experience.seniorBackend.title": "Senior Backend Engineer",
-        "experience.seniorBackend.description": "• Designed and implemented payment gateway integration processing $2M+ daily<br>• Led migration from monolith to microservices, improving response time by 60%<br>• Mentored 5 junior developers on best practices and code quality<br>• Optimized database queries reducing load time from 5s to 300ms<br>• Achieved 99.9% uptime for critical payment services",
+        "experience.seniorBackend.description": "• Built and maintained Go and Laravel services powering billing and financing workflows<br>• Elevated code quality through design reviews, pairing, and documentation<br>• Supported teammates with guidance on service patterns and deployment practices",
         
         // Backend Engineer
         "experience.backend.date": "Sep 2019 - Apr 2022",
         "experience.backend.title": "Backend Engineer",
-        "experience.backend.description": "• Developed REST APIs serving 1M+ daily requests with 99.5% availability<br>• Built event-driven architecture using RabbitMQ processing 500K messages/day<br>• Implemented caching strategy that reduced database load by 70%<br>• Collaborated with team of 8 engineers to deliver 20+ features on schedule<br>• Reduced technical debt by refactoring legacy code, improving test coverage from 40% to 85%",
+        "experience.backend.description": "• Delivered RESTful features across Laravel and Go services to support new product launches<br>• Maintained shared components, optimized queries, and introduced caching strategies<br>• Helped teammates debug services and adopt Docker for consistent local environments",
         
         // Full Stack Developer - Bandingin
         "experience.fullstackBandingin.date": "Jul 2018 - Aug 2019",
         "experience.fullstackBandingin.title": "Full Stack Developer",
-        "experience.fullstackBandingin.description": "• Led end-to-end development for insurance comparison platform features<br>• Mentored new engineers to accelerate delivery and uphold code quality<br>• Owned insurance e-commerce backend operations, keeping SLAs on track<br>• Coordinated with product and partners to shape an experiment-driven roadmap",
+        "experience.fullstackBandingin.description": "• Owned system design and implementation for insurance comparison and subproduct launches<br>• Implemented Laravel, AngularJS, sockets, and MongoDB to support real-time journeys<br>• Coordinated with stakeholders while mentoring new engineers on platform architecture",
         
         // Full Stack Web Developer - INDOWEBDEVELOPER
         "experience.fullstackIndo.date": "Feb 2017 - Jun 2018",
@@ -121,51 +124,54 @@ const translations = {
         "nav.contact": "Kontak",
         
         // Hero section
-        "hero.subtitle": "Technical Lead & Pembelajar Seumur Hidup",
-        "hero.description": "Programmer website yang bersemangat siap menghadapi tantangan apa pun. Memimpin tim dan membangun solusi inovatif di Paper.id.",
+        "hero.subtitle": "Technical Lead & Engineer Berorientasi Orang",
+        "hero.description": "Pemimpin engineering di Paper.id yang menjembatani visi produk dengan platform web andal. Saya mengoordinasikan backend, frontend, QA, dan principal engineer untuk menghadirkan pengalaman penagihan serta pembiayaan yang dapat dipercaya.",
         "hero.getInTouch": "Hubungi Saya",
         "hero.viewProjects": "Lihat Proyek",
-        "hero.technicalExpertise": "Keahlian Teknis",
-        "hero.experience": "8+ tahun membangun aplikasi web yang dapat diskalakan",
+        "hero.technicalExpertise": "Kepemimpinan Teknis Hands-on",
+        "hero.experience": "8+ tahun membangun platform full-stack di keuangan dan kesehatan",
+
+        // Loader
+        "loader.message": "muat profil yuko sekarang",
 
         // Swipe spotlight section
         "swipe.title": "Sorotan Swipe",
-        "swipe.subtitle": "Jelajahi pencapaian utama dengan geser kanan untuk simpan atau kiri untuk lewati",
+        "swipe.subtitle": "Jelajahi pencapaian utama - geser kanan untuk simpan atau kiri untuk lewati",
         "swipe.feedback.accept": "Disimpan \"{{title}}\"",
         "swipe.feedback.reject": "Dilewati \"{{title}}\"",
         "swipe.feedback.replay": "Memutar ulang \"{{title}}\"",
         "swipe.feedback.none": "Tidak ada kartu untuk diputar ulang",
         "swipe.feedback.complete": "Semua kartu sudah ditinjau!",
         "swipe.cards.paperid.tag": "Kepemimpinan",
-        "swipe.cards.paperid.title": "Evolusi Platform Paper.id",
-        "swipe.cards.paperid.description": "Menskalakan produk andalan agar memproses jutaan transaksi aman setiap bulan sambil merilis eksperimen mingguan.",
-        "swipe.cards.bandingin.tag": "Full Stack",
-        "swipe.cards.bandingin.title": "Growth Loop Bandingin.com",
-        "swipe.cards.bandingin.description": "Membangun alur perbandingan real-time yang menggandakan aktivasi dengan microservices tangguh dan UX ringkas.",
+        "swipe.cards.paperid.title": "Growth Pod Paper.id",
+        "swipe.cards.paperid.description": "Memimpin engineer lintas fungsi meluncurkan fitur penagihan dan pembiayaan sambil melatih rekan melalui review, pairing, dan ritus tim.",
+        "swipe.cards.bandingin.tag": "Desain Sistem",
+        "swipe.cards.bandingin.title": "Peremajaan Platform Bandingin",
+        "swipe.cards.bandingin.description": "Mendesain ulang tumpukan perbandingan asuransi dengan Laravel, AngularJS, socket, dan MongoDB untuk mendukung subproduk serta perjalanan real-time.",
         "swipe.cards.pesanlab.tag": "Kesehatan",
-        "swipe.cards.pesanlab.title": "Jaringan Layanan PesanLab",
-        "swipe.cards.pesanlab.description": "Menyediakan platform penjadwalan terpadu untuk lab dan tim homecare dengan infrastruktur uptime kritis.",
+        "swipe.cards.pesanlab.title": "Klinik Digital PesanLab",
+        "swipe.cards.pesanlab.description": "Meluncurkan portal layanan berbasis Laravel dan AngularJS, menyatukan penjadwalan, alur homecare, dan operasi VPS.",
 
         // About section
         "about.title": "Tentang Saya",
-        "about.subtitle": "Technical Lead dengan 8+ tahun pengalaman dalam pengembangan full-stack",
+        "about.subtitle": "Technical Lead dengan 8+ tahun membangun dan mengembangkan produk pelanggan",
         "about.stats.experience": "Tahun Pengalaman",
         "about.stats.technologies": "Teknologi",
         "about.stats.projects": "Proyek Selesai",
-        "about.stats.teamLed": "Tim Dipimpin & 9 Konsultan Asosiasi",
-        "about.heading": "Membangun Keunggulan Digital",
-        "about.paragraph1": "Sebagai Technical Lead di Paper.id, saya mengatur pengembangan solusi inovatif sambil membimbing tim insinyur yang beragam. Perjalanan saya di bidang teknologi telah membekali saya dengan keahlian komprehensif mulai dari arsitektur backend hingga implementasi frontend.",
-        "about.paragraph2": "Saya mengkhususkan diri dalam membuat aplikasi web yang dapat diskalakan, mengimplementasikan arsitektur microservices, dan memastikan kualitas kode di seluruh tim. Pendekatan saya menggabungkan keahlian teknis dengan kepemimpinan yang kuat untuk menghasilkan produk yang membuat perbedaan.",
+        "about.stats.teamLed": "Skuad produk dipimpin",
+        "about.heading": "Memimpin dengan Empati & Eksekusi",
+        "about.paragraph1": "Saya mengorkestrasi pod lintas fungsi di Paper.id, memadukan coding langsung dengan mentoring agar perjalanan penagihan dan pembiayaan tetap andal. Bersama pemangku kepentingan produk, saya menerjemahkan tujuan menjadi rencana yang siap dieksekusi tim.",
+        "about.paragraph2": "Latar belakang saya mencakup desain sistem, pengembangan layanan, dan integrasi frontend di fintech, asuransi, serta kesehatan. Saya senang membina engineer, menyempurnakan proses, dan menjaga keseimbangan antara delivery dan craftmanship.",
         
         // Projects section
         "projects.title": "Proyek Unggulan",
         "projects.subtitle": "Menampilkan karya dan kontribusi saya",
         "projects.paperid.title": "Platform Paper.id",
-        "projects.paperid.description": "Memimpin pengembangan fitur manajemen faktur, mengimplementasikan arsitektur microservices, dan memastikan skalabilitas untuk ribuan pengguna.",
+        "projects.paperid.description": "Mengonsolidasikan tim backend, frontend, dan QA untuk mengembangkan ekosistem penagihan serta pembiayaan Paper.id dengan layanan Go dan Laravel yang andal.",
         "projects.bandingin.title": "Bandingin.com",
-        "projects.bandingin.description": "Membangun dan memelihara platform perbandingan komprehensif sebagai Full Stack Developer, mengimplementasikan fitur real-time dan mengelola seluruh arsitektur sistem.",
-        "projects.healthcare.title": "Platform Kesehatan",
-        "projects.healthcare.description": "Mengembangkan solusi kesehatan di PesanLab, membuat aplikasi web responsif untuk layanan medis dan manajemen perawatan di rumah.",
+        "projects.bandingin.description": "Merancang platform perbandingan asuransi dari nol, bermitra dengan pemangku kepentingan sambil membimbing engineer pada Laravel, AngularJS, dan socket real-time.",
+        "projects.healthcare.title": "PesanLab & Homecare.id",
+        "projects.healthcare.description": "Menyampaikan portal kesehatan berbasis Laravel dan AngularJS, mengelola infrastruktur VPS, integrasi, dan pengalaman pasien yang responsif.",
         
         // Experience section
         "experience.title": "Perjalanan Profesional",
@@ -174,37 +180,37 @@ const translations = {
         // Technical Lead
         "experience.techLead.date": "Feb 2023 - Sekarang",
         "experience.techLead.title": "Technical Lead",
-        "experience.techLead.description": "• Memimpin tim lintas fungsi 15+ insinyur (Backend, Frontend, QA)<br>• Mengurangi waktu deployment sebesar 40% melalui optimasi CI/CD<br>• Merancang platform microservices yang menangani 10 juta+ transaksi bulanan<br>• Mewawancarai dan merekrut 8 insinyur senior, meningkatkan kemampuan tim sebesar 30%<br>• Mengimplementasikan roadmap teknis yang selaras dengan tujuan bisnis, meningkatkan pendapatan sebesar 25%<br>• Menetapkan standar coding dan proses review, mengurangi bug sebesar 35%",
+        "experience.techLead.description": "• Memimpin backend, frontend, QA, dan principal engineer dalam menghadirkan perjalanan penagihan dan pembiayaan<br>• Berkolaborasi dengan product lead untuk menyeimbangkan prioritas roadmap dan kesehatan teknis<br>• Mengelola proses rekrutmen dari wawancara hingga onboarding sambil melatih calon pemimpin<br>• Memfasilitasi keputusan arsitektur dan ritual tim agar pengiriman berjalan konsisten",
         
         // Senior Backend Engineer
         "experience.seniorBackend.date": "Apr 2022 - Feb 2023",
         "experience.seniorBackend.title": "Senior Backend Engineer",
-        "experience.seniorBackend.description": "• Merancang dan mengimplementasikan integrasi payment gateway yang memproses $2 juta+ harian<br>• Memimpin migrasi dari monolith ke microservices, meningkatkan waktu respons sebesar 60%<br>• Membimbing 5 developer junior tentang best practice dan kualitas kode<br>• Mengoptimalkan query database mengurangi waktu muat dari 5 detik menjadi 300ms<br>• Mencapai uptime 99,9% untuk layanan pembayaran kritis",
+        "experience.seniorBackend.description": "• Membangun dan memelihara layanan Go dan Laravel yang menopang alur penagihan serta pembiayaan<br>• Meningkatkan kualitas kode melalui design review, pairing, dan dokumentasi<br>• Mendampingi rekan kerja terkait pola layanan dan praktik deployment",
         
         // Backend Engineer
         "experience.backend.date": "Sep 2019 - Apr 2022",
         "experience.backend.title": "Backend Engineer",
-        "experience.backend.description": "• Mengembangkan REST API yang melayani 1 juta+ permintaan harian dengan ketersediaan 99,5%<br>• Membangun arsitektur event-driven menggunakan RabbitMQ yang memproses 500 ribu pesan/hari<br>• Mengimplementasikan strategi caching yang mengurangi beban database sebesar 70%<br>• Berkolaborasi dengan tim 8 insinyur untuk menghasilkan 20+ fitur tepat waktu<br>• Mengurangi technical debt dengan refactoring kode lama, meningkatkan test coverage dari 40% menjadi 85%",
+        "experience.backend.description": "• Mengirimkan fitur RESTful di layanan Laravel dan Go untuk mendukung peluncuran produk baru<br>• Merawat komponen bersama, mengoptimalkan query, dan memperkenalkan strategi caching<br>• Membantu tim men-debug layanan dan mengadopsi Docker untuk lingkungan lokal yang konsisten",
         
         // Full Stack Developer - Bandingin
         "experience.fullstackBandingin.date": "Jul 2018 - Agu 2019",
         "experience.fullstackBandingin.title": "Full Stack Developer",
-        "experience.fullstackBandingin.description": "• Memimpin pengembangan end-to-end fitur platform perbandingan asuransi<br>• Membimbing engineer baru untuk mempercepat delivery dan menjaga kualitas kode<br>• Bertanggung jawab atas operasi backend e-commerce asuransi dengan SLA terjaga<br>• Berkoordinasi dengan product dan mitra untuk menyusun roadmap berbasis eksperimen",
+        "experience.fullstackBandingin.description": "• Menguasai desain sistem dan implementasi untuk perbandingan asuransi dan peluncuran subproduk<br>• Menerapkan Laravel, AngularJS, socket, dan MongoDB untuk mendukung perjalanan real-time<br>• Berkoordinasi dengan stakeholder sambil membimbing engineer baru mengenai arsitektur platform",
         
         // Full Stack Web Developer - INDOWEBDEVELOPER
         "experience.fullstackIndo.date": "Feb 2017 - Jun 2018",
         "experience.fullstackIndo.title": "Full Stack Web Developer",
-        "experience.fullstackIndo.description": "• Slicing PSD ke HTML<br>• Perbaikan bug, pertemuan klien, layanan backend<br>• Pengembangan full-stack dan arsitektur sistem",
+        "experience.fullstackIndo.description": "• Menghasilkan solusi full-stack dari PSD hingga backend Laravel untuk berbagai klien<br>• Memperbaiki kode legacy, bertemu langsung dengan klien, dan menyelaraskan deliverable dengan project lead<br>• Memperkuat wawasan infrastruktur dengan mengelola server dan bereksperimen menggunakan Socket.io",
         
         // Full Stack Engineer - Outpost
         "experience.fullstackOutpost.date": "Okt 2016 - Des 2016",
         "experience.fullstackOutpost.title": "Full Stack Engineer",
-        "experience.fullstackOutpost.description": "• Pengembangan full-stack dan arsitektur sistem<br>• Desain responsif, perbaikan bug, manajemen cloud/server",
+        "experience.fullstackOutpost.description": "• Mengembangkan aplikasi berbasis Laravel yang responsif untuk proyek keuangan dan media<br>• Merilis front-end lintas browser dengan HTML5, CSS3, jQuery, dan Angular beserta API PHP<br>• Membantu developer lain di bawah tenggat ketat sambil menjaga server cloud",
         
         // Frontend Web Developer - PesanLab
         "experience.frontendPesanlab.date": "Feb 2016 - Sep 2016",
         "experience.frontendPesanlab.title": "Frontend Web Developer",
-        "experience.frontendPesanlab.description": "• Mengembangkan Pesanlab.com & Homecare.id<br>• Membangun website platform kesehatan<br>• Pemeliharaan server, kolaborasi GIT",
+        "experience.frontendPesanlab.description": "• Membangun dan memelihara front-end PesanLab.com serta Homecare.id dengan AngularJS dan API Laravel<br>• Mengelola hosting VPS Ubuntu, deployment, dan kolaborasi Git tim<br>• Berkolaborasi dengan stakeholder untuk menyelaraskan rilis dan membagikan progres secara transparan",
         
         // Contact section
         "contact.title": "Mari Terhubung",

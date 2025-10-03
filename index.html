@@ -11,7 +11,15 @@
     <!-- This CSS is compiled from SASS files in the /sass directory -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="loading-active">
+<div class="loader" id="loader" role="status" aria-live="polite">
+    <div class="loader-box">
+        <span class="loader-message" data-i18n="loader.message">load yuko's profile right now</span>
+        <div class="loader-progress">
+            <div class="loader-progress__bar" id="loaderProgress"></div>
+        </div>
+    </div>
+</div>
 <!-- Navigation -->
 <nav id="navbar">
     <div class="nav-container">

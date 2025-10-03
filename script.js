@@ -3,6 +3,9 @@ let currentLang = localStorage.getItem('preferredLanguage') || 'en';
 
 let swipeFeedbackElement = null;
 let swipeFeedbackState = { key: null, replacements: {} };
+let loaderElement = null;
+let loaderProgressBar = null;
+let loaderCompleted = false;
 
 const resolveTranslation = (key, replacements = {}, lang = currentLang) => {
     let template = translations?.[lang]?.[key] || key;
@@ -32,6 +35,66 @@ const setSwipeFeedbackElement = element => {
 const setSwipeFeedback = (key = null, replacements = {}) => {
     swipeFeedbackState = { key, replacements };
     renderSwipeFeedback();
+};
+
+const completeLoaderAnimation = () => {
+    if (loaderCompleted) {
+        document.body.classList.remove('loading-active');
+        return;
+    }
+
+    loaderCompleted = true;
+
+    if (loaderProgressBar) {
+        loaderProgressBar.style.width = '100%';
+    }
+
+    if (loaderElement) {
+        loaderElement.classList.add('is-hidden');
+        setTimeout(() => {
+            loaderElement?.remove();
+        }, 600);
+    }
+
+    document.body.classList.remove('loading-active');
+};
+
+const startLoaderAnimation = () => {
+    if (!loaderElement || !loaderProgressBar) {
+        document.body.classList.remove('loading-active');
+        loaderCompleted = true;
+        return;
+    }
+
+    loaderProgressBar.style.width = '0%';
+    loaderCompleted = false;
+
+    const duration = 2400;
+    const startTime = performance.now();
+
+    const step = now => {
+        if (loaderCompleted) {
+            return;
+        }
+
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        loaderProgressBar.style.width = `${Math.floor(progress * 100)}%`;
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        } else {
+            setTimeout(completeLoaderAnimation, 200);
+        }
+    };
+
+    requestAnimationFrame(step);
+
+    setTimeout(() => {
+        if (!loaderCompleted) {
+            completeLoaderAnimation();
+        }
+    }, duration + 800);
 };
 
 // Apply translations to all elements with data-i18n attribute
@@ -314,9 +377,13 @@ const initSwipeDeck = () => {
 
 // Language toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
+    loaderElement = document.getElementById('loader');
+    loaderProgressBar = document.getElementById('loaderProgress');
+    startLoaderAnimation();
+
     // Apply saved language preference
     applyTranslations(currentLang);
-    
+
     // Add click handlers to language buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', function() {

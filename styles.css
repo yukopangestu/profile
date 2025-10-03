@@ -360,6 +360,66 @@ body {
     width: min(420px, 28vw);
   }
 }
+body.loading-active {
+  overflow: hidden;
+}
+
+.loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.92) 0%, rgba(17, 17, 17, 0.8) 100%);
+  z-index: 9999;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader .loader-box {
+  background: rgba(246, 246, 242, 0.92);
+  padding: 2rem 2.5rem;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 360px;
+  width: min(80vw, 360px);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.25);
+}
+.loader .loader-message {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #111111;
+  text-transform: lowercase;
+}
+.loader .loader-progress {
+  margin-top: 1.5rem;
+  height: 6px;
+  width: 100%;
+  background: rgba(17, 17, 17, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.loader .loader-progress__bar {
+  height: 100%;
+  width: 0;
+  background: #444444;
+  border-radius: inherit;
+  transition: width 0.2s ease;
+}
+
+@media (max-width: 480px) {
+  .loader .loader-box {
+    padding: 1.75rem 1.5rem;
+  }
+  .loader .loader-message {
+    font-size: 1rem;
+  }
+}
 nav {
   position: fixed;
   top: 0;
