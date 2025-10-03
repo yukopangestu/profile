@@ -306,11 +306,13 @@ body {
   margin: 0;
 }
 .swipe-showcase .swipe-actions {
+  width: min(90vw, 420px);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  margin-top: 1rem;
 }
 .swipe-showcase .swipe-actions .swipe-button {
   width: 3.5rem;
@@ -351,15 +353,11 @@ body {
 }
 
 @media (min-width: 900px) {
-  .swipe-showcase .swipe-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 2.5rem;
-  }
   .swipe-showcase .swipe-cards {
-    width: min(420px, 30vw);
+    width: min(420px, 28vw);
+  }
+  .swipe-showcase .swipe-actions {
+    width: min(420px, 28vw);
   }
 }
 nav {

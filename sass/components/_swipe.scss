@@ -111,7 +111,9 @@
   }
 
   .swipe-actions {
+    width: min(90vw, 420px);
     @include flex(row, center, center, 1rem);
+    margin-top: 1rem;
 
     .swipe-button {
       width: 3.5rem;
@@ -161,12 +163,12 @@
 
 @media (min-width: 900px) {
   .swipe-showcase {
-    .swipe-wrapper {
-      @include flex(row, center, center, 2.5rem);
+    .swipe-cards {
+      width: min(420px, 28vw);
     }
 
-    .swipe-cards {
-      width: min(420px, 30vw);
+    .swipe-actions {
+      width: min(420px, 28vw);
     }
   }
 }
