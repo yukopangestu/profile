@@ -1,6 +1,39 @@
 // Initialize language system
 let currentLang = localStorage.getItem('preferredLanguage') || 'en';
 
+let swipeFeedbackElement = null;
+let swipeFeedbackState = { key: null, replacements: {} };
+
+const resolveTranslation = (key, replacements = {}, lang = currentLang) => {
+    let template = translations?.[lang]?.[key] || key;
+    Object.entries(replacements).forEach(([token, value]) => {
+        template = template.replace(`{{${token}}}`, value);
+    });
+    return template;
+};
+
+const renderSwipeFeedback = () => {
+    if (!swipeFeedbackElement) {
+        return;
+    }
+    const { key, replacements } = swipeFeedbackState;
+    if (!key) {
+        swipeFeedbackElement.textContent = '';
+        return;
+    }
+    swipeFeedbackElement.textContent = resolveTranslation(key, replacements);
+};
+
+const setSwipeFeedbackElement = element => {
+    swipeFeedbackElement = element;
+    renderSwipeFeedback();
+};
+
+const setSwipeFeedback = (key = null, replacements = {}) => {
+    swipeFeedbackState = { key, replacements };
+    renderSwipeFeedback();
+};
+
 // Apply translations to all elements with data-i18n attribute
 function applyTranslations(lang) {
     document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -25,7 +58,259 @@ function applyTranslations(lang) {
     // Save preference
     localStorage.setItem('preferredLanguage', lang);
     currentLang = lang;
+
+    renderSwipeFeedback();
 }
+
+const initSwipeDeck = () => {
+    const deckEl = document.getElementById('swipeDeck');
+    const feedbackEl = document.getElementById('swipeFeedback');
+
+    if (!deckEl || !feedbackEl) {
+        return;
+    }
+
+    const cards = Array.from(deckEl.querySelectorAll('.swipe-card'));
+
+    if (!cards.length) {
+        return;
+    }
+
+    setSwipeFeedbackElement(feedbackEl);
+
+    const activeCards = [...cards];
+    const history = [];
+    let draggingCard = null;
+    let pointerId = null;
+    let startX = 0;
+    let startY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let animationInProgress = false;
+    const swipeThreshold = 120;
+
+    const resetCardTransform = card => {
+        card.style.transition = 'transform 0.35s ease';
+        card.style.transform = '';
+        card.addEventListener('transitionend', () => {
+            card.style.transition = '';
+        }, { once: true });
+    };
+
+    const getCardTitle = card => card.querySelector('h3')?.textContent.trim() || '';
+
+    const applyStackStyles = () => {
+        cards.forEach(card => {
+            card.classList.remove('is-top', 'is-next', 'is-queue', 'is-hidden', 'is-active');
+            card.style.zIndex = '';
+        });
+
+        activeCards.forEach((card, index) => {
+            card.classList.remove('is-inactive');
+            card.removeAttribute('aria-hidden');
+            card.style.zIndex = activeCards.length - index;
+
+            if (index === 0) {
+                card.classList.add('is-top');
+            } else if (index === 1) {
+                card.classList.add('is-next');
+            } else if (index === 2) {
+                card.classList.add('is-queue');
+            } else {
+                card.classList.add('is-hidden');
+            }
+        });
+
+        cards.forEach(card => {
+            if (!activeCards.includes(card)) {
+                card.classList.add('is-hidden');
+                card.setAttribute('aria-hidden', 'true');
+            }
+        });
+    };
+
+    const finalizeSwipe = card => {
+        card.style.transition = '';
+        card.style.transform = '';
+        card.classList.remove('is-inactive', 'is-active');
+        card.style.zIndex = '';
+        animationInProgress = false;
+        applyStackStyles();
+    };
+
+    const animateSwipe = (card, direction) => {
+        const exitX = direction === 'accept' ? deckEl.offsetWidth : -deckEl.offsetWidth;
+        const exitY = currentY;
+        const exitRotation = direction === 'accept' ? 24 : -24;
+
+        card.style.transition = 'transform 0.4s ease';
+        card.style.transform = `translate(${exitX}px, ${exitY}px) rotate(${exitRotation}deg)`;
+    };
+
+    const processSwipe = direction => {
+        if (!activeCards.length) {
+            setSwipeFeedback('swipe.feedback.complete');
+            return;
+        }
+
+        const card = activeCards[0];
+
+        if (!card || animationInProgress) {
+            return;
+        }
+
+        animationInProgress = true;
+        const title = getCardTitle(card);
+
+        animateSwipe(card, direction);
+        card.classList.add('is-inactive');
+        activeCards.shift();
+        history.push({ card, title });
+        setSwipeFeedback(direction === 'accept' ? 'swipe.feedback.accept' : 'swipe.feedback.reject', { title });
+
+        card.addEventListener('transitionend', () => {
+            card.classList.add('is-hidden');
+            card.setAttribute('aria-hidden', 'true');
+            finalizeSwipe(card);
+        }, { once: true });
+
+        if (!activeCards.length) {
+            animationInProgress = false;
+            setTimeout(() => {
+                setSwipeFeedback('swipe.feedback.complete');
+            }, 350);
+        }
+    };
+
+    const replayLastCard = () => {
+        if (!history.length) {
+            setSwipeFeedback('swipe.feedback.none');
+            return;
+        }
+
+        if (animationInProgress) {
+            return;
+        }
+
+        const { card, title } = history.pop();
+
+        if (activeCards.includes(card)) {
+            return;
+        }
+
+        card.classList.remove('is-hidden', 'is-inactive');
+        card.removeAttribute('aria-hidden');
+        activeCards.unshift(card);
+        setSwipeFeedback('swipe.feedback.replay', { title });
+        applyStackStyles();
+    };
+
+    const onPointerDown = event => {
+        if (animationInProgress) {
+            return;
+        }
+
+        const card = event.currentTarget;
+
+        if (card !== activeCards[0]) {
+            return;
+        }
+
+        draggingCard = card;
+        pointerId = event.pointerId;
+        startX = event.clientX;
+        startY = event.clientY;
+        currentX = 0;
+        currentY = 0;
+        card.setPointerCapture(pointerId);
+        card.classList.add('is-active');
+    };
+
+    const onPointerMove = event => {
+        if (!draggingCard || event.pointerId !== pointerId) {
+            return;
+        }
+
+        currentX = event.clientX - startX;
+        currentY = event.clientY - startY;
+
+        const rotation = currentX / 20;
+        draggingCard.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${rotation}deg)`;
+    };
+
+    const handlePointerEnd = event => {
+        if (!draggingCard || event.pointerId !== pointerId) {
+            return;
+        }
+
+        draggingCard.releasePointerCapture(pointerId);
+        draggingCard.classList.remove('is-active');
+
+        const deltaX = currentX;
+
+        if (deltaX > swipeThreshold) {
+            processSwipe('accept');
+        } else if (deltaX < -swipeThreshold) {
+            processSwipe('reject');
+        } else {
+            resetCardTransform(draggingCard);
+        }
+
+        draggingCard = null;
+        pointerId = null;
+    };
+
+    const handleActionClick = action => {
+        switch (action) {
+            case 'accept':
+                processSwipe('accept');
+                break;
+            case 'reject':
+                processSwipe('reject');
+                break;
+            case 'replay':
+                replayLastCard();
+                break;
+            default:
+                break;
+        }
+    };
+
+    const onKeyDown = event => {
+        if (animationInProgress) {
+            return;
+        }
+
+        if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            processSwipe('accept');
+        } else if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            processSwipe('reject');
+        } else if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            replayLastCard();
+        }
+    };
+
+    cards.forEach(card => {
+        card.addEventListener('pointerdown', onPointerDown);
+        card.addEventListener('pointermove', onPointerMove);
+        card.addEventListener('pointerup', handlePointerEnd);
+        card.addEventListener('pointercancel', handlePointerEnd);
+    });
+
+    document.querySelectorAll('.swipe-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const action = button.getAttribute('data-action');
+            handleActionClick(action);
+        });
+    });
+
+    deckEl.addEventListener('keydown', onKeyDown);
+
+    applyStackStyles();
+};
 
 // Language toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
@@ -39,6 +324,8 @@ document.addEventListener('DOMContentLoaded', function() {
             applyTranslations(lang);
         });
     });
+
+    initSwipeDeck();
 });
 
 // Navigation scroll effect

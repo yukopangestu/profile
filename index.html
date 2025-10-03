@@ -19,6 +19,7 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#home" data-i18n="nav.home">Home</a></li>
             <li><a href="#about" data-i18n="nav.about">About</a></li>
+            <li><a href="#spotlight" data-i18n="nav.spotlight">Spotlight</a></li>
             <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
             <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
             <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
@@ -118,6 +119,61 @@
                 <h3 data-i18n="hero.technicalExpertise">Technical Expertise</h3>
                 <p data-i18n="hero.experience">8+ years building scalable web applications</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Spotlight Swipe Section -->
+<section class="swipe-showcase fade-in" id="spotlight">
+    <div class="section-container">
+        <div class="swipe-header">
+            <h2 class="section-title" data-i18n="swipe.title">Swipe Spotlight</h2>
+            <p class="section-subtitle" data-i18n="swipe.subtitle">Explore key wins by swiping right to save or left to skip</p>
+        </div>
+
+        <div class="swipe-wrapper">
+            <div class="swipe-cards" id="swipeDeck" aria-live="polite" tabindex="0">
+                <article class="swipe-card" data-i18n-scope="swipe.cards.paperid">
+                    <div class="swipe-card__icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <span class="swipe-card__tag" data-i18n="swipe.cards.paperid.tag">Leadership</span>
+                    <h3 data-i18n="swipe.cards.paperid.title">Paper.id Platform Evolution</h3>
+                    <p data-i18n="swipe.cards.paperid.description">Scaled the flagship product to process millions of secure transactions each month while shipping experiments weekly.</p>
+                </article>
+
+                <article class="swipe-card" data-i18n-scope="swipe.cards.bandingin">
+                    <div class="swipe-card__icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <span class="swipe-card__tag" data-i18n="swipe.cards.bandingin.tag">Full Stack</span>
+                    <h3 data-i18n="swipe.cards.bandingin.title">Bandingin.com Growth Loop</h3>
+                    <p data-i18n="swipe.cards.bandingin.description">Bootstrapped real-time comparison flows that doubled activation with resilient microservices and streamlined UX.</p>
+                </article>
+
+                <article class="swipe-card" data-i18n-scope="swipe.cards.pesanlab">
+                    <div class="swipe-card__icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <span class="swipe-card__tag" data-i18n="swipe.cards.pesanlab.tag">Healthcare</span>
+                    <h3 data-i18n="swipe.cards.pesanlab.title">PesanLab Care Network</h3>
+                    <p data-i18n="swipe.cards.pesanlab.description">Delivered a unified scheduling platform for labs and homecare teams with uptime-critical infrastructure.</p>
+                </article>
+            </div>
+
+            <div class="swipe-actions" aria-hidden="false">
+                <button class="swipe-button swipe-button--no" data-action="reject" aria-label="Swipe left" type="button">
+                    <i class="fas fa-times"></i>
+                </button>
+                <button class="swipe-button swipe-button--info" data-action="replay" aria-label="Replay last card" type="button">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button class="swipe-button swipe-button--yes" data-action="accept" aria-label="Swipe right" type="button">
+                    <i class="fas fa-star"></i>
+                </button>
+            </div>
+
+            <div class="swipe-feedback" id="swipeFeedback" role="status" aria-live="assertive"></div>
         </div>
     </div>
 </section>

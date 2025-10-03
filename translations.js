@@ -7,6 +7,7 @@ const translations = {
         // Navigation
         "nav.home": "Home",
         "nav.about": "About",
+        "nav.spotlight": "Spotlight",
         "nav.projects": "Projects",
         "nav.experience": "Experience",
         "nav.contact": "Contact",
@@ -18,7 +19,25 @@ const translations = {
         "hero.viewProjects": "View Projects",
         "hero.technicalExpertise": "Technical Expertise",
         "hero.experience": "8+ years building scalable web applications",
-        
+
+        // Swipe spotlight section
+        "swipe.title": "Swipe Spotlight",
+        "swipe.subtitle": "Explore key wins by swiping right to save or left to skip",
+        "swipe.feedback.accept": "Saved \"{{title}}\"",
+        "swipe.feedback.reject": "Skipped \"{{title}}\"",
+        "swipe.feedback.replay": "Replaying \"{{title}}\"",
+        "swipe.feedback.none": "No cards left to replay",
+        "swipe.feedback.complete": "You're all caught up!",
+        "swipe.cards.paperid.tag": "Leadership",
+        "swipe.cards.paperid.title": "Paper.id Platform Evolution",
+        "swipe.cards.paperid.description": "Scaled the flagship product to process millions of secure transactions each month while shipping experiments weekly.",
+        "swipe.cards.bandingin.tag": "Full Stack",
+        "swipe.cards.bandingin.title": "Bandingin.com Growth Loop",
+        "swipe.cards.bandingin.description": "Bootstrapped real-time comparison flows that doubled activation with resilient microservices and streamlined UX.",
+        "swipe.cards.pesanlab.tag": "Healthcare",
+        "swipe.cards.pesanlab.title": "PesanLab Care Network",
+        "swipe.cards.pesanlab.description": "Delivered a unified scheduling platform for labs and homecare teams with uptime-critical infrastructure.",
+
         // About section
         "about.title": "About Me",
         "about.subtitle": "Technical Lead with 8+ years of experience in full-stack development",
@@ -96,6 +115,7 @@ const translations = {
         // Navigation
         "nav.home": "Beranda",
         "nav.about": "Tentang",
+        "nav.spotlight": "Sorotan",
         "nav.projects": "Proyek",
         "nav.experience": "Pengalaman",
         "nav.contact": "Kontak",
@@ -107,7 +127,25 @@ const translations = {
         "hero.viewProjects": "Lihat Proyek",
         "hero.technicalExpertise": "Keahlian Teknis",
         "hero.experience": "8+ tahun membangun aplikasi web yang dapat diskalakan",
-        
+
+        // Swipe spotlight section
+        "swipe.title": "Sorotan Swipe",
+        "swipe.subtitle": "Jelajahi pencapaian utama dengan geser kanan untuk simpan atau kiri untuk lewati",
+        "swipe.feedback.accept": "Disimpan \"{{title}}\"",
+        "swipe.feedback.reject": "Dilewati \"{{title}}\"",
+        "swipe.feedback.replay": "Memutar ulang \"{{title}}\"",
+        "swipe.feedback.none": "Tidak ada kartu untuk diputar ulang",
+        "swipe.feedback.complete": "Semua kartu sudah ditinjau!",
+        "swipe.cards.paperid.tag": "Kepemimpinan",
+        "swipe.cards.paperid.title": "Evolusi Platform Paper.id",
+        "swipe.cards.paperid.description": "Menskalakan produk andalan agar memproses jutaan transaksi aman setiap bulan sambil merilis eksperimen mingguan.",
+        "swipe.cards.bandingin.tag": "Full Stack",
+        "swipe.cards.bandingin.title": "Growth Loop Bandingin.com",
+        "swipe.cards.bandingin.description": "Membangun alur perbandingan real-time yang menggandakan aktivasi dengan microservices tangguh dan UX ringkas.",
+        "swipe.cards.pesanlab.tag": "Kesehatan",
+        "swipe.cards.pesanlab.title": "Jaringan Layanan PesanLab",
+        "swipe.cards.pesanlab.description": "Menyediakan platform penjadwalan terpadu untuk lab dan tim homecare dengan infrastruktur uptime kritis.",
+
         // About section
         "about.title": "Tentang Saya",
         "about.subtitle": "Technical Lead dengan 8+ tahun pengalaman dalam pengembangan full-stack",

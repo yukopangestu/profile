@@ -1,0 +1,172 @@
+@use '../abstracts' as *;
+
+.swipe-showcase {
+  background: linear-gradient(180deg, rgba(244, 244, 240, 0.6) 0%, rgba(255, 255, 255, 1) 100%);
+  padding: clamp(4rem, 7vw, 6rem) 0;
+
+  .swipe-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 2.5rem auto;
+
+    .section-subtitle {
+      color: rgba($text-dark, 0.7);
+    }
+  }
+
+  .swipe-wrapper {
+    @include flex(column, center, center, 1.5rem);
+  }
+
+  .swipe-cards {
+    position: relative;
+    width: min(90vw, 420px);
+    height: clamp(320px, 70vw, 500px);
+  }
+
+  .swipe-card {
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 2.5rem 2.25rem 2.25rem;
+    @include box-shadow(0 18px 50px rgba(34, 33, 29, 0.12));
+    @include transition(transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease);
+    cursor: grab;
+    user-select: none;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 1.25rem;
+    transform-origin: center bottom;
+
+    &.is-inactive {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.is-active {
+      pointer-events: auto;
+      cursor: grabbing;
+    }
+
+    &.is-top {
+      pointer-events: auto;
+    }
+
+    &:not(.is-top) {
+      pointer-events: none;
+    }
+
+    &.is-next {
+      transform: translateY(18px) scale(0.97);
+      opacity: 0.9;
+    }
+
+    &.is-queue {
+      transform: translateY(34px) scale(0.93);
+      opacity: 0.8;
+    }
+
+    &.is-hidden {
+      opacity: 0;
+      transform: translateY(50px) scale(0.9);
+    }
+
+    .swipe-card__icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: rgba($accent, 0.12);
+      color: $accent;
+      @include flex;
+      font-size: 1.75rem;
+    }
+
+    .swipe-card__tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      background: rgba($text-dark, 0.08);
+      color: $text-dark;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-size: clamp(1.4rem, 2vw, 1.7rem);
+      color: $text-dark;
+      line-height: 1.3;
+    }
+
+    p {
+      color: rgba($text-dark, 0.75);
+      line-height: 1.7;
+      margin: 0;
+    }
+  }
+
+  .swipe-actions {
+    @include flex(row, center, center, 1rem);
+
+    .swipe-button {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      border: none;
+      background: #ecece6;
+      color: $text-dark;
+      font-size: 1.35rem;
+      cursor: pointer;
+      @include transition;
+      @include box-shadow(0 12px 24px rgba(0, 0, 0, 0.08));
+
+      &:focus-visible {
+        outline: 3px solid rgba($accent, 0.3);
+        outline-offset: 3px;
+      }
+
+      &:hover {
+        transform: translateY(-3px) scale(1.05);
+      }
+
+      &--yes {
+        background: rgba(#50c878, 0.14);
+        color: #2e8b57;
+      }
+
+      &--no {
+        background: rgba(#f65f5f, 0.12);
+        color: #d84343;
+      }
+
+      &--info {
+        background: rgba($accent, 0.12);
+        color: $accent;
+      }
+    }
+  }
+
+  .swipe-feedback {
+    min-height: 1.5rem;
+    color: rgba($text-dark, 0.65);
+    font-size: 0.95rem;
+    text-align: center;
+  }
+}
+
+@media (min-width: 900px) {
+  .swipe-showcase {
+    .swipe-wrapper {
+      @include flex(row, center, center, 2.5rem);
+    }
+
+    .swipe-cards {
+      width: min(420px, 30vw);
+    }
+  }
+}
