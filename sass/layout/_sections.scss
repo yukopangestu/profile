@@ -16,7 +16,7 @@
   
   &-subtitle {
     text-align: center;
-    color: #6b7280;
+    color: #3f3f3a;
     margin-bottom: 3rem;
   }
 }
@@ -24,7 +24,7 @@
 // Hero Section
 .hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, $primary-purple 0%, $secondary-purple 100%);
+  background: linear-gradient(135deg, #f8f8f4 0%, #e6e6df 100%);
   display: flex;
   align-items: center;
   position: relative;
@@ -37,7 +37,7 @@
     right: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background: radial-gradient(circle, rgba(17, 17, 17, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     animation: float 20s linear infinite;
   }
@@ -61,7 +61,7 @@
     h1 {
       font-size: 3.5rem;
       font-weight: 800;
-      color: white;
+      color: $text-dark;
       margin-bottom: 1rem;
       animation: slideInLeft 1s ease;
       
@@ -72,7 +72,7 @@
     
     h2 {
       font-size: 1.8rem;
-      color: $light-purple;
+      color: #3f3f3a;
       margin-bottom: 2rem;
       font-weight: 400;
       animation: slideInLeft 1s ease 0.2s both;
@@ -80,7 +80,7 @@
     
     p {
       font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba($text-dark, 0.75);
       margin-bottom: 2rem;
       animation: slideInLeft 1s ease 0.4s both;
     }
@@ -121,9 +121,9 @@
 }
 
 .skill-item {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba($text-dark, 0.12);
   border-radius: 15px;
   padding: 1.5rem;
   text-align: center;
@@ -132,8 +132,8 @@
   
   &:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
-    @include box-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+    background: rgba(255, 255, 255, 0.92);
+    @include box-shadow(0 18px 34px rgba(0, 0, 0, 0.12));
   }
   
   &:nth-child(1) { --delay: 1; }
@@ -147,7 +147,7 @@
 .skill-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: $light-purple;
+  color: $text-dark;
   
   i {
     @include transition(transform);
@@ -160,14 +160,14 @@
 
 .skill-name {
   display: block;
-  color: white;
+  color: $text-dark;
   font-weight: 600;
   margin-bottom: 1rem;
   font-size: 0.9rem;
 }
 
 .skill-level {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba($text-dark, 0.08);
   border-radius: 10px;
   height: 8px;
   overflow: hidden;
@@ -176,7 +176,7 @@
 
 .skill-bar {
   height: 100%;
-  background: linear-gradient(90deg, $light-purple, white);
+  background: linear-gradient(90deg, $text-dark, $secondary-purple);
   border-radius: 10px;
   width: 0;
   @include transition(width, 1.5s, ease-out, 1s);
@@ -189,7 +189,7 @@
     right: 0;
     width: 20px;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2));
     animation: shine 2s ease-in-out infinite;
   }
   
@@ -200,16 +200,16 @@
 
 .skills-summary {
   text-align: center;
-  color: white;
-  
+  color: $text-dark;
+
   h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: $light-purple;
+    color: $secondary-purple;
   }
-  
+
   p {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba($text-dark, 0.7);
     font-size: 1rem;
   }
 }
@@ -217,7 +217,7 @@
 // About Section
 .about {
   padding: 5rem 0;
-  background: #f9fafb;
+  background: #f6f6f2;
   
   &-grid {
     display: grid;
@@ -244,7 +244,7 @@
     }
     
     p {
-      color: #4b5563;
+      color: #3f3f3a;
       margin-bottom: 1.5rem;
       line-height: 1.8;
     }
@@ -260,17 +260,19 @@
 }
 
 .skill-tag {
-  background: $primary-purple;
-  color: white;
+  background: transparent;
+  color: $text-dark;
   padding: 0.5rem 1rem;
   border-radius: 25px;
+  border: 1px solid rgba($text-dark, 0.6);
   font-size: 0.875rem;
   font-weight: 500;
   @include transition(transform);
-  
+
   &:hover {
     transform: translateY(-2px);
-    background: $secondary-purple;
+    background: $text-dark;
+    color: $text-light;
   }
 }
 
@@ -290,17 +292,17 @@
 // Experience Section
 .experience {
   padding: 5rem 0;
-  background: #f9fafb;
+  background: #f6f6f2;
 }
 
 // Contact Section
 .contact {
   padding: 5rem 0;
-  background: linear-gradient(135deg, $primary-purple 0%, $secondary-purple 100%);
-  color: white;
-  
+  background: linear-gradient(135deg, $text-dark 0%, $secondary-purple 100%);
+  color: $text-light;
+
   .section-title {
-    color: white;
+    color: $text-light;
   }
   
   &-container {
@@ -328,7 +330,7 @@
     }
     
     a {
-      color: white;
+      color: $text-light;
       text-decoration: none;
       @include transition(color);
       
@@ -348,14 +350,14 @@
       background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       @include flex;
-      color: white;
+      color: $text-light;
       font-size: 1.25rem;
       @include transition;
       text-decoration: none;
       
       &:hover {
-        background: white;
-        color: $primary-purple;
+        background: $text-light;
+        color: $text-dark;
         transform: translateY(-5px);
       }
     }

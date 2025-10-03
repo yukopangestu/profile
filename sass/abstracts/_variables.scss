@@ -1,12 +1,13 @@
 // Variables
-$primary-purple: #7C3AED;
-$secondary-purple: #8B5CF6;
-$dark-purple: #5B21B6;
-$light-purple: #EDE9FE;
-$bg-dark: #1F2937;
-$text-light: #F3F4F6;
-$text-dark: #111827;
-$accent: #10B981;
+// Repurpose the original palette tokens for a monochrome, e-paper inspired scheme
+$primary-purple: #111111;
+$secondary-purple: #2d2d2d;
+$dark-purple: #000000;
+$light-purple: #f6f6f2;
+$bg-dark: #111111;
+$text-light: #f6f6f2;
+$text-dark: #111111;
+$accent: #444444;
 
 // Breakpoints
 $breakpoint-mobile: 768px;

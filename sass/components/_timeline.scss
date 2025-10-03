@@ -26,17 +26,17 @@
   }
   
   &-content {
-    background: white;
+    background: #fafaf5;
     padding: 2rem;
     border-radius: 15px;
-    @include box-shadow(0 5px 15px rgba(0, 0, 0, 0.08));
+    @include box-shadow(0 7px 18px rgba(0, 0, 0, 0.06));
     width: calc(50% - 40px);
     position: relative;
     @include transition;
     
     &:hover {
       transform: scale(1.02);
-      @include box-shadow(0 10px 25px rgba(0, 0, 0, 0.1));
+      @include box-shadow(0 14px 28px rgba(0, 0, 0, 0.08));
     }
     
     h3 {
@@ -46,13 +46,13 @@
     }
     
     h4 {
-      color: #6b7280;
+      color: #3f3f3a;
       font-weight: 500;
       margin-bottom: 1rem;
     }
     
     p {
-      color: #4b5563;
+      color: #2d2d2d;
       font-size: 0.875rem;
       line-height: 1.6;
     }
