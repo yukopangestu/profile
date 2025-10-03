@@ -17,11 +17,11 @@ const translations = {
         "hero.getInTouch": "Get In Touch",
         "hero.viewProjects": "View Projects",
         "hero.technicalExpertise": "Technical Expertise",
-        "hero.experience": "5+ years building scalable web applications",
+        "hero.experience": "8+ years building scalable web applications",
         
         // About section
         "about.title": "About Me",
-        "about.subtitle": "Technical Lead with 5+ years of experience in full-stack development",
+        "about.subtitle": "Technical Lead with 8+ years of experience in full-stack development",
         "about.stats.experience": "Years Experience",
         "about.stats.technologies": "Technologies",
         "about.stats.projects": "Projects Delivered",
@@ -62,7 +62,7 @@ const translations = {
         // Full Stack Developer - Bandingin
         "experience.fullstackBandingin.date": "Jul 2018 - Aug 2019",
         "experience.fullstackBandingin.title": "Full Stack Developer",
-        "experience.fullstackBandingin.description": "• Full system design and coding (frontend & backend)<br>• Mentoring new team members<br>• Managed insurance e-commerce backend (non-coding role)<br>• Managed insurance e-commerce backend operations",
+        "experience.fullstackBandingin.description": "• Led end-to-end development for insurance comparison platform features<br>• Mentored new engineers to accelerate delivery and uphold code quality<br>• Owned insurance e-commerce backend operations, keeping SLAs on track<br>• Coordinated with product and partners to shape an experiment-driven roadmap",
         
         // Full Stack Web Developer - INDOWEBDEVELOPER
         "experience.fullstackIndo.date": "Feb 2017 - Jun 2018",
@@ -106,11 +106,11 @@ const translations = {
         "hero.getInTouch": "Hubungi Saya",
         "hero.viewProjects": "Lihat Proyek",
         "hero.technicalExpertise": "Keahlian Teknis",
-        "hero.experience": "5+ tahun membangun aplikasi web yang dapat diskalakan",
+        "hero.experience": "8+ tahun membangun aplikasi web yang dapat diskalakan",
         
         // About section
         "about.title": "Tentang Saya",
-        "about.subtitle": "Technical Lead dengan 5+ tahun pengalaman dalam pengembangan full-stack",
+        "about.subtitle": "Technical Lead dengan 8+ tahun pengalaman dalam pengembangan full-stack",
         "about.stats.experience": "Tahun Pengalaman",
         "about.stats.technologies": "Teknologi",
         "about.stats.projects": "Proyek Selesai",
@@ -151,7 +151,7 @@ const translations = {
         // Full Stack Developer - Bandingin
         "experience.fullstackBandingin.date": "Jul 2018 - Agu 2019",
         "experience.fullstackBandingin.title": "Full Stack Developer",
-        "experience.fullstackBandingin.description": "• Desain sistem lengkap dan coding (frontend & backend)<br>• Membimbing anggota tim baru<br>• Mengelola backend e-commerce asuransi (peran non-coding)<br>• Mengelola operasi backend e-commerce asuransi",
+        "experience.fullstackBandingin.description": "• Memimpin pengembangan end-to-end fitur platform perbandingan asuransi<br>• Membimbing engineer baru untuk mempercepat delivery dan menjaga kualitas kode<br>• Bertanggung jawab atas operasi backend e-commerce asuransi dengan SLA terjaga<br>• Berkoordinasi dengan product dan mitra untuk menyusun roadmap berbasis eksperimen",
         
         // Full Stack Web Developer - INDOWEBDEVELOPER
         "experience.fullstackIndo.date": "Feb 2017 - Jun 2018",
