@@ -1,30 +1,29 @@
-// Initialize language system
-let currentLang = localStorage.getItem('preferredLanguage') || 'en';
-
+// Swipe feedback state (no i18n)
 let swipeFeedbackElement = null;
-let swipeFeedbackState = { key: null, replacements: {} };
+let swipeFeedbackState = { message: null, replacements: {} };
 let loaderElement = null;
 let loaderProgressBar = null;
 let loaderCompleted = false;
 
-const resolveTranslation = (key, replacements = {}, lang = currentLang) => {
-    let template = translations?.[lang]?.[key] || key;
+// Simple template formatter for feedback messages
+const formatMessage = (template, replacements = {}) => {
+    let result = template || '';
     Object.entries(replacements).forEach(([token, value]) => {
-        template = template.replace(`{{${token}}}`, value);
+        result = result.replace(`{{${token}}}`, value);
     });
-    return template;
+    return result;
 };
 
 const renderSwipeFeedback = () => {
     if (!swipeFeedbackElement) {
         return;
     }
-    const { key, replacements } = swipeFeedbackState;
-    if (!key) {
+    const { message, replacements } = swipeFeedbackState;
+    if (!message) {
         swipeFeedbackElement.textContent = '';
         return;
     }
-    swipeFeedbackElement.textContent = resolveTranslation(key, replacements);
+    swipeFeedbackElement.textContent = formatMessage(message, replacements);
 };
 
 const setSwipeFeedbackElement = element => {
@@ -32,8 +31,8 @@ const setSwipeFeedbackElement = element => {
     renderSwipeFeedback();
 };
 
-const setSwipeFeedback = (key = null, replacements = {}) => {
-    swipeFeedbackState = { key, replacements };
+const setSwipeFeedback = (message = null, replacements = {}) => {
+    swipeFeedbackState = { message, replacements };
     renderSwipeFeedback();
 };
 
@@ -97,33 +96,14 @@ const startLoaderAnimation = () => {
     }, duration + 800);
 };
 
-// Apply translations to all elements with data-i18n attribute
-function applyTranslations(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-            if (element.tagName === 'TITLE') {
-                element.textContent = translations[lang][key];
-            } else {
-                element.innerHTML = translations[lang][key];
-            }
-        }
-    });
-    
-    // Update HTML lang attribute
-    document.documentElement.lang = lang;
-    
-    // Update active language button
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-    });
-    
-    // Save preference
-    localStorage.setItem('preferredLanguage', lang);
-    currentLang = lang;
-
-    renderSwipeFeedback();
-}
+// Swipe deck messages (English only)
+const swipeMessages = {
+    accept: 'Saved "{{title}}"',
+    reject: 'Skipped "{{title}}"',
+    replay: 'Replaying "{{title}}"',
+    none: 'No cards left to replay',
+    complete: "You're all caught up!"
+};
 
 const initSwipeDeck = () => {
     const deckEl = document.getElementById('swipeDeck');
@@ -212,7 +192,7 @@ const initSwipeDeck = () => {
 
     const processSwipe = direction => {
         if (!activeCards.length) {
-            setSwipeFeedback('swipe.feedback.complete');
+            setSwipeFeedback(swipeMessages.complete);
             return;
         }
 
@@ -229,7 +209,7 @@ const initSwipeDeck = () => {
         card.classList.add('is-inactive');
         activeCards.shift();
         history.push({ card, title });
-        setSwipeFeedback(direction === 'accept' ? 'swipe.feedback.accept' : 'swipe.feedback.reject', { title });
+        setSwipeFeedback(direction === 'accept' ? swipeMessages.accept : swipeMessages.reject, { title });
 
         card.addEventListener('transitionend', () => {
             card.classList.add('is-hidden');
@@ -240,14 +220,14 @@ const initSwipeDeck = () => {
         if (!activeCards.length) {
             animationInProgress = false;
             setTimeout(() => {
-                setSwipeFeedback('swipe.feedback.complete');
+                setSwipeFeedback(swipeMessages.complete);
             }, 350);
         }
     };
 
     const replayLastCard = () => {
         if (!history.length) {
-            setSwipeFeedback('swipe.feedback.none');
+            setSwipeFeedback(swipeMessages.none);
             return;
         }
 
@@ -264,7 +244,7 @@ const initSwipeDeck = () => {
         card.classList.remove('is-hidden', 'is-inactive');
         card.removeAttribute('aria-hidden');
         activeCards.unshift(card);
-        setSwipeFeedback('swipe.feedback.replay', { title });
+        setSwipeFeedback(swipeMessages.replay, { title });
         applyStackStyles();
     };
 
@@ -375,22 +355,11 @@ const initSwipeDeck = () => {
     applyStackStyles();
 };
 
-// Language toggle functionality
+// App init
 document.addEventListener('DOMContentLoaded', function() {
     loaderElement = document.getElementById('loader');
     loaderProgressBar = document.getElementById('loaderProgress');
     startLoaderAnimation();
-
-    // Apply saved language preference
-    applyTranslations(currentLang);
-
-    // Add click handlers to language buttons
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const lang = this.getAttribute('data-lang');
-            applyTranslations(lang);
-        });
-    });
 
     initSwipeDeck();
 });
