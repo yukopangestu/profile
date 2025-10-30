@@ -501,3 +501,6 @@ document.querySelectorAll('.skill-item').forEach(item => {
         icon.style.transform = 'scale(1) rotate(0deg)';
     });
 });
+
+// Set current year in footer
+document.getElementById('currentYear').textContent = new Date().getFullYear();
