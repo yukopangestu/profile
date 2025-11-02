@@ -8,7 +8,7 @@ let loaderCompleted = false;
 // Simple template formatter for feedback messages
 const formatMessage = (template, replacements = {}) => {
     let result = template || '';
-    Object.entries(replacements).forEach(([token, value]) => {
+    $.each(replacements, function(token, value) {
         result = result.replace(`{{${token}}}`, value);
     });
     return result;
@@ -20,10 +20,10 @@ const renderSwipeFeedback = () => {
     }
     const { message, replacements } = swipeFeedbackState;
     if (!message) {
-        swipeFeedbackElement.textContent = '';
+        $(swipeFeedbackElement).text('');
         return;
     }
-    swipeFeedbackElement.textContent = formatMessage(message, replacements);
+    $(swipeFeedbackElement).text(formatMessage(message, replacements));
 };
 
 const setSwipeFeedbackElement = element => {
@@ -38,34 +38,34 @@ const setSwipeFeedback = (message = null, replacements = {}) => {
 
 const completeLoaderAnimation = () => {
     if (loaderCompleted) {
-        document.body.classList.remove('loading-active');
+        $('body').removeClass('loading-active');
         return;
     }
 
     loaderCompleted = true;
 
     if (loaderProgressBar) {
-        loaderProgressBar.style.width = '100%';
+        $(loaderProgressBar).css('width', '100%');
     }
 
     if (loaderElement) {
-        loaderElement.classList.add('is-hidden');
+        $(loaderElement).addClass('is-hidden');
         setTimeout(() => {
-            loaderElement?.remove();
+            $(loaderElement).remove();
         }, 600);
     }
 
-    document.body.classList.remove('loading-active');
+    $('body').removeClass('loading-active');
 };
 
 const startLoaderAnimation = () => {
     if (!loaderElement || !loaderProgressBar) {
-        document.body.classList.remove('loading-active');
+        $('body').removeClass('loading-active');
         loaderCompleted = true;
         return;
     }
 
-    loaderProgressBar.style.width = '0%';
+    $(loaderProgressBar).css('width', '0%');
     loaderCompleted = false;
 
     const duration = 2400;
@@ -78,7 +78,7 @@ const startLoaderAnimation = () => {
 
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        loaderProgressBar.style.width = `${Math.floor(progress * 100)}%`;
+        $(loaderProgressBar).css('width', `${Math.floor(progress * 100)}%`);
 
         if (progress < 1) {
             requestAnimationFrame(step);
@@ -106,14 +106,14 @@ const swipeMessages = {
 };
 
 const initSwipeDeck = () => {
-    const deckEl = document.getElementById('swipeDeck');
-    const feedbackEl = document.getElementById('swipeFeedback');
+    const deckEl = $('#swipeDeck')[0];
+    const feedbackEl = $('#swipeFeedback')[0];
 
     if (!deckEl || !feedbackEl) {
         return;
     }
 
-    const cards = Array.from(deckEl.querySelectorAll('.swipe-card'));
+    const cards = Array.from($('#swipeDeck .swipe-card'));
 
     if (!cards.length) {
         return;
@@ -133,61 +133,57 @@ const initSwipeDeck = () => {
     const swipeThreshold = 120;
 
     const resetCardTransform = card => {
-        card.style.transition = 'transform 0.35s ease';
-        card.style.transform = '';
-        card.addEventListener('transitionend', () => {
-            card.style.transition = '';
-        }, { once: true });
+        $(card).css('transition', 'transform 0.35s ease')
+              .css('transform', '');
+        $(card).one('transitionend', () => {
+            $(card).css('transition', '');
+        });
     };
 
-    const getCardTitle = card => card.querySelector('h3')?.textContent.trim() || '';
+    const getCardTitle = card => $(card).find('h3').text().trim() || '';
 
     const applyStackStyles = () => {
-        cards.forEach(card => {
-            card.classList.remove('is-top', 'is-next', 'is-queue', 'is-hidden', 'is-active');
-            card.style.zIndex = '';
-        });
+        $(cards).removeClass('is-top is-next is-queue is-hidden is-active')
+                .css('zIndex', '');
 
-        activeCards.forEach((card, index) => {
-            card.classList.remove('is-inactive');
-            card.removeAttribute('aria-hidden');
-            card.style.zIndex = activeCards.length - index;
+        $.each(activeCards, function(index, card) {
+            $(card).removeClass('is-inactive')
+                   .removeAttr('aria-hidden')
+                   .css('zIndex', activeCards.length - index);
 
             if (index === 0) {
-                card.classList.add('is-top');
+                $(card).addClass('is-top');
             } else if (index === 1) {
-                card.classList.add('is-next');
+                $(card).addClass('is-next');
             } else if (index === 2) {
-                card.classList.add('is-queue');
+                $(card).addClass('is-queue');
             } else {
-                card.classList.add('is-hidden');
+                $(card).addClass('is-hidden');
             }
         });
 
-        cards.forEach(card => {
+        $.each(cards, function(i, card) {
             if (!activeCards.includes(card)) {
-                card.classList.add('is-hidden');
-                card.setAttribute('aria-hidden', 'true');
+                $(card).addClass('is-hidden')
+                       .attr('aria-hidden', 'true');
             }
         });
     };
 
     const finalizeSwipe = card => {
-        card.style.transition = '';
-        card.style.transform = '';
-        card.classList.remove('is-inactive', 'is-active');
-        card.style.zIndex = '';
+        $(card).css({ 'transition': '', 'transform': '', 'zIndex': '' })
+               .removeClass('is-inactive is-active');
         animationInProgress = false;
         applyStackStyles();
     };
 
     const animateSwipe = (card, direction) => {
-        const exitX = direction === 'accept' ? deckEl.offsetWidth : -deckEl.offsetWidth;
+        const exitX = direction === 'accept' ? $(deckEl).width() : -$(deckEl).width();
         const exitY = currentY;
         const exitRotation = direction === 'accept' ? 24 : -24;
 
-        card.style.transition = 'transform 0.4s ease';
-        card.style.transform = `translate(${exitX}px, ${exitY}px) rotate(${exitRotation}deg)`;
+        $(card).css('transition', 'transform 0.4s ease')
+               .css('transform', `translate(${exitX}px, ${exitY}px) rotate(${exitRotation}deg)`);
     };
 
     const processSwipe = direction => {
@@ -206,16 +202,16 @@ const initSwipeDeck = () => {
         const title = getCardTitle(card);
 
         animateSwipe(card, direction);
-        card.classList.add('is-inactive');
+        $(card).addClass('is-inactive');
         activeCards.shift();
         history.push({ card, title });
         setSwipeFeedback(direction === 'accept' ? swipeMessages.accept : swipeMessages.reject, { title });
 
-        card.addEventListener('transitionend', () => {
-            card.classList.add('is-hidden');
-            card.setAttribute('aria-hidden', 'true');
+        $(card).one('transitionend', () => {
+            $(card).addClass('is-hidden')
+                   .attr('aria-hidden', 'true');
             finalizeSwipe(card);
-        }, { once: true });
+        });
 
         if (!activeCards.length) {
             animationInProgress = false;
@@ -241,8 +237,8 @@ const initSwipeDeck = () => {
             return;
         }
 
-        card.classList.remove('is-hidden', 'is-inactive');
-        card.removeAttribute('aria-hidden');
+        $(card).removeClass('is-hidden is-inactive')
+               .removeAttr('aria-hidden');
         activeCards.unshift(card);
         setSwipeFeedback(swipeMessages.replay, { title });
         applyStackStyles();
@@ -266,7 +262,7 @@ const initSwipeDeck = () => {
         currentX = 0;
         currentY = 0;
         card.setPointerCapture(pointerId);
-        card.classList.add('is-active');
+        $(card).addClass('is-active');
     };
 
     const onPointerMove = event => {
@@ -278,7 +274,7 @@ const initSwipeDeck = () => {
         currentY = event.clientY - startY;
 
         const rotation = currentX / 20;
-        draggingCard.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${rotation}deg)`;
+        $(draggingCard).css('transform', `translate(${currentX}px, ${currentY}px) rotate(${rotation}deg)`);
     };
 
     const handlePointerEnd = event => {
@@ -287,7 +283,7 @@ const initSwipeDeck = () => {
         }
 
         draggingCard.releasePointerCapture(pointerId);
-        draggingCard.classList.remove('is-active');
+        $(draggingCard).removeClass('is-active');
 
         const deltaX = currentX;
 
@@ -336,77 +332,75 @@ const initSwipeDeck = () => {
         }
     };
 
-    cards.forEach(card => {
+    $.each(cards, function(i, card) {
         card.addEventListener('pointerdown', onPointerDown);
         card.addEventListener('pointermove', onPointerMove);
         card.addEventListener('pointerup', handlePointerEnd);
         card.addEventListener('pointercancel', handlePointerEnd);
     });
 
-    document.querySelectorAll('.swipe-button').forEach(button => {
-        button.addEventListener('click', () => {
-            const action = button.getAttribute('data-action');
+    $('.swipe-button').each(function() {
+        $(this).on('click', function() {
+            const action = $(this).attr('data-action');
             handleActionClick(action);
         });
     });
 
-    deckEl.addEventListener('keydown', onKeyDown);
+    $(deckEl).on('keydown', onKeyDown);
 
     applyStackStyles();
 };
 
 // App init
-document.addEventListener('DOMContentLoaded', function() {
-    loaderElement = document.getElementById('loader');
-    loaderProgressBar = document.getElementById('loaderProgress');
+$(document).ready(function() {
+    loaderElement = $('#loader')[0];
+    loaderProgressBar = $('#loaderProgress')[0];
     startLoaderAnimation();
 
     initSwipeDeck();
 });
 
 // Navigation scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+$(window).on('scroll', function() {
+    const $navbar = $('#navbar');
+    if ($(window).scrollTop() > 50) {
+        $navbar.addClass('scrolled');
     } else {
-        navbar.classList.remove('scrolled');
+        $navbar.removeClass('scrolled');
     }
 });
 
 // Mobile menu toggle
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
+const $menuToggle = $('#menuToggle');
+const $navLinks = $('#navLinks');
 
-menuToggle.addEventListener('click', function() {
-    navLinks.classList.toggle('active');
-    const icon = menuToggle.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
+$menuToggle.on('click', function() {
+    $navLinks.toggleClass('active');
+    const $icon = $menuToggle.find('i');
+    $icon.toggleClass('fa-bars fa-times');
 });
 
 // Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.add('fa-bars');
-        icon.classList.remove('fa-times');
+$('.nav-links a').each(function() {
+    $(this).on('click', function() {
+        $navLinks.removeClass('active');
+        const $icon = $menuToggle.find('i');
+        $icon.addClass('fa-bars').removeClass('fa-times');
     });
 });
 
 // Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+$('a[href^="#"]').each(function() {
+    $(this).on('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const navHeight = document.querySelector('nav').offsetHeight;
-            const targetPosition = target.offsetTop - navHeight - 20;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+        const target = $(this).attr('href');
+        const $target = $(target);
+        if ($target.length) {
+            const navHeight = $('nav').outerHeight();
+            const targetPosition = $target.offset().top - navHeight - 20;
+            $('html, body').animate({
+                scrollTop: targetPosition
+            }, 800);
         }
     });
 });
@@ -418,15 +412,15 @@ const observerOptions = {
 };
 
 const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
+    $.each(entries, function(i, entry) {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            $(entry.target).addClass('visible');
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
+$('.fade-in').each(function() {
+    observer.observe(this);
 });
 
 // Typing effect for hero title
@@ -436,71 +430,72 @@ let i = 0;
 
 function typeWriter() {
     if (i < text.length) {
-        heroTitle.textContent += text.charAt(i);
+        $(heroTitle).text($(heroTitle).text() + text.charAt(i));
         i++;
         setTimeout(typeWriter, 100);
     }
 }
 
 // Start typing effect when page loads
-window.addEventListener('load', () => {
-    heroTitle = document.querySelector('.hero-content h1');
-    text = heroTitle.textContent;
-    heroTitle.textContent = '';
+$(window).on('load', function() {
+    heroTitle = $('.hero-content h1')[0];
+    text = $(heroTitle).text();
+    $(heroTitle).text('');
     i = 0;
-    
+
     setTimeout(typeWriter, 500);
-    
+
     // Animate skill bars
-    setTimeout(() => {
+    setTimeout(function() {
         animateSkillBars();
     }, 1500);
 });
 
 // Add parallax effect to hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallax = document.querySelector('.hero');
+$(window).on('scroll', function() {
+    const scrolled = $(window).scrollTop();
+    const $parallax = $('.hero');
     const speed = 0.5;
-    parallax.style.transform = `translateY(${scrolled * speed}px)`;
+    $parallax.css('transform', `translateY(${scrolled * speed}px)`);
 });
 
 // Add hover effect to project cards
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) rotateX(5deg)';
+$('.project-card').each(function() {
+    $(this).on('mouseenter', function() {
+        $(this).css('transform', 'translateY(-10px) rotateX(5deg)');
     });
 
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) rotateX(0)';
+    $(this).on('mouseleave', function() {
+        $(this).css('transform', 'translateY(0) rotateX(0)');
     });
 });
 
 // Animate skill bars
 function animateSkillBars() {
-    const skillBars = document.querySelectorAll('.skill-bar');
-    
-    skillBars.forEach((bar, index) => {
-        const level = bar.getAttribute('data-level');
-        setTimeout(() => {
-            bar.style.setProperty('--level', level + '%');
-            bar.classList.add('animate');
+    const $skillBars = $('.skill-bar');
+
+    $skillBars.each(function(index) {
+        const $bar = $(this);
+        const level = $bar.attr('data-level');
+        setTimeout(function() {
+            $bar.css('--level', level + '%');
+            $bar.addClass('animate');
         }, index * 200);
     });
 }
 
 // Add hover effect to skill items
-document.querySelectorAll('.skill-item').forEach(item => {
-    item.addEventListener('mouseenter', function() {
-        const icon = this.querySelector('.skill-icon i');
-        icon.style.transform = 'scale(1.2) rotate(10deg)';
+$('.skill-item').each(function() {
+    $(this).on('mouseenter', function() {
+        const $icon = $(this).find('.skill-icon i');
+        $icon.css('transform', 'scale(1.2) rotate(10deg)');
     });
-    
-    item.addEventListener('mouseleave', function() {
-        const icon = this.querySelector('.skill-icon i');
-        icon.style.transform = 'scale(1) rotate(0deg)';
+
+    $(this).on('mouseleave', function() {
+        const $icon = $(this).find('.skill-icon i');
+        $icon.css('transform', 'scale(1) rotate(0deg)');
     });
 });
 
 // Set current year in footer
-document.getElementById('currentYear').textContent = new Date().getFullYear();
+$('#currentYear').text(new Date().getFullYear());

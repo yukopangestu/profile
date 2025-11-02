@@ -8,15 +8,6 @@ This is a personal portfolio website for Yuko Pangestu, a Technical Lead at Pape
 
 ## Development Commands
 
-### SASS Compilation
-```bash
-# Compile SASS to CSS (required after any SASS changes)
-sass sass/styles.scss styles.css
-
-# Development with watch mode
-sass --watch sass/styles.scss:styles.css
-```
-
 ### Testing Changes
 ```bash
 # Open in browser to test changes
@@ -26,40 +17,46 @@ open index.html
 
 ## Architecture
 
-### SASS Structure (7-1 Pattern)
-The project uses modular SASS architecture with `@use` and `@forward`:
-
-- **Entry point:** `sass/styles.scss` → compiles to `styles.css`
-- **abstracts/**: Variables, mixins, functions (color palette, breakpoints, reusable mixins)
-- **base/**: CSS reset and base styles
-- **components/**: Reusable UI components (buttons, cards, timeline)
-- **layout/**: Layout-specific styles (navigation, sections)
-- **pages/**: Page-specific styles (currently empty)
-
 ### Key Files
 - `index.html`: Single-page portfolio with all sections
-- `script.js`: Interactive features (navigation, animations, mobile menu, parallax)
-- `sass/styles.scss`: Main SASS entry point using `@use` imports
-- `styles.css`: Compiled output (2000+ lines)
+- `script.js`: Interactive features using jQuery (navigation, animations, mobile menu, parallax, swipe deck)
+- `styles.css`: All styling for the site (direct editing)
 
 ### Design System
-- **Colors**: Purple-based theme with accent colors defined in `_variables.scss`
-- **Breakpoints**: Mobile-first approach with `$breakpoint-mobile: 768px`
+- **Colors**: Blue-based theme with vibrant accent colors
+  - Primary Blue: #1E40AF
+  - Secondary Blue: #3B82F6
+  - Dark Blue: #1E3A8A
+  - Light Blue: #DBEAFE, #EFF6FF
+  - Accent: #60A5FA
+- **Breakpoints**: Mobile-first approach with breakpoint at 768px
 - **Container**: Max-width of 1200px
 - **Components**: Consistent button variants, card styles, timeline visualization
 
+### JavaScript Stack
+- **jQuery 3.7.1**: Loaded via CDN for DOM manipulation and event handling
+- **Features**:
+  - Swipe deck functionality with pointer events
+  - Loading animation with progress bar
+  - Navigation scroll effects
+  - Mobile menu toggle
+  - Smooth scrolling
+  - Intersection Observer for fade-in animations
+  - Typing effect for hero title
+  - Parallax scrolling
+  - Skill bar animations
+
 ## Development Workflow
 
-1. **SASS Changes**: Always edit `.scss` files, never the compiled `styles.css`
-2. **Compilation**: Run SASS compilation after any style changes
-3. **File Organization**: Follow the 7-1 pattern when adding new styles
-4. **Variables**: Use existing color variables and mixins from `abstracts/` folder
-5. **Responsive Design**: Use the `@include mobile` mixin for mobile-first development
+1. **Style Changes**: Edit `styles.css` directly for any styling updates
+2. **JavaScript Changes**: Edit `script.js` using jQuery syntax
+3. **Testing**: Open `index.html` in a browser to test changes
+4. **Responsive Design**: Test on different screen sizes (mobile breakpoint: 768px)
 
 ## Important Notes
 
-- No package.json - relies on global SASS installation
-- Uses modern SASS syntax (`@use` instead of `@import`)
-- All components are organized by functionality in separate SCSS files
-- Mobile menu and scroll animations are handled in `script.js`
-- Project showcases professional experience with interactive timeline and project cards
+- No build process required - pure HTML, CSS, and jQuery
+- jQuery is loaded from CDN (no local dependencies)
+- Mobile menu and scroll animations use jQuery event handlers
+- Swipe deck uses native pointer events for touch/mouse interactions
+- Project showcases professional experience with interactive timeline and swipe cards
