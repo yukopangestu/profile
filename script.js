@@ -370,22 +370,24 @@ $(window).on('scroll', function() {
     }
 });
 
-// Mobile menu toggle
+// Mobile menu toggle with Bootstrap
 const $menuToggle = $('#menuToggle');
 const $navLinks = $('#navLinks');
 
 $menuToggle.on('click', function() {
-    $navLinks.toggleClass('active');
+    $navLinks.toggleClass('show');
     const $icon = $menuToggle.find('i');
     $icon.toggleClass('fa-bars fa-times');
 });
 
 // Close mobile menu when clicking on a link
-$('.nav-links a').each(function() {
+$('.nav-link').each(function() {
     $(this).on('click', function() {
-        $navLinks.removeClass('active');
-        const $icon = $menuToggle.find('i');
-        $icon.addClass('fa-bars').removeClass('fa-times');
+        if ($navLinks.hasClass('show')) {
+            $navLinks.removeClass('show');
+            const $icon = $menuToggle.find('i');
+            $icon.addClass('fa-bars').removeClass('fa-times');
+        }
     });
 });
 

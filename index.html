@@ -24,255 +24,276 @@
         </div>
     </div>
 </div>
+
 <!-- Navigation -->
-<nav id="navbar">
-    <div class="nav-container">
-        <a href="#home" class="logo">YP</a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="menu-toggle" id="menuToggle">
+<nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <div class="container">
+        <a href="#home" class="navbar-brand logo">YP</a>
+        <button class="navbar-toggler" type="button" id="menuToggle" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navLinks">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
         </div>
     </div>
 </nav>
 
 <!-- Hero Section -->
 <section class="hero" id="home">
-    <div class="hero-container">
-        <div class="hero-content">
-            <h1>Yuko Pangestu</h1>
-            <h2>Technical Lead | Project Manager | Lifelong Learner</h2>
-            <p>Passionate website programmer ready to take on any challenge. Leading teams and building innovative solutions at Paper.id.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i>
-                    <span>Get In Touch</span>
-                </a>
-                <a href="#experience" class="btn btn-secondary">
-                    <i class="fas fa-folder"></i>
-                    <span>View Experiences</span>
-                </a>
-            </div>
-        </div>
-        <div class="hero-skills">
-            <div class="skills-grid">
-                <div class="skill-item" data-skill="golang">
-                    <div class="skill-icon">
-                        <i class="fab fa-golang"></i>
-                    </div>
-                    <span class="skill-name">Golang & PHP</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="92"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item" data-skill="mysql">
-                    <div class="skill-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <span class="skill-name">MySQL & NoSQL</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="88"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item" data-skill="arango">
-                    <div class="skill-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <span class="skill-name">Project Management</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="86"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item" data-skill="leadership">
-                    <div class="skill-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <span class="skill-name">Leadership</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="95"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item" data-skill="architecting">
-                    <div class="skill-icon">
-                        <i class="fas fa-sitemap"></i>
-                    </div>
-                    <span class="skill-name">Architecting</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="90"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item" data-skill="teamwork">
-                    <div class="skill-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <span class="skill-name">Teamwork</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="94"></div>
-                    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 hero-content">
+                <h1 class="display-3 fw-bold">Yuko Pangestu</h1>
+                <h2 class="h4 mb-4">Technical Lead | Project Manager | Lifelong Learner</h2>
+                <p class="lead mb-4">Passionate website programmer ready to take on any challenge. Leading teams and building innovative solutions at Paper.id.</p>
+                <div class="d-flex gap-3 hero-buttons">
+                    <a href="#contact" class="btn btn-primary btn-lg">
+                        <i class="fas fa-envelope me-2"></i>
+                        <span>Get In Touch</span>
+                    </a>
+                    <a href="#experience" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-folder me-2"></i>
+                        <span>View Experiences</span>
+                    </a>
                 </div>
             </div>
-
-            <div class="skills-summary">
-                <h3>Technical Expertise</h3>
-                <p>8+ years building scalable web applications</p>
+            <div class="col-lg-6 hero-skills">
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <div class="skill-item card h-100 text-center p-3">
+                            <div class="skill-icon mb-3">
+                                <i class="fab fa-golang fa-3x"></i>
+                            </div>
+                            <span class="skill-name fw-semibold d-block mb-3">Golang & PHP</span>
+                            <div class="skill-level">
+                                <div class="skill-bar" data-level="92"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="skill-item card h-100 text-center p-3">
+                            <div class="skill-icon mb-3">
+                                <i class="fas fa-database fa-3x"></i>
+                            </div>
+                            <span class="skill-name fw-semibold d-block mb-3">MySQL & NoSQL</span>
+                            <div class="skill-level">
+                                <div class="skill-bar" data-level="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="skill-item card h-100 text-center p-3">
+                            <div class="skill-icon mb-3">
+                                <i class="fas fa-network-wired fa-3x"></i>
+                            </div>
+                            <span class="skill-name fw-semibold d-block mb-3">Project Management</span>
+                            <div class="skill-level">
+                                <div class="skill-bar" data-level="86"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="skill-item card h-100 text-center p-3">
+                            <div class="skill-icon mb-3">
+                                <i class="fas fa-users fa-3x"></i>
+                            </div>
+                            <span class="skill-name fw-semibold d-block mb-3">Leadership</span>
+                            <div class="skill-level">
+                                <div class="skill-bar" data-level="95"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="skill-item card h-100 text-center p-3">
+                            <div class="skill-icon mb-3">
+                                <i class="fas fa-sitemap fa-3x"></i>
+                            </div>
+                            <span class="skill-name fw-semibold d-block mb-3">Architecting</span>
+                            <div class="skill-level">
+                                <div class="skill-bar" data-level="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="skill-item card h-100 text-center p-3">
+                            <div class="skill-icon mb-3">
+                                <i class="fas fa-handshake fa-3x"></i>
+                            </div>
+                            <span class="skill-name fw-semibold d-block mb-3">Teamwork</span>
+                            <div class="skill-level">
+                                <div class="skill-bar" data-level="94"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-summary text-center">
+                    <h3 class="h5">Technical Expertise</h3>
+                    <p class="text-muted">8+ years building scalable web applications</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- About Section -->
-<section class="about fade-in" id="about">
-    <div class="section-container">
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Technical Lead with 8+ years of experience in full-stack development</p>
+<section class="about fade-in py-5" id="about">
+    <div class="container">
+        <h2 class="section-title text-center mb-3">About Me</h2>
+        <p class="section-subtitle text-center text-muted mb-5">Technical Lead with 8+ years of experience in full-stack development</p>
 
-        <div class="about-grid">
-            <div class="about-stats">
-                <div class="stat-card">
-                    <div class="stat-number">8+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">Technologies</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">20+</div>
-                    <div class="stat-label">Projects Delivered</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">8+</div>
-                    <div class="stat-label">Team Members Led</div>
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="stat-card card text-center p-4 h-100">
+                            <div class="stat-number display-4 fw-bold">8+</div>
+                            <div class="stat-label text-muted small">Years Experience</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-card card text-center p-4 h-100">
+                            <div class="stat-number display-4 fw-bold">10+</div>
+                            <div class="stat-label text-muted small">Technologies</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-card card text-center p-4 h-100">
+                            <div class="stat-number display-4 fw-bold">20+</div>
+                            <div class="stat-label text-muted small">Projects Delivered</div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stat-card card text-center p-4 h-100">
+                            <div class="stat-number display-4 fw-bold">8+</div>
+                            <div class="stat-label text-muted small">Team Members Led</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="about-content">
-                <h3>Building Digital Excellence</h3>
-                <p>As a Technical Lead at Paper.id, I orchestrate the development of innovative solutions while mentoring a diverse team of engineers. My journey in tech has equipped me with a comprehensive skill set spanning from backend architecture to frontend implementation.</p>
-                <p>I specialize in creating scalable web applications, implementing microservices architectures, and ensuring code quality across teams. My approach combines technical expertise with strong leadership to deliver products that make a difference.</p>
-                <p>I also help product team to calculate and give them solutions about what they want to build</p>
+            <div class="col-lg-8 about-content">
+                <h3 class="h4 mb-3">Building Digital Excellence</h3>
+                <p class="mb-3">As a Technical Lead at Paper.id, I orchestrate the development of innovative solutions while mentoring a diverse team of engineers. My journey in tech has equipped me with a comprehensive skill set spanning from backend architecture to frontend implementation.</p>
+                <p class="mb-3">I specialize in creating scalable web applications, implementing microservices architectures, and ensuring code quality across teams. My approach combines technical expertise with strong leadership to deliver products that make a difference.</p>
+                <p class="mb-0">I also help product team to calculate and give them solutions about what they want to build</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Experience Section -->
-<section class="experience fade-in" id="experience">
-    <div class="section-container">
-        <h2 class="section-title">Professional Journey</h2>
-        <p class="section-subtitle">My career progression and achievements</p>
+<section class="experience fade-in py-5" id="experience">
+    <div class="container">
+        <h2 class="section-title text-center mb-3">Professional Journey</h2>
+        <p class="section-subtitle text-center text-muted mb-5">My career progression and achievements</p>
 
         <div class="timeline">
             <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">Feb 2023 - Oct 2025</div>
-                    <h3>Technical Lead</h3>
-                    <h4>Paper.id</h4>
-                    <p>
-                        • Leading cross-functional team of 15+ engineers (Backend, Frontend, QA)<br>
-                        • Reduced deployment time by 40% through CI/CD optimization<br>
-                        • Architected microservices platform handling 10M+ transactions monthly<br>
-                        • Interviewed and hired 8 senior engineers, improving team capability by 30%<br>
-                        • Implemented technical roadmap aligned with business goals, increasing revenue by 25%<br>
-                        • Established coding standards and review processes, reducing bugs by 35%
-                    </p>
+                <div class="timeline-content card p-4">
+                    <div class="timeline-date badge bg-primary mb-2">Feb 2023 - Oct 2025</div>
+                    <h3 class="h5">Technical Lead</h3>
+                    <h4 class="h6 text-muted mb-3">Paper.id</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">• Leading cross-functional team of 15+ engineers (Backend, Frontend, QA)</li>
+                        <li class="mb-2">• Reduced deployment time by 40% through CI/CD optimization</li>
+                        <li class="mb-2">• Architected microservices platform handling 10M+ transactions monthly</li>
+                        <li class="mb-2">• Interviewed and hired 8 senior engineers, improving team capability by 30%</li>
+                        <li class="mb-2">• Implemented technical roadmap aligned with business goals, increasing revenue by 25%</li>
+                        <li class="mb-0">• Established coding standards and review processes, reducing bugs by 35%</li>
+                    </ul>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">Apr 2022 - Feb 2023</div>
-                    <h3>Senior Backend Engineer</h3>
-                    <h4>Paper.id</h4>
-                    <p>
-                        • Designed and implemented payment gateway integration processing $2M+ daily<br>
-                        • Led migration from monolith to microservices, improving response time by 60%<br>
-                        • Mentored 5 junior developers on best practices and code quality<br>
-                        • Optimized database queries reducing load time from 5s to 300ms<br>
-                        • Achieved 99.9% uptime for critical payment services
-                    </p>
+                <div class="timeline-content card p-4">
+                    <div class="timeline-date badge bg-primary mb-2">Apr 2022 - Feb 2023</div>
+                    <h3 class="h5">Senior Backend Engineer</h3>
+                    <h4 class="h6 text-muted mb-3">Paper.id</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">• Designed and implemented payment gateway integration processing $2M+ daily</li>
+                        <li class="mb-2">• Led migration from monolith to microservices, improving response time by 60%</li>
+                        <li class="mb-2">• Mentored 5 junior developers on best practices and code quality</li>
+                        <li class="mb-2">• Optimized database queries reducing load time from 5s to 300ms</li>
+                        <li class="mb-0">• Achieved 99.9% uptime for critical payment services</li>
+                    </ul>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">Sep 2019 - Apr 2022</div>
-                    <h3>Backend Engineer</h3>
-                    <h4>Paper.id</h4>
-                    <p>
-                        • Developed REST APIs serving 1M+ daily requests with 99.5% availability<br>
-                        • Built event-driven architecture using RabbitMQ processing 500K messages/day<br>
-                        • Implemented caching strategy that reduced database load by 70%<br>
-                        • Collaborated with team of 8 engineers to deliver 20+ features on schedule<br>
-                        • Reduced technical debt by refactoring legacy code, improving test coverage from 40% to 85%
-                    </p>
+                <div class="timeline-content card p-4">
+                    <div class="timeline-date badge bg-primary mb-2">Sep 2019 - Apr 2022</div>
+                    <h3 class="h5">Backend Engineer</h3>
+                    <h4 class="h6 text-muted mb-3">Paper.id</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">• Developed REST APIs serving 1M+ daily requests with 99.5% availability</li>
+                        <li class="mb-2">• Built event-driven architecture using RabbitMQ processing 500K messages/day</li>
+                        <li class="mb-2">• Implemented caching strategy that reduced database load by 70%</li>
+                        <li class="mb-2">• Collaborated with team of 8 engineers to deliver 20+ features on schedule</li>
+                        <li class="mb-0">• Reduced technical debt by refactoring legacy code, improving test coverage from 40% to 85%</li>
+                    </ul>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">Jul 2018 - Aug 2019</div>
-                    <h3>Full Stack Developer</h3>
-                    <h4>Bandingin</h4>
-                    <p>
-                        • Led end-to-end development for insurance comparison platform features<br>
-                        • Mentored new engineers to accelerate delivery and uphold code quality<br>
-                        • Owned insurance e-commerce backend operations, keeping SLAs on track<br>
-                        • Coordinated with product and partners to shape an experiment-driven roadmap
-                    </p>
+                <div class="timeline-content card p-4">
+                    <div class="timeline-date badge bg-primary mb-2">Jul 2018 - Aug 2019</div>
+                    <h3 class="h5">Full Stack Developer</h3>
+                    <h4 class="h6 text-muted mb-3">Bandingin</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">• Led end-to-end development for insurance comparison platform features</li>
+                        <li class="mb-2">• Mentored new engineers to accelerate delivery and uphold code quality</li>
+                        <li class="mb-2">• Owned insurance e-commerce backend operations, keeping SLAs on track</li>
+                        <li class="mb-0">• Coordinated with product and partners to shape an experiment-driven roadmap</li>
+                    </ul>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">Feb 2017 - Jun 2018</div>
-                    <h3>Full Stack Web Developer</h3>
-                    <h4>INDOWEBDEVELOPER</h4>
-                    <p>
-                        • PSD to HTML slicing<br>
-                        • Bug fixing, client meetings, backend services<br>
-                        • Full-stack development and system architecture
-                    </p>
+                <div class="timeline-content card p-4">
+                    <div class="timeline-date badge bg-primary mb-2">Feb 2017 - Jun 2018</div>
+                    <h3 class="h5">Full Stack Web Developer</h3>
+                    <h4 class="h6 text-muted mb-3">INDOWEBDEVELOPER</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">• PSD to HTML slicing</li>
+                        <li class="mb-2">• Bug fixing, client meetings, backend services</li>
+                        <li class="mb-0">• Full-stack development and system architecture</li>
+                    </ul>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">Oct 2016 - Dec 2016</div>
-                    <h3>Full Stack Engineer</h3>
-                    <h4>Outpost Interactive</h4>
-                    <p>
-                        • Full-stack development and system architecture<br>
-                        • Responsive design, bug fixing, cloud/server management
-                    </p>
+                <div class="timeline-content card p-4">
+                    <div class="timeline-date badge bg-primary mb-2">Oct 2016 - Dec 2016</div>
+                    <h3 class="h5">Full Stack Engineer</h3>
+                    <h4 class="h6 text-muted mb-3">Outpost Interactive</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">• Full-stack development and system architecture</li>
+                        <li class="mb-0">• Responsive design, bug fixing, cloud/server management</li>
+                    </ul>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">Feb 2016 - Sep 2016</div>
-                    <h3>Frontend Web Developer</h3>
-                    <h4>PesanLab</h4>
-                    <p>
-                        • Developed Pesanlab.com & Homecare.id<br>
-                        • Built healthcare platform websites<br>
-                        • Server maintenance, GIT collaboration
-                    </p>
+                <div class="timeline-content card p-4">
+                    <div class="timeline-date badge bg-primary mb-2">Feb 2016 - Sep 2016</div>
+                    <h3 class="h5">Frontend Web Developer</h3>
+                    <h4 class="h6 text-muted mb-3">PesanLab</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">• Developed Pesanlab.com & Homecare.id</li>
+                        <li class="mb-2">• Built healthcare platform websites</li>
+                        <li class="mb-0">• Server maintenance, GIT collaboration</li>
+                    </ul>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
@@ -281,45 +302,51 @@
 </section>
 
 <!-- Contact Section -->
-<section class="contact" id="contact">
-    <div class="section-container">
-        <div class="contact-container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p>I'm always interested in new opportunities and collaborations</p>
+<section class="contact py-5" id="contact">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title text-white mb-3">Let's Connect</h2>
+                <p class="text-white-50 mb-5">I'm always interested in new opportunities and collaborations</p>
 
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:yuko.pangestu@gmail.com">yuko.pangestu@gmail.com</a>
+                <div class="row justify-content-center g-4 mb-4">
+                    <div class="col-md-6">
+                        <div class="contact-item d-flex flex-column align-items-center">
+                            <i class="fas fa-envelope fa-2x mb-2"></i>
+                            <a href="mailto:yuko.pangestu@gmail.com" class="text-white text-decoration-none">yuko.pangestu@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-item d-flex flex-column align-items-center">
+                            <i class="fas fa-map-marker-alt fa-2x mb-2"></i>
+                            <span class="text-white">Jakarta, Indonesia</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Jakarta, Indonesia</span>
-                </div>
-            </div>
 
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/yukopangestu/" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/yukopangestu" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://medium.com/@yuko.pangestu" target="_blank">
-                    <i class="fab fa-medium"></i>
-                </a>
-                <a href="mailto:yuko.pangestu@gmail.com">
-                    <i class="fas fa-envelope"></i>
-                </a>
+                <div class="social-links d-flex justify-content-center gap-3 mt-4">
+                    <a href="https://www.linkedin.com/in/yukopangestu/" target="_blank" class="btn btn-outline-light rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/yukopangestu" target="_blank" class="btn btn-outline-light rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://medium.com/@yuko.pangestu" target="_blank" class="btn btn-outline-light rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-medium"></i>
+                    </a>
+                    <a href="mailto:yuko.pangestu@gmail.com" class="btn btn-outline-light rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Footer -->
-<footer>
-    <div class="section-container">
-        <p>&copy; <span id="currentYear"></span> Yuko Pangestu. All rights reserved.</p>
+<footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+        <p class="mb-0">&copy; <span id="currentYear"></span> Yuko Pangestu. All rights reserved.</p>
     </div>
 </footer>
 
