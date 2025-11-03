@@ -835,7 +835,7 @@ nav .menu-toggle {
 }
 
 .skills {
-  padding: 5rem 0;
+  padding: 4rem 0 5rem 0;
   background: white;
 }
 .skills .section-title {
@@ -848,6 +848,7 @@ nav .menu-toggle {
   background: #fafaf5;
   border: 1px solid rgba(30, 58, 138, 0.08);
   transition: all 0.3s ease;
+  will-change: transform;
 }
 .skills .skill-item:hover {
   transform: translateY(-5px);
@@ -1070,8 +1071,8 @@ footer {
 }
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease 0s;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .fade-in.visible {
   opacity: 1;

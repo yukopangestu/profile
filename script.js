@@ -409,8 +409,8 @@ $('a[href^="#"]').each(function() {
 
 // Intersection Observer for fade-in animations
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver(function(entries) {
@@ -453,12 +453,15 @@ $(window).on('load', function() {
     }, 1500);
 });
 
-// Add parallax effect to hero section
+// Add parallax effect to hero section (reduced for smoother transitions)
 $(window).on('scroll', function() {
     const scrolled = $(window).scrollTop();
     const $parallax = $('.hero');
-    const speed = 0.5;
-    $parallax.css('transform', `translateY(${scrolled * speed}px)`);
+    const speed = 0.2;
+    // Only apply parallax while hero is visible
+    if (scrolled < $(window).height()) {
+        $parallax.css('transform', `translateY(${scrolled * speed}px)`);
+    }
 });
 
 // Add hover effect to project cards
