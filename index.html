@@ -37,6 +37,7 @@
                 <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
                 <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -199,6 +200,65 @@
                 <p class="mb-3">I specialize in creating scalable web applications, implementing microservices architectures, and ensuring code quality across teams. My approach combines technical expertise with strong leadership to deliver products that make a difference.</p>
                 <p class="mb-0">I also help product team to calculate and give them solutions about what they want to build</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section class="portfolio fade-in py-5" id="portfolio">
+    <div class="container">
+        <h2 class="section-title text-center mb-3">Portfolio Showcase</h2>
+        <p class="section-subtitle text-center text-muted mb-5">Featured projects and achievements</p>
+
+        <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="portfolio-card card mx-auto">
+                        <div class="card-body p-5">
+                            <div class="portfolio-icon mb-4">
+                                <i class="fas fa-shopping-cart fa-4x"></i>
+                            </div>
+                            <span class="badge bg-primary mb-3">Digital Agency</span>
+                            <h3 class="h4 mb-3">Creating Websites for Clients</h3>
+                            <div>
+                                <img src="https://i.imgur.com/mjGlkKP.png" width="100%" alt="Showcase1">
+                            </div>
+                            <p class="text-muted">Architected and implemented a robust payment gateway system at Paper.id that processes $2M+ in daily transactions with 99.9% uptime. Built with Golang microservices and integrated with multiple payment providers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="portfolio-card card mx-auto">
+                        <div class="card-body p-5">
+                            <div class="portfolio-icon mb-4">
+                                <i class="fas fa-database fa-4x"></i>
+                            </div>
+                            <span class="badge bg-primary mb-3">Digital Agency</span>
+                            <h3 class="h4 mb-3">Creating Web for Client</h3>
+                            <div>
+                                <img src="https://i.imgur.com/wCIAxrk.png" width="100%" alt="">
+                            </div>
+                            <p class="text-muted">Optimized critical database queries reducing page load times from 5 seconds to 300ms. Implemented advanced caching strategies that decreased database load by 70%.</p>
+                        </div>
+                    </div>
+                </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
 </section>
