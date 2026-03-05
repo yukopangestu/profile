@@ -440,7 +440,7 @@ function typeWriter() {
 
 // Start typing effect when page loads
 $(window).on('load', function() {
-    heroTitle = $('.hero-content h1')[0];
+    heroTitle = $('.id-name')[0];
     text = $(heroTitle).text();
     $(heroTitle).text('');
     i = 0;

@@ -604,7 +604,7 @@ nav .menu-toggle {
 
 .hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, #C8C5BC 0%, #B8B5AC 100%);
+  background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 55%, #1E40AF 100%);
   display: flex;
   align-items: center;
   position: relative;
@@ -617,109 +617,302 @@ nav .menu-toggle {
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(17, 17, 17, 0.02) 1px, transparent 1px);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
   animation: float 20s linear infinite;
 }
-.hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+
+/* ID Card Wrapper */
+.hero-id-wrapper {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   position: relative;
   z-index: 1;
+  padding: 80px 0 40px;
 }
-@media (max-width: 768px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-}
-.hero-content h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #1E3A8A;
-  margin-bottom: 1rem;
-  animation: slideInLeft 1s ease;
-}
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-}
-.hero-content h2 {
-  font-size: 1.8rem;
-  color: rgba(30, 58, 138, 0.8);
-  margin-bottom: 2rem;
-  font-weight: 400;
-  animation: slideInLeft 1s ease 0.2s both;
-}
-.hero-content p {
-  font-size: 1.1rem;
-  color: rgba(30, 58, 138, 0.75);
-  margin-bottom: 2rem;
-  animation: slideInLeft 1s ease 0.4s both;
-}
-.hero-buttons {
+
+/* Lanyard */
+.id-lanyard {
   display: flex;
-  gap: 1rem;
-  animation: slideInLeft 1s ease 0.6s both;
-}
-@media (max-width: 768px) {
-  .hero-buttons {
-    justify-content: center;
-  }
-}
-.hero-image-container {
-  position: relative;
-  animation: fadeIn 1s ease 0.8s both;
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
-@media (max-width: 768px) {
-  .hero-image-container {
-    order: -1;
-    margin-bottom: 2rem;
-  }
+.lanyard-rope {
+  width: 4px;
+  height: 70px;
+  background: linear-gradient(180deg, transparent 0%, #60A5FA 30%, #3B82F6 100%);
+  border-radius: 2px;
+}
+.lanyard-hook {
+  width: 22px;
+  height: 10px;
+  background: #93C5FD;
+  border-radius: 4px 4px 0 0;
+  border: 2px solid #BFDBFE;
+  margin-bottom: -1px;
 }
 
-.hero-image-desktop {
-  width: 80%;
-  animation: fadeIn 1s ease 0.6s both;
-}
-.hero-image-desktop img {
+/* ID Card */
+.id-card {
+  background: white;
+  border-radius: 16px;
   width: 100%;
+  max-width: 500px;
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 60px rgba(59, 130, 246, 0.15);
+  overflow: hidden;
+  animation: slideInUp 0.8s ease 0.3s both;
+}
+
+/* Card Header */
+.id-card-header {
+  background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.id-org {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.3px;
+}
+.id-org i {
+  color: #93C5FD;
+}
+.id-number {
+  font-size: 0.7rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease;
-}
-.hero-image-desktop img:hover {
-  transform: scale(1.05);
-}
-@media (max-width: 768px) {
-  .hero-image-desktop {
-    display: none;
-  }
+  letter-spacing: 1.5px;
+  font-family: 'Space Mono', monospace;
+  color: #BFDBFE;
 }
 
-.hero-image-mobile {
-  display: none;
+/* Card Body */
+.id-card-body {
+  padding: 24px;
+  display: flex;
+  gap: 20px;
 }
 
+/* Photo column */
+.id-photo-col {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.id-photo-frame {
+  width: 110px;
+  height: 140px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 3px solid #DBEAFE;
+  box-shadow: 0 4px 16px rgba(30, 64, 175, 0.2);
+}
+.id-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.id-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #16A34A;
+  font-family: 'Space Mono', monospace;
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: #22C55E;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+/* Info column */
+.id-info-col {
+  flex: 1;
+  min-width: 0;
+}
+.id-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1E3A8A;
+  margin-bottom: 3px;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+}
+.id-role {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1E40AF;
+  margin-bottom: 2px;
+}
+.id-dept {
+  font-size: 0.72rem;
+  color: #64748B;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.id-divider {
+  height: 1px;
+  background: linear-gradient(90deg, #DBEAFE, transparent);
+  margin-bottom: 12px;
+}
+.id-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.id-detail {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.76rem;
+  color: #475569;
+}
+.id-detail i {
+  color: #60A5FA;
+  width: 12px;
+  font-size: 0.68rem;
+}
+.id-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.id-skill-tag {
+  background: #EFF6FF;
+  color: #1E40AF;
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  border: 1px solid #DBEAFE;
+}
+
+/* Card Footer */
+.id-card-footer {
+  border-top: 1px solid #F1F5F9;
+  padding: 14px 24px;
+  background: #F8FAFC;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.id-barcode {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.barcode-img {
+  height: 28px;
+  width: 110px;
+  background: repeating-linear-gradient(
+    90deg,
+    #1E3A8A 0px, #1E3A8A 2px,
+    transparent 2px, transparent 4px,
+    #1E3A8A 4px, #1E3A8A 6px,
+    transparent 6px, transparent 9px,
+    #1E3A8A 9px, #1E3A8A 10px,
+    transparent 10px, transparent 13px,
+    #1E3A8A 13px, #1E3A8A 16px,
+    transparent 16px, transparent 18px,
+    #1E3A8A 18px, #1E3A8A 19px,
+    transparent 19px, transparent 22px,
+    #1E3A8A 22px, #1E3A8A 25px,
+    transparent 25px, transparent 27px,
+    #1E3A8A 27px, #1E3A8A 28px,
+    transparent 28px, transparent 31px,
+    #1E3A8A 31px, #1E3A8A 34px,
+    transparent 34px, transparent 36px,
+    #1E3A8A 36px, #1E3A8A 37px,
+    transparent 37px, transparent 40px,
+    #1E3A8A 40px, #1E3A8A 43px,
+    transparent 43px, transparent 46px,
+    #1E3A8A 46px, #1E3A8A 47px,
+    transparent 47px, transparent 50px,
+    #1E3A8A 50px, #1E3A8A 53px,
+    transparent 53px, transparent 55px,
+    #1E3A8A 55px, #1E3A8A 57px,
+    transparent 57px, transparent 59px,
+    #1E3A8A 59px, #1E3A8A 60px,
+    transparent 60px, transparent 63px,
+    #1E3A8A 63px, #1E3A8A 67px,
+    transparent 67px, transparent 69px,
+    #1E3A8A 69px, #1E3A8A 70px,
+    transparent 70px, transparent 74px,
+    #1E3A8A 74px, #1E3A8A 77px,
+    transparent 77px, transparent 79px,
+    #1E3A8A 79px, #1E3A8A 81px,
+    transparent 81px, transparent 84px,
+    #1E3A8A 84px, #1E3A8A 86px,
+    transparent 86px, transparent 88px,
+    #1E3A8A 88px, #1E3A8A 90px,
+    transparent 90px, transparent 94px,
+    #1E3A8A 94px, #1E3A8A 96px,
+    transparent 96px, transparent 110px
+  );
+}
+.barcode-text {
+  font-size: 0.58rem;
+  color: #94A3B8;
+  letter-spacing: 2px;
+  font-family: 'Space Mono', monospace;
+  text-align: center;
+}
+.id-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .hero-image-mobile {
-    display: block;
-    width: 50%;
-    margin: 0 auto;
-    animation: fadeIn 1s ease 0.4s both;
+  .hero-id-wrapper {
+    padding: 100px 16px 40px;
   }
-  .hero-image-mobile img {
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  .id-card {
+    max-width: 100%;
+  }
+  .id-card-body {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .id-photo-frame {
+    width: 100px;
+    height: 128px;
+  }
+  .id-details {
+    align-items: center;
+  }
+  .id-skills {
+    justify-content: center;
+  }
+  .id-card-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .id-actions {
+    flex-direction: row;
   }
 }
 
