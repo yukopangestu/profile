@@ -50,7 +50,7 @@ export default function Header() {
             <button
               key={item.href}
               onClick={() => handleNav(item.href)}
-              className="text-white/75 hover:text-white text-sm font-medium transition-colors"
+              className="text-white/75 hover:text-white text-base font-medium transition-colors"
             >
               {item.label}
             </button>
@@ -74,7 +74,7 @@ export default function Header() {
             <button
               key={item.href}
               onClick={() => handleNav(item.href)}
-              className="block w-full text-left text-white/75 hover:text-white py-3.5 text-sm font-medium border-b border-white/5 last:border-0 transition-colors"
+              className="block w-full text-left text-white/75 hover:text-white py-3.5 text-base font-medium border-b border-white/5 last:border-0 transition-colors"
             >
               {item.label}
             </button>

@@ -114,7 +114,7 @@ export default function HeroSection() {
                   />
                 ))}
               </div>
-              <span className="text-[10px] text-gray-300 tracking-widest">YP · 2024 · PAPER.ID</span>
+              <span className="text-[10px] text-gray-300 tracking-widest">YP · 2024 · SOFTWARE ENGINEERS</span>
             </div>
 
             {/* Actions */}

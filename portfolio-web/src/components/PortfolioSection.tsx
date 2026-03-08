@@ -16,16 +16,16 @@ export default function PortfolioSection() {
   return (
     <section id="portfolio" className="py-20 px-5 bg-white">
       <div className="max-w-2xl mx-auto">
-        <h2 className="text-3xl font-bold text-blue-900 text-center mb-2">Portfolio Showcase</h2>
-        <p className="text-gray-400 text-center mb-14">Featured projects and achievements</p>
+        <h2 className="text-4xl font-bold text-blue-900 text-center mb-3">Portfolio Showcase</h2>
+        <p className="text-lg text-gray-400 text-center mb-14">Featured projects and achievements</p>
 
         <div className="relative">
           {/* Card */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-lg p-6 md:p-8">
-            <span className="inline-block bg-blue-700 text-white text-xs font-semibold px-3 py-1 rounded-md mb-3">
+            <span className="inline-block bg-blue-700 text-white text-sm font-semibold px-3 py-1 rounded-md mb-3">
               {item.category}
             </span>
-            <h3 className="text-xl font-bold text-blue-900 mb-4">{item.title}</h3>
+            <h3 className="text-2xl font-bold text-blue-900 mb-4">{item.title}</h3>
             <div className="rounded-xl overflow-hidden mb-5 bg-gray-50">
               <Image
                 src={item.image}
@@ -35,23 +35,23 @@ export default function PortfolioSection() {
                 className="w-full object-cover"
               />
             </div>
-            <p className="text-sm text-gray-500 leading-relaxed">{item.description}</p>
+            <p className="text-base text-gray-500 leading-relaxed">{item.description}</p>
           </div>
 
           {/* Prev/Next */}
           <button
             onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 bg-white border border-gray-200 rounded-full w-9 h-9 flex items-center justify-center shadow hover:bg-gray-50 transition-colors"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 bg-white border border-gray-200 rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-gray-50 transition-colors"
             aria-label="Previous"
           >
-            <FaChevronLeft size={13} className="text-gray-500" />
+            <FaChevronLeft size={14} className="text-gray-500" />
           </button>
           <button
             onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 bg-white border border-gray-200 rounded-full w-9 h-9 flex items-center justify-center shadow hover:bg-gray-50 transition-colors"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 bg-white border border-gray-200 rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-gray-50 transition-colors"
             aria-label="Next"
           >
-            <FaChevronRight size={13} className="text-gray-500" />
+            <FaChevronRight size={14} className="text-gray-500" />
           </button>
         </div>
 
@@ -61,8 +61,8 @@ export default function PortfolioSection() {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === current ? 'bg-blue-700 w-6' : 'bg-gray-300 w-2 hover:bg-gray-400'
+              className={`h-2.5 rounded-full transition-all duration-300 ${
+                i === current ? 'bg-blue-700 w-7' : 'bg-gray-300 w-2.5 hover:bg-gray-400'
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />

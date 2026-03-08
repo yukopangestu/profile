@@ -40,8 +40,8 @@ export default function SkillsSection() {
   return (
     <section ref={sectionRef} id="skills" className="py-20 px-5 bg-white">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-blue-900 text-center mb-2">Technical Skills</h2>
-        <p className="text-gray-400 text-center mb-14">
+        <h2 className="text-4xl font-bold text-blue-900 text-center mb-3">Technical Skills</h2>
+        <p className="text-lg text-gray-400 text-center mb-14">
           Technologies and expertise I bring to the table
         </p>
 
@@ -51,22 +51,22 @@ export default function SkillsSection() {
               key={name}
               className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-md transition-shadow"
             >
-              <Icon size={30} className="text-blue-700 mx-auto mb-3" />
-              <p className="text-sm font-semibold text-gray-800 mb-4">{name}</p>
-              <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden mb-1.5">
+              <Icon size={36} className="text-blue-700 mx-auto mb-3" />
+              <p className="text-base font-semibold text-gray-800 mb-4">{name}</p>
+              <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden mb-2">
                 <div
                   className="h-full bg-blue-700 rounded-full transition-all duration-1000 ease-out"
                   style={{ width: animated ? `${level}%` : '0%' }}
                 />
               </div>
-              <span className="text-xs text-gray-400">{level}%</span>
+              <span className="text-sm text-gray-400">{level}%</span>
             </div>
           ))}
         </div>
 
         <div className="text-center">
-          <p className="text-base font-semibold text-blue-900 mb-1">Technical Expertise</p>
-          <p className="text-sm text-gray-400">8+ years building scalable web applications</p>
+          <p className="text-lg font-semibold text-blue-900 mb-1">Technical Expertise</p>
+          <p className="text-base text-gray-400">8+ years building scalable web applications</p>
         </div>
       </div>
     </section>
