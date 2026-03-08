@@ -41,60 +41,60 @@ export default function HeroSection() {
         </div>
 
         {/* ID Card */}
-        <div className="w-full max-w-sm bg-white rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20">
+        <div className="w-full max-w-lg bg-white rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20">
           {/* Card header */}
-          <div className="bg-blue-900 flex items-center justify-between px-4 py-2.5">
-            <div className="flex items-center gap-2 text-blue-400 text-xs font-medium">
-              <FaCode size={11} />
+          <div className="bg-blue-900 flex items-center justify-between px-6 py-3">
+            <div className="flex items-center gap-2 text-blue-400 text-sm font-medium">
+              <FaCode size={13} />
               <span>Personal Profile</span>
             </div>
-            <span className="text-white/40 text-[11px]">ID #YP-001</span>
+            <span className="text-white/40 text-xs">ID #YP-001</span>
           </div>
 
           {/* Card body */}
-          <div className="flex gap-4 p-4">
+          <div className="flex gap-6 p-6">
             {/* Photo column */}
-            <div className="flex flex-col items-center gap-2 flex-shrink-0">
-              <div className="w-24 h-28 rounded-lg overflow-hidden border-2 border-blue-100">
+            <div className="flex flex-col items-center gap-3 flex-shrink-0">
+              <div className="w-32 h-40 rounded-xl overflow-hidden border-2 border-blue-100">
                 <Image
                   src="/hero_img.jpg"
                   alt="Yuko Pangestu"
-                  width={96}
-                  height={112}
+                  width={128}
+                  height={160}
                   className="w-full h-full object-cover"
                   priority
                 />
               </div>
               <div className="flex items-center gap-1.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-green-500 text-[9px] font-bold tracking-widest">ACTIVE</span>
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="text-green-500 text-[10px] font-bold tracking-widest">ACTIVE</span>
               </div>
             </div>
 
             {/* Info column */}
             <div className="flex-1 min-w-0">
-              <h1 className="text-[17px] font-bold text-blue-900 mb-0.5 h-7">
+              <h1 className="text-xl font-bold text-blue-900 mb-1 h-8">
                 {displayName}
                 {!typed && <span className="animate-blink">|</span>}
               </h1>
-              <p className="text-[13px] font-semibold text-blue-700 mb-0.5">Technical Lead</p>
-              <p className="text-[11px] text-gray-400 mb-2">Software Engineering</p>
-              <hr className="border-gray-100 mb-2" />
-              <div className="flex items-center gap-1.5 mb-1.5">
-                <FaMapMarkerAlt size={9} className="text-blue-400 flex-shrink-0" />
-                <span className="text-[10px] text-gray-400">Jakarta, Indonesia</span>
+              <p className="text-sm font-semibold text-blue-700 mb-0.5">Technical Lead</p>
+              <p className="text-xs text-gray-400 mb-3">Software Engineering</p>
+              <hr className="border-gray-100 mb-3" />
+              <div className="flex items-center gap-2 mb-2">
+                <FaMapMarkerAlt size={11} className="text-blue-400 flex-shrink-0" />
+                <span className="text-xs text-gray-400">Jakarta, Indonesia</span>
               </div>
-              <div className="flex items-center gap-1.5 mb-2.5">
-                <FaEnvelope size={9} className="text-blue-400 flex-shrink-0" />
-                <span className="text-[10px] text-gray-400 truncate">
+              <div className="flex items-center gap-2 mb-3">
+                <FaEnvelope size={11} className="text-blue-400 flex-shrink-0" />
+                <span className="text-xs text-gray-400 truncate">
                   yuko.pangestu@gmail.com
                 </span>
               </div>
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap gap-1.5">
                 {['Go', 'PHP', 'Vue.js', 'MySQL'].map(tag => (
                   <span
                     key={tag}
-                    className="bg-blue-50 text-blue-700 text-[10px] font-semibold px-1.5 py-0.5 rounded border border-blue-100"
+                    className="bg-blue-50 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded border border-blue-100"
                   >
                     {tag}
                   </span>
@@ -104,35 +104,35 @@ export default function HeroSection() {
           </div>
 
           {/* Card footer */}
-          <div className="border-t border-gray-100 px-4 py-3 flex items-center justify-between">
+          <div className="border-t border-gray-100 px-6 py-4 flex items-center justify-between">
             {/* Barcode */}
             <div className="flex flex-col items-center">
-              <div className="flex items-end h-5 mb-1 gap-px">
+              <div className="flex items-end h-6 mb-1.5 gap-px">
                 {BARCODE_BARS.map((w, i) => (
                   <div
                     key={i}
-                    style={{ width: w * 1.5 }}
+                    style={{ width: w * 2 }}
                     className="h-full bg-gray-700 opacity-60"
                   />
                 ))}
               </div>
-              <span className="text-[8px] text-gray-300 tracking-widest">YP · 2024 · PAPER.ID</span>
+              <span className="text-[9px] text-gray-300 tracking-widest">YP · 2024 · PAPER.ID</span>
             </div>
 
             {/* Actions */}
             <div className="flex gap-2">
               <button
                 onClick={() => scrollTo('#contact')}
-                className="flex items-center gap-1.5 bg-blue-800 text-white text-xs font-semibold px-3 py-1.5 rounded-md hover:bg-blue-600 transition-colors"
+                className="flex items-center gap-1.5 bg-blue-800 text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
               >
-                <FaEnvelope size={10} />
+                <FaEnvelope size={12} />
                 Contact
               </button>
               <button
                 onClick={() => scrollTo('#portfolio')}
-                className="flex items-center gap-1.5 border border-blue-800 text-blue-800 text-xs font-semibold px-3 py-1.5 rounded-md hover:bg-blue-800 hover:text-white transition-colors"
+                className="flex items-center gap-1.5 border border-blue-800 text-blue-800 text-sm font-semibold px-4 py-2 rounded-md hover:bg-blue-800 hover:text-white transition-colors"
               >
-                <FaFolder size={10} />
+                <FaFolder size={12} />
                 Portfolio
               </button>
             </div>
