@@ -36,7 +36,7 @@ export default function ExperienceSection() {
                   className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-start"
                 >
                   {/* Label side */}
-                  <div className={`pl-12 md:pl-0 ${isLeft ? 'md:text-right' : 'md:order-2'}`}>
+                  <div className={`pl-12 md:pl-0 ${isLeft ? 'md:text-right md:pr-10' : 'md:order-2 md:pl-10'}`}>
                     <div
                       className={`flex items-center gap-4 mb-2 ${
                         isLeft ? 'md:justify-end' : ''
