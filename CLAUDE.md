@@ -41,9 +41,11 @@ npm run start     # Start production server locally
 - **Max widths**: `max-w-5xl` (wide sections), `max-w-3xl` (experience), `max-w-2xl` (hero/portfolio/contact)
 
 ### Vercel Deployment
+- Live URL: **https://www.yukopangestu.com** — use this to verify changes when localhost is unavailable
 - Root directory: `/` (repo root)
 - Framework: Next.js (auto-detected)
 - No `vercel.json` needed
+- Deployments trigger on push to `main` and may take a few minutes to propagate
 
 ## Backup (Original HTML Portfolio)
 
