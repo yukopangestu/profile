@@ -1,524 +1,799 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yuko Pangestu - Technical Lead at Paper.id specializing in web development">
-    <meta name="keywords" content="Technical Lead, Web Developer, Jakarta">
-    <title>Yuko Pangestu - Technical Lead & Full Stack Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Yuko Pangestu - Technical Lead at Paper.id specializing in web development and system architecture"/>
+<meta name="keywords" content="Technical Lead, Web Developer, Jakarta, Go, PHP, Vue.js"/>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png"/>
+<title>Yuko Pangestu — Technical Lead & Full-Stack Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary-fixed-dim": "#b4c5ff",
+          "outline": "#737686",
+          "surface-variant": "#dde1ff",
+          "error-container": "#ffdad6",
+          "inverse-on-surface": "#efefff",
+          "on-surface-variant": "#434655",
+          "tertiary-container": "#5e6e85",
+          "error": "#ba1a1a",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary": "#ffffff",
+          "on-primary": "#ffffff",
+          "surface-tint": "#0053db",
+          "surface-container-highest": "#dde1ff",
+          "surface-container-high": "#e4e7ff",
+          "background": "#fbf8ff",
+          "on-primary-container": "#eeefff",
+          "on-secondary-container": "#344585",
+          "surface": "#fbf8ff",
+          "tertiary-fixed-dim": "#b7c8e1",
+          "tertiary": "#46566c",
+          "on-error-container": "#93000a",
+          "on-tertiary-container": "#e9f0ff",
+          "on-tertiary-fixed": "#0b1c30",
+          "inverse-surface": "#192b6b",
+          "on-primary-fixed-variant": "#003ea8",
+          "inverse-primary": "#b4c5ff",
+          "surface-container-low": "#f3f2ff",
+          "secondary-fixed": "#dde1ff",
+          "primary": "#004ac6",
+          "secondary-container": "#a5b5fe",
+          "primary-container": "#2563eb",
+          "secondary": "#4a5a9c",
+          "surface-dim": "#d1d8ff",
+          "on-tertiary-fixed-variant": "#38485d",
+          "on-secondary": "#ffffff",
+          "tertiary-fixed": "#d3e4fe",
+          "outline-variant": "#c3c6d7",
+          "on-primary-fixed": "#00174b",
+          "surface-bright": "#fbf8ff",
+          "on-surface": "#001453",
+          "surface-container": "#ecedff",
+          "on-background": "#001453",
+          "on-secondary-fixed": "#001453",
+          "on-error": "#ffffff",
+          "on-secondary-fixed-variant": "#324283",
+          "primary-fixed": "#dbe1ff",
+          "secondary-fixed-dim": "#b7c4ff"
+        },
+        fontFamily: {
+          "headline": ["Inter"],
+          "body": ["Inter"],
+          "label": ["Inter"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .hero-gradient {
+    background: linear-gradient(135deg, #004ac6 0%, #2563eb 100%);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #004ac6 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glass-panel {
+    background: rgba(251, 248, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  /* Mobile menu */
+  #mobile-menu {
+    display: none;
+  }
+  #mobile-menu.open {
+    display: flex;
+  }
+  /* Fade-in animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
 </head>
-<body class="loading-active">
-<div class="loader" id="loader" role="status" aria-live="polite">
-    <div class="loader-box">
-        <span class="loader-message">Loading</span>
-        <div class="loader-progress">
-            <div class="loader-progress__bar" id="loaderProgress"></div>
-        </div>
-    </div>
-</div>
+<body class="bg-background font-body text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg fixed-top" id="navbar">
-    <div class="container">
-        <a href="#home" class="navbar-brand logo">YP</a>
-        <button class="navbar-toggler" type="button" id="menuToggle" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navLinks">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
+<nav class="sticky top-0 w-full z-50 bg-[#fbf8ff]/70 backdrop-blur-xl">
+  <div class="flex justify-between items-center px-8 md:px-12 py-4 max-w-screen-2xl mx-auto">
+    <div class="text-xl font-black tracking-tighter text-[#001453]">
+      YP<span class="text-primary">.</span>
     </div>
+    <div class="hidden md:flex items-center space-x-10">
+      <a href="#home" class="nav-link text-[#001453] font-medium opacity-70 hover:opacity-100 hover:text-[#004ac6] transition-all duration-300">Home</a>
+      <a href="#skills" class="nav-link text-[#001453] font-medium opacity-70 hover:opacity-100 hover:text-[#004ac6] transition-all duration-300">Skills</a>
+      <a href="#portfolio" class="nav-link text-[#001453] font-medium opacity-70 hover:opacity-100 hover:text-[#004ac6] transition-all duration-300">Portfolio</a>
+      <a href="#experience" class="nav-link text-[#001453] font-medium opacity-70 hover:opacity-100 hover:text-[#004ac6] transition-all duration-300">Experience</a>
+      <a href="#contact" class="nav-link text-[#001453] font-medium opacity-70 hover:opacity-100 hover:text-[#004ac6] transition-all duration-300">Contact</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="mailto:yuko.pangestu@gmail.com" class="hidden md:block hero-gradient text-on-primary px-6 py-2 rounded-xl font-bold active:scale-95 transition-transform duration-200">
+        Hire Me
+      </a>
+      <button id="menu-toggle" class="md:hidden text-on-surface p-2" aria-label="Toggle navigation">
+        <span class="material-symbols-outlined" id="menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="flex-col px-8 pb-6 gap-4 md:hidden">
+    <a href="#home" class="text-[#001453] font-medium py-2 hover:text-[#004ac6] transition-colors">Home</a>
+    <a href="#skills" class="text-[#001453] font-medium py-2 hover:text-[#004ac6] transition-colors">Skills</a>
+    <a href="#portfolio" class="text-[#001453] font-medium py-2 hover:text-[#004ac6] transition-colors">Portfolio</a>
+    <a href="#experience" class="text-[#001453] font-medium py-2 hover:text-[#004ac6] transition-colors">Experience</a>
+    <a href="#contact" class="text-[#001453] font-medium py-2 hover:text-[#004ac6] transition-colors">Contact</a>
+    <a href="mailto:yuko.pangestu@gmail.com" class="hero-gradient text-on-primary px-6 py-3 rounded-xl font-bold text-center">Hire Me</a>
+  </div>
 </nav>
 
-<!-- Hero Section -->
-<section class="hero" id="home">
-    <div class="container">
-        <div class="hero-id-wrapper">
-            <!-- Lanyard -->
-            <div class="id-lanyard">
-                <div class="lanyard-rope"></div>
-                <div class="lanyard-hook"></div>
-            </div>
+<main>
 
-            <!-- ID Card -->
-            <div class="id-card">
-                <!-- Card Header -->
-                <div class="id-card-header">
-                    <div class="id-org">
-                        <i class="fas fa-code"></i>
-                        <span>Personal Profile</span>
-                    </div>
-                    <div class="id-number">ID #YP-001</div>
-                </div>
-
-                <!-- Card Body -->
-                <div class="id-card-body">
-                    <div class="id-photo-col">
-                        <div class="id-photo-frame">
-                            <img src="./assets/hero_img.jpg" alt="Yuko Pangestu">
-                        </div>
-                        <div class="id-status">
-                            <span class="status-dot"></span>
-                            <span>ACTIVE</span>
-                        </div>
-                    </div>
-                    <div class="id-info-col">
-                        <h1 class="id-name">Yuko Pangestu</h1>
-                        <div class="id-role">Technical Lead</div>
-                        <div class="id-dept">Software Engineering</div>
-                        <div class="id-divider"></div>
-                        <div class="id-details">
-                            <div class="id-detail">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Jakarta, Indonesia</span>
-                            </div>
-                            <div class="id-detail">
-                                <i class="fas fa-envelope"></i>
-                                <span>yuko.pangestu@gmail.com</span>
-                            </div>
-                        </div>
-                        <div class="id-skills">
-                            <span class="id-skill-tag">Go</span>
-                            <span class="id-skill-tag">PHP</span>
-                            <span class="id-skill-tag">Vue.js</span>
-                            <span class="id-skill-tag">MySQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card Footer -->
-                <div class="id-card-footer">
-                    <div class="id-barcode">
-                        <div class="barcode-img"></div>
-                        <div class="barcode-text">YP · 2024 · PAPER.ID</div>
-                    </div>
-                    <div class="id-actions">
-                        <a href="#contact" class="btn btn-primary btn-sm">
-                            <i class="fas fa-envelope me-1"></i>Contact
-                        </a>
-                        <a href="#experience" class="btn btn-outline-secondary btn-sm">
-                            <i class="fas fa-folder me-1"></i>Portfolio
-                        </a>
-                    </div>
-                </div>
-            </div>
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-[90vh] flex items-center px-8 md:px-12 py-20 overflow-hidden">
+    <div class="max-w-screen-2xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Left: Text -->
+      <div class="lg:col-span-7 z-10">
+        <span class="text-primary font-label text-sm font-bold tracking-[0.05em] uppercase mb-4 block">
+          Technical Lead · Paper.id · Jakarta
+        </span>
+        <h1 class="text-on-surface font-headline text-5xl md:text-7xl font-extrabold tracking-[-0.02em] leading-[1.1] mb-8">
+          Yuko<br/>
+          <span class="text-primary">Pangestu<span class="text-primary-container">.</span></span>
+        </h1>
+        <p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
+          I build resilient, high-throughput systems and lead cross-functional engineering teams. 8+ years of turning complex technical challenges into clean, scalable solutions.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#portfolio" class="hero-gradient text-on-primary px-8 py-4 rounded-xl text-md font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-95 transition-all duration-200 flex items-center gap-2">
+            View Portfolio
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+          <a href="#experience" class="bg-surface-container-low text-primary px-8 py-4 rounded-xl text-md font-bold hover:bg-surface-container-high transition-colors active:scale-95">
+            My Experience
+          </a>
         </div>
+      </div>
+      <!-- Right: Photo card -->
+      <div class="lg:col-span-5 relative h-full flex justify-center lg:justify-end">
+        <div class="relative w-full aspect-[4/5] max-w-md">
+          <!-- Ambient blobs -->
+          <div class="absolute -top-10 -right-10 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl"></div>
+          <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-primary-container/10 rounded-full blur-3xl"></div>
+          <!-- Portrait -->
+          <div class="relative w-full h-full bg-surface-container-low rounded-[2rem] overflow-hidden shadow-2xl shadow-on-surface/5">
+            <img src="./assets/hero_img.jpg" alt="Yuko Pangestu" class="w-full h-full object-cover object-top"/>
+          </div>
+          <!-- Floating metric chip -->
+          <div class="absolute bottom-10 -left-6 glass-panel p-5 rounded-2xl shadow-xl shadow-on-surface/5 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+              <span class="material-symbols-outlined">code_blocks</span>
+            </div>
+            <div>
+              <div class="text-on-surface font-bold text-lg">8+ Years</div>
+              <div class="text-on-surface-variant text-xs font-medium uppercase tracking-wider">Engineering Depth</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- Skills Section -->
-<section class="skills fade-in py-5" id="skills">
-    <div class="container">
-        <h2 class="section-title text-center mb-3">Technical Skills</h2>
-        <p class="section-subtitle text-center text-muted mb-5">Technologies and expertise I bring to the table</p>
-
-        <div class="row g-3 mb-4">
-            <div class="col-md-4">
-                <div class="skill-item card h-100 text-center p-3">
-                    <div class="skill-icon mb-3">
-                        <i class="fas fa-laptop-code fa-2x"></i>
-                    </div>
-                    <span class="skill-name fw-semibold d-block mb-3">Golang & PHP</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="92"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="skill-item card h-100 text-center p-3">
-                    <div class="skill-icon mb-3">
-                        <i class="fas fa-database fa-2x"></i>
-                    </div>
-                    <span class="skill-name fw-semibold d-block mb-3">MySQL & NoSQL</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="88"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="skill-item card h-100 text-center p-3">
-                    <div class="skill-icon mb-3">
-                        <i class="fas fa-tasks fa-2x"></i>
-                    </div>
-                    <span class="skill-name fw-semibold d-block mb-3">Project Management</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="86"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="skill-item card h-100 text-center p-3">
-                    <div class="skill-icon mb-3">
-                        <i class="fas fa-user-tie fa-2x"></i>
-                    </div>
-                    <span class="skill-name fw-semibold d-block mb-3">Leadership</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="95"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="skill-item card h-100 text-center p-3">
-                    <div class="skill-icon mb-3">
-                        <i class="fas fa-drafting-compass fa-2x"></i>
-                    </div>
-                    <span class="skill-name fw-semibold d-block mb-3">Architecting</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="90"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="skill-item card h-100 text-center p-3">
-                    <div class="skill-icon mb-3">
-                        <i class="fas fa-handshake fa-2x"></i>
-                    </div>
-                    <span class="skill-name fw-semibold d-block mb-3">Teamwork</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" data-level="94"></div>
-                    </div>
-                </div>
-            </div>
+  <!-- Technical Skills -->
+  <section id="skills" class="py-24 px-8 md:px-12 bg-surface-container-low">
+    <div class="max-w-screen-2xl mx-auto">
+      <div class="mb-16 fade-up">
+        <span class="text-primary font-label text-sm font-bold tracking-[0.05em] uppercase mb-4 block">What I Bring</span>
+        <h2 class="text-on-surface font-headline text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          Technical <span class="text-primary">Ecosystem</span>
+        </h2>
+        <div class="h-1 w-20 bg-primary rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Backend -->
+        <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-[0_8px_48px_rgba(0,20,83,0.06)] hover:-translate-y-1 transition-all duration-300 fade-up">
+          <span class="material-symbols-outlined text-primary text-3xl mb-6 block">terminal</span>
+          <h3 class="text-on-surface font-headline text-xl font-bold mb-4">Backend Engineering</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed mb-6">Designing high-throughput APIs and microservices. Built systems processing 10M+ transactions monthly.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface">Go</span>
+            <span class="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface">PHP</span>
+            <span class="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface">RabbitMQ</span>
+            <span class="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface">REST</span>
+          </div>
         </div>
-
-        <div class="skills-summary text-center">
-            <h3 class="h5">Technical Expertise</h3>
-            <p class="text-muted">8+ years building scalable web applications</p>
+        <!-- Database -->
+        <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-[0_8px_48px_rgba(0,20,83,0.06)] hover:-translate-y-1 transition-all duration-300 fade-up" style="transition-delay:0.1s">
+          <span class="material-symbols-outlined text-primary text-3xl mb-6 block">database</span>
+          <h3 class="text-on-surface font-headline text-xl font-bold mb-4">Data & Storage</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed mb-6">Advanced query optimization and caching strategies. Reduced DB load by 70% through smart indexing.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface">MySQL</span>
+            <span class="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface">NoSQL</span>
+            <span class="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface">Redis</span>
+            <span class="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface">Query Tuning</span>
+          </div>
         </div>
+        <!-- Leadership -->
+        <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-[0_8px_48px_rgba(0,20,83,0.06)] hover:-translate-y-1 transition-all duration-300 fade-up" style="transition-delay:0.2s">
+          <span class="material-symbols-outlined text-primary text-3xl mb-6 block">groups</span>
+          <h3 class="text-on-surface font-headline text-xl font-bold mb-4">Tech Leadership</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed mb-6">Leading cross-functional teams of 15+ engineers. Hiring, mentoring, and setting technical direction.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface">Architecture</span>
+            <span class="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface">CI/CD</span>
+            <span class="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface">Vue.js</span>
+            <span class="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface">Agile</span>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- About Section -->
-<section class="about fade-in py-5" id="about">
-    <div class="container">
-        <h2 class="section-title text-center mb-3">About Me</h2>
-        <p class="section-subtitle text-center text-muted mb-5">Technical Lead with 8+ years of experience in full-stack development</p>
-
-        <div class="row g-4">
-            <div class="col-lg-4">
-                <div class="row g-3">
-                    <div class="col-6">
-                        <div class="stat-card card text-center p-4 h-100">
-                            <div class="stat-number display-4 fw-bold">8+</div>
-                            <div class="stat-label text-muted small">Years Experience</div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="stat-card card text-center p-4 h-100">
-                            <div class="stat-number display-4 fw-bold">10+</div>
-                            <div class="stat-label text-muted small">Technologies</div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="stat-card card text-center p-4 h-100">
-                            <div class="stat-number display-4 fw-bold">20+</div>
-                            <div class="stat-label text-muted small">Projects Delivered</div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="stat-card card text-center p-4 h-100">
-                            <div class="stat-number display-4 fw-bold">4+</div>
-                            <div class="stat-label text-muted small">Team Members Led</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-8 about-content">
-                <h3 class="h4 mb-3">Building Digital Excellence</h3>
-                <p class="mb-3">As a Technical Lead at Paper.id, I orchestrate the development of innovative solutions while mentoring a diverse team of engineers. My journey in tech has equipped me with a comprehensive skill set spanning from backend architecture to frontend implementation.</p>
-                <p class="mb-3">I specialize in creating scalable web applications, implementing microservices architectures, and ensuring code quality across teams. My approach combines technical expertise with strong leadership to deliver products that make a difference.</p>
-                <p class="mb-0">I also help product team to calculate and give them solutions about what they want to build</p>
-            </div>
+  <!-- About / Philosophy -->
+  <section class="py-32 px-8 md:px-12 bg-surface overflow-hidden">
+    <div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+      <!-- Stats -->
+      <div class="lg:w-1/2 fade-up">
+        <span class="text-primary font-label text-sm font-bold tracking-[0.05em] uppercase mb-4 block">The Philosophy</span>
+        <h2 class="text-on-surface font-headline text-4xl font-extrabold tracking-tight mb-8">
+          Precision in Code,<br/>Vision in Strategy.
+        </h2>
+        <div class="space-y-6 text-on-surface-variant text-lg leading-relaxed">
+          <p>As a Technical Lead at Paper.id, I orchestrate development of innovative solutions while mentoring engineers. My approach combines backend architecture expertise with strong leadership to deliver products that make a difference.</p>
+          <p>I specialize in creating scalable web applications, implementing microservices architectures, and ensuring code quality across teams. I also help product teams calculate effort and shape solutions for what they want to build.</p>
         </div>
-    </div>
-</section>
-
-<!-- Portfolio Section -->
-<section class="portfolio fade-in py-5" id="portfolio">
-    <div class="container">
-        <h2 class="section-title text-center mb-3">Portfolio Showcase</h2>
-        <p class="section-subtitle text-center text-muted mb-5">Featured projects and achievements</p>
-
-        <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            </div>
-
-            <div class="carousel-inner">
-                <!-- Slide 1 -->
-                <div class="carousel-item active">
-                    <div class="portfolio-card card mx-auto">
-                        <div class="card-body p-5">
-                            <div class="portfolio-icon mb-4">
-                                <i class="fas fa-shopping-cart fa-4x"></i>
-                            </div>
-                            <span class="badge bg-primary mb-3">Digital Agency</span>
-                            <h3 class="h4 mb-3">Outpost Interactive</h3>
-                            <div>
-                                <img src="https://i.imgur.com/mjGlkKP.png" width="100%" alt="Showcase1">
-                            </div>
-                            <p class="text-muted">Creating websites from concept to launch, delivering engaging user experiences.</p>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Slide 2 -->
-                <div class="carousel-item">
-                    <div class="portfolio-card card mx-auto">
-                        <div class="card-body p-5">
-                            <div class="portfolio-icon mb-4">
-                                <i class="fas fa-database fa-4x"></i>
-                            </div>
-                            <span class="badge bg-primary mb-3">In house Project</span>
-                            <h3 class="h4 mb-3">Bandingin.com</h3>
-                            <div>
-                                <img src="https://i.imgur.com/FAfriKi.png" width="100%" alt="">
-                            </div>
-                            <p class="text-muted">Creating websites from concept to launch, delivering engaging user experiences.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="carousel-item">
-                    <div class="portfolio-card card mx-auto">
-                        <div class="card-body p-5">
-                            <div class="portfolio-icon mb-4">
-                                <i class="fas fa-database fa-4x"></i>
-                            </div>
-                            <span class="badge bg-primary mb-3">Digital Agency</span>
-                            <h3 class="h4 mb-3">Indowebdeveloper</h3>
-                            <div>
-                                <img src="https://i.imgur.com/wCIAxrk.png" width="100%" alt="">
-                            </div>
-                            <p class="text-muted">Optimized critical database queries reducing page load times from 5 seconds to 300ms. Implemented advanced caching strategies that decreased database load by 70%.</p>
-                        </div>
-                    </div>
-                </div>
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        <div class="mt-12 flex items-center gap-10">
+          <div>
+            <div class="text-on-surface font-extrabold text-3xl">20+</div>
+            <div class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mt-1">Projects Delivered</div>
+          </div>
+          <div class="w-px h-12 bg-outline-variant/30"></div>
+          <div>
+            <div class="text-on-surface font-extrabold text-3xl">15+</div>
+            <div class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mt-1">Engineers Led</div>
+          </div>
+          <div class="w-px h-12 bg-outline-variant/30"></div>
+          <div>
+            <div class="text-on-surface font-extrabold text-3xl">99.9%</div>
+            <div class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mt-1">Uptime Goal</div>
+          </div>
         </div>
-    </div>
-</section>
-
-<!-- Experience Section -->
-<section class="experience fade-in py-5" id="experience">
-    <div class="container">
-        <h2 class="section-title text-center mb-3">Professional Journey</h2>
-        <p class="section-subtitle text-center text-muted mb-5">My career progression and achievements</p>
-
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="tl-header">
-                        <h3 class="tl-role">Technical Lead</h3>
-                        <div class="tl-meta">
-                            <span class="tl-company"><i class="fas fa-building fa-xs"></i> Paper.id</span>
-                            <span class="tl-period">Feb 2023 – Oct 2025</span>
-                        </div>
-                    </div>
-                    <ul class="tl-list">
-                        <li>Led cross-functional team of 15+ engineers across Backend, Frontend, and QA</li>
-                        <li>Reduced deployment time by 40% through CI/CD pipeline optimization</li>
-                        <li>Architected microservices platform handling 10M+ transactions monthly</li>
-                        <li>Hired 8 senior engineers, raising overall team capability by 30%</li>
-                        <li>Delivered technical roadmap aligned with business goals, growing revenue by 25%</li>
-                        <li>Established coding standards and review processes, cutting bugs by 35%</li>
-                    </ul>
-                </div>
-                <div class="timeline-dot"></div>
+      </div>
+      <!-- Visual: deep card -->
+      <div class="lg:w-1/2 fade-up">
+        <div class="relative overflow-hidden rounded-[2rem] bg-inverse-surface p-12 text-on-primary min-h-[400px] flex flex-col justify-between">
+          <div class="absolute top-0 right-0 w-80 h-80 bg-primary/20 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div class="absolute bottom-0 left-0 w-60 h-60 bg-primary-container/10 blur-3xl rounded-full translate-y-1/2 -translate-x-1/2"></div>
+          <div class="relative z-10">
+            <span class="text-white/50 font-label text-xs uppercase tracking-[0.2em]">Currently At</span>
+            <h3 class="text-white text-3xl font-black tracking-tight mt-2">Paper.id</h3>
+            <p class="text-white/60 mt-4 text-lg">Technical Lead — Software Engineering</p>
+          </div>
+          <div class="relative z-10 mt-16 grid grid-cols-2 gap-6">
+            <div class="bg-white/10 rounded-xl p-5">
+              <div class="text-2xl font-black text-white">$2M+</div>
+              <div class="text-white/50 text-xs uppercase tracking-widest mt-1">Daily Transactions</div>
             </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="tl-header">
-                        <h3 class="tl-role">Senior Backend Engineer</h3>
-                        <div class="tl-meta">
-                            <span class="tl-company"><i class="fas fa-building fa-xs"></i> Paper.id</span>
-                            <span class="tl-period">Apr 2022 – Feb 2023</span>
-                        </div>
-                    </div>
-                    <ul class="tl-list">
-                        <li>Designed payment gateway integration processing $2M+ in daily transactions</li>
-                        <li>Led monolith-to-microservices migration, improving response time by 60%</li>
-                        <li>Mentored 5 junior developers on best practices and code quality</li>
-                        <li>Optimized database queries, cutting load time from 5 s to 300 ms</li>
-                        <li>Maintained 99.9% uptime for critical payment services</li>
-                    </ul>
-                </div>
-                <div class="timeline-dot"></div>
+            <div class="bg-white/10 rounded-xl p-5">
+              <div class="text-2xl font-black text-white">10M+</div>
+              <div class="text-white/50 text-xs uppercase tracking-widest mt-1">Monthly Transactions</div>
             </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="tl-header">
-                        <h3 class="tl-role">Backend Engineer</h3>
-                        <div class="tl-meta">
-                            <span class="tl-company"><i class="fas fa-building fa-xs"></i> Paper.id</span>
-                            <span class="tl-period">Sep 2019 – Apr 2022</span>
-                        </div>
-                    </div>
-                    <ul class="tl-list">
-                        <li>Built REST APIs serving 1M+ daily requests at 99.5% availability</li>
-                        <li>Implemented event-driven architecture with RabbitMQ, processing 500K messages/day</li>
-                        <li>Introduced caching strategy that reduced database load by 70%</li>
-                        <li>Collaborated with 8 engineers to ship 20+ features on schedule</li>
-                        <li>Refactored legacy code, lifting test coverage from 40% to 85%</li>
-                    </ul>
-                </div>
-                <div class="timeline-dot"></div>
+            <div class="bg-white/10 rounded-xl p-5">
+              <div class="text-2xl font-black text-white">40%</div>
+              <div class="text-white/50 text-xs uppercase tracking-widest mt-1">Faster Deployments</div>
             </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="tl-header">
-                        <h3 class="tl-role">Full Stack Developer</h3>
-                        <div class="tl-meta">
-                            <span class="tl-company"><i class="fas fa-building fa-xs"></i> Bandingin</span>
-                            <span class="tl-period">Jul 2018 – Aug 2019</span>
-                        </div>
-                    </div>
-                    <ul class="tl-list">
-                        <li>Led end-to-end development for an insurance comparison platform</li>
-                        <li>Mentored new engineers to accelerate delivery and uphold code quality</li>
-                        <li>Owned insurance e-commerce backend operations, keeping SLAs on track</li>
-                        <li>Coordinated with product and partners to shape an experiment-driven roadmap</li>
-                    </ul>
-                </div>
-                <div class="timeline-dot"></div>
+            <div class="bg-white/10 rounded-xl p-5">
+              <div class="text-2xl font-black text-white">35%</div>
+              <div class="text-white/50 text-xs uppercase tracking-widest mt-1">Fewer Bugs</div>
             </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="tl-header">
-                        <h3 class="tl-role">Full Stack Web Developer</h3>
-                        <div class="tl-meta">
-                            <span class="tl-company"><i class="fas fa-building fa-xs"></i> INDOWEBDEVELOPER</span>
-                            <span class="tl-period">Feb 2017 – Jun 2018</span>
-                        </div>
-                    </div>
-                    <ul class="tl-list">
-                        <li>Delivered PSD-to-HTML slicing and pixel-perfect UI implementation</li>
-                        <li>Handled client meetings, backend services, and ongoing bug fixes</li>
-                        <li>Contributed to full-stack development and system architecture decisions</li>
-                    </ul>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="tl-header">
-                        <h3 class="tl-role">Full Stack Engineer</h3>
-                        <div class="tl-meta">
-                            <span class="tl-company"><i class="fas fa-building fa-xs"></i> Outpost Interactive</span>
-                            <span class="tl-period">Oct 2016 – Dec 2016</span>
-                        </div>
-                    </div>
-                    <ul class="tl-list">
-                        <li>Built full-stack features and contributed to system architecture</li>
-                        <li>Implemented responsive design, bug fixes, and cloud/server management</li>
-                    </ul>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="tl-header">
-                        <h3 class="tl-role">Frontend Web Developer</h3>
-                        <div class="tl-meta">
-                            <span class="tl-company"><i class="fas fa-building fa-xs"></i> PesanLab</span>
-                            <span class="tl-period">Feb 2016 – Sep 2016</span>
-                        </div>
-                    </div>
-                    <ul class="tl-list">
-                        <li>Developed Pesanlab.com and Homecare.id healthcare platform websites</li>
-                        <li>Handled server maintenance and Git-based team collaboration</li>
-                    </ul>
-                </div>
-                <div class="timeline-dot"></div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- Contact Section -->
-<section class="contact py-5" id="contact">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <h2 class="section-title text-white mb-3">Let's Connect</h2>
-                <p class="text-white-50 mb-5">I'm always interested in new opportunities and collaborations</p>
+  <!-- Portfolio -->
+  <section id="portfolio" class="py-24 px-8 md:px-12 bg-surface-container-low">
+    <div class="max-w-screen-2xl mx-auto">
+      <div class="mb-16 fade-up">
+        <span class="font-label text-xs uppercase tracking-[0.2em] text-primary font-bold mb-4 block">Selected Works</span>
+        <h2 class="text-[3.5rem] font-headline font-black leading-none tracking-tighter text-on-surface max-w-4xl mb-8">
+          Digital experiences crafted with <span class="text-gradient">architectural precision.</span>
+        </h2>
+        <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+          A collection of engineering projects focused on scalability, performance, and human-centric design.
+        </p>
+      </div>
 
-                <div class="row justify-content-center g-4 mb-4">
-                    <div class="col-md-6">
-                        <div class="contact-item d-flex flex-column align-items-center">
-                            <i class="fas fa-envelope fa-2x mb-2"></i>
-                            <a href="mailto:yuko.pangestu@gmail.com" class="text-white text-decoration-none">yuko.pangestu@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="contact-item d-flex flex-column align-items-center">
-                            <i class="fas fa-map-marker-alt fa-2x mb-2"></i>
-                            <span class="text-white">Jakarta, Indonesia</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="social-links d-flex justify-content-center gap-3 mt-4">
-                    <a href="https://www.linkedin.com/in/yukopangestu/" target="_blank" class="btn btn-outline-light rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/yukopangestu" target="_blank" class="btn btn-outline-light rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://medium.com/@yuko.pangestu" target="_blank" class="btn btn-outline-light rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fab fa-medium"></i>
-                    </a>
-                    <a href="mailto:yuko.pangestu@gmail.com" class="btn btn-outline-light rounded-circle" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <!-- Main Featured Project -->
+        <div class="md:col-span-8 group fade-up">
+          <div class="bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-on-surface/5">
+            <div class="aspect-video relative overflow-hidden bg-surface-dim">
+              <img src="https://i.imgur.com/mjGlkKP.png" alt="Payment Gateway System" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+              <div class="absolute inset-0 bg-on-surface/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
+            <div class="p-10">
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-surface-container-high text-on-surface text-[0.7rem] font-bold uppercase tracking-wider px-3 py-1 rounded-sm">Go</span>
+                <span class="bg-surface-container-high text-on-surface text-[0.7rem] font-bold uppercase tracking-wider px-3 py-1 rounded-sm">Microservices</span>
+                <span class="bg-surface-container-high text-on-surface text-[0.7rem] font-bold uppercase tracking-wider px-3 py-1 rounded-sm">Payment API</span>
+                <span class="bg-surface-container-high text-on-surface text-[0.7rem] font-bold uppercase tracking-wider px-3 py-1 rounded-sm">Paper.id</span>
+              </div>
+              <h3 class="text-2xl font-headline font-bold text-on-surface mb-3">Payment Gateway Platform</h3>
+              <p class="text-on-surface-variant mb-8 leading-relaxed max-w-2xl">
+                Architected and implemented a robust payment gateway system at Paper.id processing $2M+ in daily transactions with 99.9% uptime. Built with Golang microservices integrated with multiple payment providers.
+              </p>
+              <a href="#contact" class="text-primary font-bold border-b-2 border-primary pb-1 flex items-center gap-2 group/link w-fit">
+                Get in Touch
+                <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+              </a>
+            </div>
+          </div>
         </div>
+
+        <!-- Side Project -->
+        <div class="md:col-span-4 group fade-up" style="transition-delay:0.1s">
+          <div class="h-full bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col transition-all duration-500 hover:shadow-2xl hover:shadow-on-surface/5">
+            <div class="aspect-[4/3] bg-surface-dim overflow-hidden">
+              <img src="https://i.imgur.com/wCIAxrk.png" alt="Database Optimization" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+            </div>
+            <div class="p-8 flex-grow">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-surface-container-high text-on-surface text-[0.7rem] font-bold uppercase tracking-wider px-3 py-1 rounded-sm">MySQL</span>
+                <span class="bg-surface-container-high text-on-surface text-[0.7rem] font-bold uppercase tracking-wider px-3 py-1 rounded-sm">Caching</span>
+              </div>
+              <h3 class="text-xl font-headline font-bold text-on-surface mb-3">Database Performance Overhaul</h3>
+              <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                Optimized critical database queries reducing page load times from 5s to 300ms. Implemented advanced caching strategies that decreased database load by 70%.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wide project -->
+        <div class="md:col-span-8 group fade-up" style="transition-delay:0.15s">
+          <div class="h-full bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col md:flex-row transition-all duration-500 hover:shadow-2xl hover:shadow-on-surface/5">
+            <div class="w-full md:w-2/5 aspect-square md:aspect-auto bg-inverse-surface flex items-center justify-center overflow-hidden relative">
+              <div class="absolute inset-0 bg-primary/20"></div>
+              <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,_#ffffff_1px,_transparent_1px)] bg-[length:20px_20px]"></div>
+              <div class="relative z-10 text-center p-8">
+                <div class="text-5xl font-black text-white mb-2">500K</div>
+                <div class="text-white/60 text-sm uppercase tracking-widest">Messages/Day</div>
+              </div>
+            </div>
+            <div class="w-full md:w-3/5 p-10 flex flex-col justify-center">
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-surface-container-high text-on-surface text-[0.7rem] font-bold uppercase tracking-wider px-3 py-1 rounded-sm">RabbitMQ</span>
+                <span class="bg-surface-container-high text-on-surface text-[0.7rem] font-bold uppercase tracking-wider px-3 py-1 rounded-sm">Event-Driven</span>
+                <span class="bg-surface-container-high text-on-surface text-[0.7rem] font-bold uppercase tracking-wider px-3 py-1 rounded-sm">Go</span>
+              </div>
+              <h3 class="text-2xl font-headline font-bold text-on-surface mb-3">Event-Driven Architecture</h3>
+              <p class="text-on-surface-variant mb-8 leading-relaxed">
+                Implemented event-driven architecture with RabbitMQ processing 500K messages per day. Refactored legacy code lifting test coverage from 40% to 85%, and built REST APIs serving 1M+ daily requests.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Small stat card -->
+        <div class="md:col-span-4 fade-up" style="transition-delay:0.2s">
+          <div class="h-full bg-inverse-surface rounded-xl p-8 flex flex-col justify-between min-h-[200px] relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-40 h-40 bg-primary-container/20 blur-2xl rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <div class="relative z-10">
+              <span class="text-white/50 font-label text-xs uppercase tracking-[0.2em]">Client Work</span>
+              <h3 class="text-white text-2xl font-black mt-3 leading-tight">Web Agency Projects</h3>
+              <p class="text-white/60 text-sm mt-4 leading-relaxed">Built and delivered multiple client-facing websites from PSD to pixel-perfect responsive HTML, handling backend services and ongoing maintenance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+
+  <!-- Professional Journey -->
+  <section id="experience" class="py-24 px-8 md:px-12 bg-surface">
+    <div class="max-w-screen-2xl mx-auto">
+      <div class="mb-20 fade-up">
+        <span class="text-primary font-label text-sm font-bold tracking-[0.05em] uppercase mb-4 block">Professional Journey</span>
+        <h2 class="text-5xl md:text-6xl font-extrabold tracking-[-0.02em] text-on-surface leading-tight max-w-3xl">
+          Precision in Code.<br/>Authority in <span class="text-primary">Leadership.</span>
+        </h2>
+        <p class="mt-6 text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+          8+ years of engineering high-performance systems and leading cross-functional teams to deliver scalable digital architectures.
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative">
+        <!-- Vertical line -->
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-outline-variant/20 -translate-x-1/2"></div>
+
+        <!-- Role 1: Technical Lead -->
+        <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 mb-24 items-start fade-up">
+          <div class="md:text-right pl-12 md:pl-0">
+            <div class="flex items-center md:justify-end gap-4 mb-2">
+              <span class="text-[0.75rem] font-bold tracking-[0.05em] text-on-surface-variant/60 uppercase">Feb 2023 — Oct 2025</span>
+              <div class="hidden md:block w-12 h-[1px] bg-primary"></div>
+            </div>
+            <h3 class="text-2xl font-bold text-on-surface">Technical Lead</h3>
+            <p class="text-primary font-bold text-lg">Paper.id</p>
+          </div>
+          <div class="relative bg-surface-container-lowest p-8 rounded-xl shadow-[0_8px_48px_rgba(0,20,83,0.06)] hover:-translate-y-1 transition-transform duration-300 ml-12 md:ml-0">
+            <div class="absolute left-[-42px] md:left-[-97px] top-10 w-4 h-4 rounded-full bg-primary ring-8 ring-surface z-10 shadow-[0_0_12px_rgba(0,74,198,0.3)]"></div>
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">hub</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-surface-container-high text-on-surface text-[0.7rem] font-medium rounded-sm">Go</span>
+                <span class="px-3 py-1 bg-surface-container-high text-on-surface text-[0.7rem] font-medium rounded-sm">Microservices</span>
+                <span class="px-3 py-1 bg-surface-container-high text-on-surface text-[0.7rem] font-medium rounded-sm">CI/CD</span>
+              </div>
+            </div>
+            <ul class="space-y-4">
+              <li class="flex gap-4">
+                <span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                <p class="text-on-surface-variant leading-relaxed">Led cross-functional team of 15+ engineers across Backend, Frontend, and QA.</p>
+              </li>
+              <li class="flex gap-4">
+                <span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                <p class="text-on-surface-variant leading-relaxed">Reduced deployment time by 40% through CI/CD pipeline optimization.</p>
+              </li>
+              <li class="flex gap-4">
+                <span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                <p class="text-on-surface-variant leading-relaxed">Architected microservices platform handling 10M+ transactions monthly.</p>
+              </li>
+              <li class="flex gap-4">
+                <span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+                <p class="text-on-surface-variant leading-relaxed">Delivered technical roadmap growing revenue by 25%, cutting bugs by 35%.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Role 2: Senior Backend Engineer -->
+        <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 mb-24 items-start fade-up">
+          <div class="md:order-2 pl-12 md:pl-0">
+            <div class="flex items-center gap-4 mb-2">
+              <div class="hidden md:block w-12 h-[1px] bg-outline-variant/40"></div>
+              <span class="text-[0.75rem] font-bold tracking-[0.05em] text-on-surface-variant/60 uppercase">Apr 2022 — Feb 2023</span>
+            </div>
+            <h3 class="text-2xl font-bold text-on-surface">Senior Backend Engineer</h3>
+            <p class="text-primary font-bold text-lg">Paper.id</p>
+          </div>
+          <div class="md:order-1 relative bg-surface-container-low p-8 rounded-xl hover:-translate-y-1 transition-transform duration-300 ml-12 md:ml-0">
+            <div class="absolute left-[-42px] md:right-[-97px] md:left-auto top-10 w-4 h-4 rounded-full bg-outline-variant ring-8 ring-surface z-10"></div>
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 bg-surface-container-lowest rounded-lg flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">payments</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-surface-container-lowest text-on-surface text-[0.7rem] font-medium rounded-sm">Go</span>
+                <span class="px-3 py-1 bg-surface-container-lowest text-on-surface text-[0.7rem] font-medium rounded-sm">Payment APIs</span>
+              </div>
+            </div>
+            <ul class="space-y-4">
+              <li class="flex gap-4">
+                <span class="material-symbols-outlined text-outline-variant text-sm mt-0.5">radio_button_checked</span>
+                <p class="text-on-surface-variant leading-relaxed">Designed payment gateway integration processing $2M+ in daily transactions.</p>
+              </li>
+              <li class="flex gap-4">
+                <span class="material-symbols-outlined text-outline-variant text-sm mt-0.5">radio_button_checked</span>
+                <p class="text-on-surface-variant leading-relaxed">Led monolith-to-microservices migration, improving response time by 60%.</p>
+              </li>
+              <li class="flex gap-4">
+                <span class="material-symbols-outlined text-outline-variant text-sm mt-0.5">radio_button_checked</span>
+                <p class="text-on-surface-variant leading-relaxed">Optimized database queries, cutting load time from 5s to 300ms.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Role 3: Backend Engineer -->
+        <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 mb-24 items-start fade-up">
+          <div class="md:text-right pl-12 md:pl-0">
+            <div class="flex items-center md:justify-end gap-4 mb-2">
+              <span class="text-[0.75rem] font-bold tracking-[0.05em] text-on-surface-variant/60 uppercase">Sep 2019 — Apr 2022</span>
+              <div class="hidden md:block w-12 h-[1px] bg-outline-variant/40"></div>
+            </div>
+            <h3 class="text-2xl font-bold text-on-surface">Backend Engineer</h3>
+            <p class="text-primary font-bold text-lg">Paper.id</p>
+          </div>
+          <div class="relative bg-surface-container-lowest p-8 rounded-xl shadow-[0_8px_48px_rgba(0,20,83,0.06)] hover:-translate-y-1 transition-transform duration-300 ml-12 md:ml-0">
+            <div class="absolute left-[-42px] md:left-[-97px] top-10 w-4 h-4 rounded-full bg-outline-variant ring-8 ring-surface z-10"></div>
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">api</span>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-surface-container-high text-on-surface text-[0.7rem] font-medium rounded-sm">RabbitMQ</span>
+                <span class="px-3 py-1 bg-surface-container-high text-on-surface text-[0.7rem] font-medium rounded-sm">REST</span>
+                <span class="px-3 py-1 bg-surface-container-high text-on-surface text-[0.7rem] font-medium rounded-sm">PHP</span>
+              </div>
+            </div>
+            <ul class="space-y-4">
+              <li class="flex gap-4">
+                <span class="material-symbols-outlined text-outline-variant text-sm mt-0.5">radio_button_checked</span>
+                <p class="text-on-surface-variant leading-relaxed">Built REST APIs serving 1M+ daily requests at 99.5% availability.</p>
+              </li>
+              <li class="flex gap-4">
+                <span class="material-symbols-outlined text-outline-variant text-sm mt-0.5">radio_button_checked</span>
+                <p class="text-on-surface-variant leading-relaxed">Implemented event-driven architecture processing 500K messages/day.</p>
+              </li>
+              <li class="flex gap-4">
+                <span class="material-symbols-outlined text-outline-variant text-sm mt-0.5">radio_button_checked</span>
+                <p class="text-on-surface-variant leading-relaxed">Introduced caching strategy reducing database load by 70%.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Role 4: Full Stack Developer at Bandingin -->
+        <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 mb-24 items-start fade-up">
+          <div class="md:order-2 pl-12 md:pl-0">
+            <div class="flex items-center gap-4 mb-2">
+              <div class="hidden md:block w-12 h-[1px] bg-outline-variant/40"></div>
+              <span class="text-[0.75rem] font-bold tracking-[0.05em] text-on-surface-variant/60 uppercase">Jul 2018 — Aug 2019</span>
+            </div>
+            <h3 class="text-2xl font-bold text-on-surface">Full Stack Developer</h3>
+            <p class="text-primary font-bold text-lg">Bandingin</p>
+          </div>
+          <div class="md:order-1 relative bg-surface-container-low p-8 rounded-xl hover:-translate-y-1 transition-transform duration-300 ml-12 md:ml-0">
+            <div class="absolute left-[-42px] md:right-[-97px] md:left-auto top-10 w-4 h-4 rounded-full bg-outline-variant ring-8 ring-surface z-10"></div>
+            <ul class="space-y-4">
+              <li class="flex gap-4">
+                <span class="material-symbols-outlined text-outline-variant text-sm mt-0.5">radio_button_checked</span>
+                <p class="text-on-surface-variant leading-relaxed">Led end-to-end development for an insurance comparison platform.</p>
+              </li>
+              <li class="flex gap-4">
+                <span class="material-symbols-outlined text-outline-variant text-sm mt-0.5">radio_button_checked</span>
+                <p class="text-on-surface-variant leading-relaxed">Owned insurance e-commerce backend operations, keeping SLAs on track.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Earlier roles: compact -->
+        <div class="relative pl-12 md:pl-0 fade-up">
+          <div class="absolute left-4 md:left-1/2 top-0 w-4 h-4 rounded-full bg-outline-variant/40 ring-8 ring-surface z-10 -translate-x-1/2"></div>
+          <div class="md:ml-[calc(50%+3rem)] max-w-xl">
+            <span class="text-[0.75rem] font-bold tracking-[0.05em] text-on-surface-variant/60 uppercase block mb-6">2016 — 2018 · Earlier Roles</span>
+            <div class="space-y-6">
+              <div class="bg-surface-container-low p-6 rounded-xl">
+                <h4 class="font-bold text-on-surface">Full Stack Web Developer · INDOWEBDEVELOPER</h4>
+                <p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Feb 2017 – Jun 2018 · Delivered PSD-to-HTML slicing, pixel-perfect UI, backend services, and client meetings.</p>
+              </div>
+              <div class="bg-surface-container-low p-6 rounded-xl">
+                <h4 class="font-bold text-on-surface">Full Stack Engineer · Outpost Interactive</h4>
+                <p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Oct 2016 – Dec 2016 · Built full-stack features, responsive design, and cloud/server management.</p>
+              </div>
+              <div class="bg-surface-container-low p-6 rounded-xl">
+                <h4 class="font-bold text-on-surface">Frontend Web Developer · PesanLab</h4>
+                <p class="text-on-surface-variant text-sm mt-2 leading-relaxed">Feb 2016 – Sep 2016 · Developed Pesanlab.com and Homecare.id healthcare platform websites.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 bg-inverse-surface rounded-xl p-12 md:p-20 text-white fade-up">
+        <div>
+          <h3 class="text-6xl font-black mb-4">8+</h3>
+          <p class="text-sm uppercase tracking-widest opacity-60">Years of Experience</p>
+        </div>
+        <div>
+          <h3 class="text-6xl font-black mb-4">20+</h3>
+          <p class="text-sm uppercase tracking-widest opacity-60">Projects Delivered</p>
+        </div>
+        <div>
+          <h3 class="text-6xl font-black mb-4">10M+</h3>
+          <p class="text-sm uppercase tracking-widest opacity-60">Monthly Transactions</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 px-8 md:px-12 bg-surface-container-low">
+    <div class="max-w-screen-2xl mx-auto">
+      <div class="mb-16 fade-up">
+        <p class="text-primary font-bold tracking-[0.05em] text-[0.75rem] uppercase mb-4">Get in Touch</p>
+        <h2 class="text-on-surface font-headline font-extrabold text-5xl md:text-6xl tracking-tight leading-tight max-w-3xl">
+          Let's Connect<span class="text-primary">.</span>
+        </h2>
+        <p class="mt-6 text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+          I'm always open to new opportunities, collaborations, and meaningful conversations about technology and leadership.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Contact details -->
+        <div class="lg:col-span-5 space-y-10 fade-up">
+          <div class="flex items-start gap-6">
+            <div class="bg-surface-container-highest p-4 rounded-xl text-primary flex-shrink-0">
+              <span class="material-symbols-outlined">alternate_email</span>
+            </div>
+            <div>
+              <h3 class="text-on-surface font-bold text-lg">Direct Email</h3>
+              <a href="mailto:yuko.pangestu@gmail.com" class="text-on-surface-variant mt-1 block hover:text-primary transition-colors">yuko.pangestu@gmail.com</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-6">
+            <div class="bg-surface-container-highest p-4 rounded-xl text-primary flex-shrink-0">
+              <span class="material-symbols-outlined">location_on</span>
+            </div>
+            <div>
+              <h3 class="text-on-surface font-bold text-lg">Location</h3>
+              <p class="text-on-surface-variant mt-1">Jakarta, Indonesia</p>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="bg-surface-container-lowest p-8 rounded-xl space-y-6">
+            <h3 class="text-on-surface font-bold text-lg">Digital Presence</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <a href="https://github.com/yukopangestu" target="_blank" rel="noopener" class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg hover:bg-primary/5 transition-colors group">
+                <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">terminal</span>
+                <span class="font-medium text-on-surface-variant group-hover:text-primary transition-colors">GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/yukopangestu/" target="_blank" rel="noopener" class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg hover:bg-primary/5 transition-colors group">
+                <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">work</span>
+                <span class="font-medium text-on-surface-variant group-hover:text-primary transition-colors">LinkedIn</span>
+              </a>
+              <a href="https://medium.com/@yuko.pangestu" target="_blank" rel="noopener" class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg hover:bg-primary/5 transition-colors group">
+                <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">article</span>
+                <span class="font-medium text-on-surface-variant group-hover:text-primary transition-colors">Medium</span>
+              </a>
+              <a href="mailto:yuko.pangestu@gmail.com" class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg hover:bg-primary/5 transition-colors group">
+                <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">mail</span>
+                <span class="font-medium text-on-surface-variant group-hover:text-primary transition-colors">Email</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quote card -->
+          <div class="relative overflow-hidden h-44 rounded-xl bg-inverse-surface">
+            <div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
+            <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,_#ffffff_1px,_transparent_1px)] bg-[length:20px_20px]"></div>
+            <div class="absolute bottom-6 left-8 text-on-primary pr-8">
+              <p class="text-[0.65rem] uppercase tracking-widest font-bold opacity-70">Philosophy</p>
+              <p class="text-lg font-headline font-bold leading-tight mt-1">Code is the modern architecture of human experience.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA card -->
+        <div class="lg:col-span-7 fade-up">
+          <div class="relative overflow-hidden rounded-[2rem] hero-gradient p-12 md:p-16 text-center text-on-primary shadow-2xl shadow-primary/30 h-full flex flex-col justify-center">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-48 -mt-48 blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full -ml-48 -mb-48 blur-3xl"></div>
+            <div class="relative z-10">
+              <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-6">Ready to build something great?</h2>
+              <p class="text-on-primary/80 text-lg max-w-lg mx-auto mb-10">
+                I bring 8+ years of engineering depth and leadership experience. Let's talk about how I can help your team ship faster and build better.
+              </p>
+              <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:yuko.pangestu@gmail.com" class="bg-white text-primary px-10 py-4 rounded-xl font-bold hover:bg-surface-bright active:scale-95 transition-all shadow-lg">
+                  Send an Email
+                </a>
+                <a href="https://www.linkedin.com/in/yukopangestu/" target="_blank" rel="noopener" class="bg-primary-container/20 border border-white/20 text-on-primary px-10 py-4 rounded-xl font-bold hover:bg-white/10 active:scale-95 transition-all">
+                  View LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <!-- Footer -->
-<footer class="bg-dark text-white text-center py-4">
-    <div class="container">
-        <p class="mb-0">&copy; <span id="currentYear"></span> Yuko Pangestu. All rights reserved.</p>
+<footer class="w-full py-16 px-8 bg-[#192b6b]">
+  <div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto text-center md:text-left">
+    <div>
+      <div class="text-lg font-bold text-[#fbf8ff]">Yuko Pangestu</div>
+      <p class="text-[#fbf8ff]/60 font-['Inter'] text-sm tracking-wide mt-1">Technical Lead · Paper.id · Jakarta</p>
     </div>
+    <div class="flex flex-wrap justify-center gap-8">
+      <a href="https://github.com/yukopangestu" target="_blank" rel="noopener" class="text-[#fbf8ff]/60 hover:text-[#2563eb] transition-colors">GitHub</a>
+      <a href="https://www.linkedin.com/in/yukopangestu/" target="_blank" rel="noopener" class="text-[#fbf8ff]/60 hover:text-[#2563eb] transition-colors">LinkedIn</a>
+      <a href="https://medium.com/@yuko.pangestu" target="_blank" rel="noopener" class="text-[#fbf8ff]/60 hover:text-[#2563eb] transition-colors">Medium</a>
+      <a href="mailto:yuko.pangestu@gmail.com" class="text-[#fbf8ff]/60 hover:text-[#2563eb] transition-colors">Email</a>
+    </div>
+    <div class="text-[#fbf8ff]/60 text-sm">
+      © <span id="currentYear"></span> Yuko Pangestu. All rights reserved.
+    </div>
+  </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<!-- Bootstrap JS Bundle (includes Popper) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="script.js"></script>
+<script>
+  // Current year
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    menuIcon.textContent = mobileMenu.classList.contains('open') ? 'close' : 'menu';
+  });
+
+  // Close mobile menu on link click
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuIcon.textContent = 'menu';
+    });
+  });
+
+  // Smooth scroll for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Fade-up on scroll using IntersectionObserver
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id], main section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('opacity-100', 'text-primary', 'font-bold');
+          link.classList.add('opacity-70');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.remove('opacity-70');
+            link.classList.add('opacity-100', 'text-primary', 'font-bold');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => scrollObserver.observe(s));
+</script>
+
 </body>
 </html>
