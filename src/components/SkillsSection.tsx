@@ -1,72 +1,64 @@
-'use client';
-
-import { useEffect, useRef, useState } from 'react';
-import {
-  FaLaptopCode,
-  FaDatabase,
-  FaTasks,
-  FaUserTie,
-  FaCompass,
-  FaHandshake,
-} from 'react-icons/fa';
-
-const skills = [
-  { name: 'Golang & PHP', level: 92, Icon: FaLaptopCode },
-  { name: 'MySQL & NoSQL', level: 88, Icon: FaDatabase },
-  { name: 'Project Management', level: 86, Icon: FaTasks },
-  { name: 'Leadership', level: 95, Icon: FaUserTie },
-  { name: 'Architecting', level: 90, Icon: FaCompass },
-  { name: 'Teamwork', level: 94, Icon: FaHandshake },
+const skillGroups = [
+  {
+    icon: 'terminal',
+    title: 'Backend Engineering',
+    description:
+      'Designing high-throughput APIs and microservices. Built systems processing 10M+ transactions monthly.',
+    tags: ['Go', 'PHP', 'RabbitMQ', 'REST'],
+  },
+  {
+    icon: 'database',
+    title: 'Data & Storage',
+    description:
+      'Advanced query optimization and caching strategies. Reduced DB load by 70% through smart indexing.',
+    tags: ['MySQL', 'NoSQL', 'Redis', 'Query Tuning'],
+  },
+  {
+    icon: 'groups',
+    title: 'Tech Leadership',
+    description:
+      'Leading cross-functional teams of 15+ engineers. Hiring, mentoring, and setting technical direction.',
+    tags: ['Architecture', 'CI/CD', 'Vue.js', 'Agile'],
+  },
 ];
 
 export default function SkillsSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [animated, setAnimated] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setAnimated(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section ref={sectionRef} id="skills" className="py-20 px-5 bg-white">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-blue-900 text-center mb-3">Technical Skills</h2>
-        <p className="text-lg text-gray-400 text-center mb-14">
-          Technologies and expertise I bring to the table
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
-          {skills.map(({ name, level, Icon }) => (
-            <div
-              key={name}
-              className="bg-gray-50 rounded-xl p-6 text-center hover:shadow-md transition-shadow"
-            >
-              <Icon size={36} className="text-blue-700 mx-auto mb-3" />
-              <p className="text-base font-semibold text-gray-800 mb-4">{name}</p>
-              <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden mb-2">
-                <div
-                  className="h-full bg-blue-700 rounded-full transition-all duration-1000 ease-out"
-                  style={{ width: animated ? `${level}%` : '0%' }}
-                />
-              </div>
-              <span className="text-sm text-gray-400">{level}%</span>
-            </div>
-          ))}
+    <section id="skills" className="py-24 px-8 md:px-12 bg-surface-container-low">
+      <div className="max-w-screen-2xl mx-auto">
+        <div className="mb-16">
+          <span className="text-primary font-bold text-xs tracking-[0.05em] uppercase mb-4 block">
+            What I Bring
+          </span>
+          <h2 className="text-on-surface font-black text-3xl md:text-4xl tracking-tight mb-4">
+            Technical <span className="text-primary">Ecosystem</span>
+          </h2>
+          <div className="h-1 w-20 bg-primary rounded-full" />
         </div>
 
-        <div className="text-center">
-          <p className="text-lg font-semibold text-blue-900 mb-1">Technical Expertise</p>
-          <p className="text-base text-gray-400">8+ years building scalable web applications</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {skillGroups.map(({ icon, title, description, tags }) => (
+            <div
+              key={title}
+              className="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-[0_8px_48px_rgba(0,20,83,0.06)] hover:-translate-y-1 transition-all duration-300"
+            >
+              <span className="material-symbols-outlined text-primary text-4xl mb-6 block">
+                {icon}
+              </span>
+              <h3 className="text-on-surface font-bold text-xl mb-4">{title}</h3>
+              <p className="text-on-surface-variant text-sm leading-relaxed mb-6">{description}</p>
+              <div className="flex flex-wrap gap-2">
+                {tags.map(tag => (
+                  <span
+                    key={tag}
+                    className="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

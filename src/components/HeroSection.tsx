@@ -1,138 +1,73 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { FaCode, FaMapMarkerAlt, FaEnvelope, FaFolder } from 'react-icons/fa';
-
-const FULL_NAME = 'Yuko Pangestu';
-const BARCODE_BARS = [3, 1, 2, 1, 3, 2, 1, 2, 1, 3, 2, 1, 2, 3, 1, 2, 1, 3, 1, 2];
 
 export default function HeroSection() {
-  const [displayName, setDisplayName] = useState('');
-  const [typed, setTyped] = useState(false);
-
-  useEffect(() => {
-    let i = 0;
-    const timer = setInterval(() => {
-      i++;
-      setDisplayName(FULL_NAME.slice(0, i));
-      if (i >= FULL_NAME.length) {
-        clearInterval(timer);
-        setTyped(true);
-      }
-    }, 80);
-    return () => clearInterval(timer);
-  }, []);
-
-  const scrollTo = (id: string) => {
-    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section
       id="home"
-      className="min-h-screen bg-blue-50 flex items-center justify-center pt-16 pb-12 px-5"
+      className="relative min-h-[90vh] flex items-center px-8 md:px-12 py-20 overflow-hidden bg-background"
     >
-      <div className="flex flex-col items-center animate-fade-in-up">
-        {/* Lanyard */}
-        <div className="flex flex-col items-center">
-          <div className="w-px h-9 bg-blue-800 opacity-40" />
-          <div className="w-3 h-2 border-b-2 border-l-2 border-r-2 border-blue-800 opacity-40 rounded-b" />
+      <div className="max-w-screen-2xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        {/* Left: Text */}
+        <div className="lg:col-span-7 z-10">
+          <span className="text-primary font-bold text-xs tracking-[0.05em] uppercase mb-4 block">
+            Technical Lead · Paper.id · Jakarta
+          </span>
+          <h1 className="text-on-surface font-black text-5xl md:text-7xl tracking-[-0.02em] leading-[1.1] mb-8">
+            Yuko<br />
+            <span className="text-primary">
+              Pangestu<span className="text-primary-container">.</span>
+            </span>
+          </h1>
+          <p className="text-on-surface-variant text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
+            I build resilient, high-throughput systems and lead cross-functional engineering teams.
+            8+ years of turning complex technical challenges into clean, scalable solutions.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="#portfolio"
+              className="hero-gradient text-on-primary px-8 py-4 rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-95 transition-all duration-200 flex items-center gap-2 text-sm"
+            >
+              View Portfolio
+              <span className="material-symbols-outlined text-base">arrow_forward</span>
+            </a>
+            <a
+              href="#experience"
+              className="bg-surface-container-low text-primary px-8 py-4 rounded-xl font-bold hover:bg-surface-container-high transition-colors active:scale-95 text-sm"
+            >
+              My Experience
+            </a>
+          </div>
         </div>
 
-        {/* ID Card */}
-        <div className="w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/20">
-          {/* Card header */}
-          <div className="bg-blue-900 flex items-center justify-between px-8 py-4">
-            <div className="flex items-center gap-2.5 text-blue-400 text-base font-medium">
-              <FaCode size={16} />
-              <span>Personal Profile</span>
-            </div>
-            <span className="text-white/40 text-sm">ID #YP-001</span>
-          </div>
+        {/* Right: Photo card */}
+        <div className="lg:col-span-5 relative h-full flex justify-center lg:justify-end">
+          <div className="relative w-full aspect-[4/5] max-w-md">
+            {/* Ambient blobs */}
+            <div className="absolute -top-10 -right-10 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-primary-container/10 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Card body */}
-          <div className="flex gap-8 p-8">
-            {/* Photo column */}
-            <div className="flex flex-col items-center gap-3 flex-shrink-0">
-              <div className="w-44 h-56 rounded-xl overflow-hidden border-2 border-blue-100">
-                <Image
-                  src="/hero_img.jpg"
-                  alt="Yuko Pangestu"
-                  width={176}
-                  height={224}
-                  className="w-full h-full object-cover"
-                  priority
-                />
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-green-500 text-xs font-bold tracking-widest">ACTIVE</span>
-              </div>
+            {/* Portrait */}
+            <div className="relative w-full h-full bg-surface-container-low rounded-[2rem] overflow-hidden shadow-2xl shadow-on-surface/5">
+              <Image
+                src="/hero_img.jpg"
+                alt="Yuko Pangestu"
+                fill
+                className="object-cover object-top"
+                priority
+              />
             </div>
 
-            {/* Info column */}
-            <div className="flex-1 min-w-0 py-1">
-              <h1 className="text-2xl font-bold text-blue-900 mb-1 h-9">
-                {displayName}
-                {!typed && <span className="animate-blink">|</span>}
-              </h1>
-              <p className="text-base font-semibold text-blue-700 mb-1">Technical Lead</p>
-              <p className="text-sm text-gray-400 mb-4">Software Engineering</p>
-              <hr className="border-gray-100 mb-4" />
-              <div className="flex items-center gap-2.5 mb-3">
-                <FaMapMarkerAlt size={13} className="text-blue-400 flex-shrink-0" />
-                <span className="text-sm text-gray-500">Jakarta, Indonesia</span>
+            {/* Floating metric chip */}
+            <div className="absolute bottom-10 -left-6 glass-panel p-5 rounded-2xl shadow-xl shadow-on-surface/5 flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-on-primary flex-shrink-0">
+                <span className="material-symbols-outlined">code_blocks</span>
               </div>
-              <div className="flex items-center gap-2.5 mb-5">
-                <FaEnvelope size={13} className="text-blue-400 flex-shrink-0" />
-                <span className="text-sm text-gray-500">yuko.pangestu@gmail.com</span>
+              <div>
+                <div className="text-on-surface font-bold text-lg">8+ Years</div>
+                <div className="text-on-surface-variant text-xs font-medium uppercase tracking-wider">
+                  Engineering Depth
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {['Go', 'PHP', 'Vue.js', 'MySQL'].map(tag => (
-                  <span
-                    key={tag}
-                    className="bg-blue-50 text-blue-700 text-sm font-semibold px-3 py-1 rounded-md border border-blue-100"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Card footer */}
-          <div className="border-t border-gray-100 px-8 py-5 flex items-center justify-between">
-            {/* Barcode */}
-            <div className="flex flex-col items-center">
-              <div className="flex items-end h-8 mb-2 gap-px">
-                {BARCODE_BARS.map((w, i) => (
-                  <div
-                    key={i}
-                    style={{ width: w * 2.5 }}
-                    className="h-full bg-gray-700 opacity-60"
-                  />
-                ))}
-              </div>
-              <span className="text-[10px] text-gray-300 tracking-widest">YP · 2024 · SOFTWARE ENGINEERS</span>
-            </div>
-
-            {/* Actions */}
-            <div className="flex gap-3">
-              <button
-                onClick={() => scrollTo('#contact')}
-                className="flex items-center gap-2 bg-blue-800 text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-600 transition-colors"
-              >
-                <FaEnvelope size={13} />
-                Contact
-              </button>
-              <button
-                onClick={() => scrollTo('#portfolio')}
-                className="flex items-center gap-2 border border-blue-800 text-blue-800 text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-800 hover:text-white transition-colors"
-              >
-                <FaFolder size={13} />
-                Portfolio
-              </button>
             </div>
           </div>
         </div>
