@@ -147,7 +147,7 @@ export default function ContactSection() {
           <div>
             <div className="text-lg font-bold text-[#fbf8ff]">Yuko Pangestu</div>
             <p className="text-[#fbf8ff]/60 text-sm tracking-wide mt-1">
-              Technical Lead · Paper.id · Jakarta
+              Technical Lead · B2B Fintech · Jakarta
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-8">

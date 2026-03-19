@@ -10,7 +10,7 @@ export default function HeroSection() {
         {/* Left: Text */}
         <div className="lg:col-span-7 z-10">
           <span className="text-primary font-bold text-xs tracking-[0.05em] uppercase mb-4 block">
-            Technical Lead · Paper.id · Jakarta
+            Technical Lead · Software Engineer · Jakarta
           </span>
           <h1 className="text-on-surface font-black text-5xl md:text-7xl tracking-[-0.02em] leading-[1.1] mb-8">
             Yuko<br />

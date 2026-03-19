@@ -19,7 +19,7 @@ export default function AboutSection() {
           </h2>
           <div className="space-y-6 text-on-surface-variant text-lg leading-relaxed">
             <p>
-              As a Technical Lead at Paper.id, I orchestrate development of innovative solutions
+              As a Technical Lead, I orchestrate development of innovative solutions
               while mentoring engineers. My approach combines backend architecture expertise with
               strong leadership to deliver products that make a difference.
             </p>
@@ -62,7 +62,7 @@ export default function AboutSection() {
               <span className="text-white/50 font-bold text-xs uppercase tracking-[0.2em]">
                 Currently At
               </span>
-              <h3 className="text-white text-3xl font-black tracking-tight mt-2">Paper.id</h3>
+              <h3 className="text-white text-3xl font-black tracking-tight mt-2">B2B Fintech</h3>
               <p className="text-white/60 mt-3 text-lg">Technical Lead — Software Engineering</p>
             </div>
             <div className="relative z-10 mt-16 grid grid-cols-2 gap-6">
