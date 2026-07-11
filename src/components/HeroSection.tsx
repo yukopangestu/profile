@@ -34,6 +34,7 @@ export default function HeroSection() {
           <p className="max-w-[560px] mt-8 text-[16px] md:text-[17.5px] leading-[1.65] text-terminal-muted">
             I build resilient, high-throughput systems and lead cross-functional engineering teams.
             8+ years of turning complex technical challenges into clean, scalable solutions.
+            Currently developing Java, Go, and Angular.
           </p>
 
           <div className="flex flex-wrap gap-3.5 mt-10 font-mono text-[13.5px]">

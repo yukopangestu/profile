@@ -47,4 +47,9 @@ describe('HeroSection', () => {
     render(<HeroSection />);
     expect(screen.getByText(/on developing right now/i)).toBeInTheDocument();
   });
+
+  it('mentions currently developing stack', () => {
+    render(<HeroSection />);
+    expect(screen.getByText(/Currently developing Java, Go, and Angular/i)).toBeInTheDocument();
+  });
 });
