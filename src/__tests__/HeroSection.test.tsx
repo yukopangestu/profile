@@ -2,6 +2,26 @@ import { render, screen } from '@testing-library/react';
 import HeroSection from '@/components/HeroSection';
 
 describe('HeroSection', () => {
+  beforeEach(() => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        ok: true,
+        data: {
+          location: 'Jakarta',
+          temperature: 30,
+          feelsLike: 33,
+          humidity: 70,
+          windSpeed: 10,
+          weatherCode: 0,
+          description: 'clear sky',
+          icon: '☀',
+          updatedAt: new Date().toISOString(),
+        },
+      }),
+    }) as jest.Mock;
+  });
+
   it('renders the name', () => {
     render(<HeroSection />);
     expect(screen.getByText(/Yuko/)).toBeInTheDocument();
@@ -51,5 +71,10 @@ describe('HeroSection', () => {
   it('mentions currently developing stack', () => {
     render(<HeroSection />);
     expect(screen.getByText(/Currently developing Java, Go, and Angular/i)).toBeInTheDocument();
+  });
+
+  it('includes the weather widget', () => {
+    render(<HeroSection />);
+    expect(screen.getAllByText(/weather/i).length).toBeGreaterThan(0);
   });
 });

@@ -21,9 +21,12 @@ npm run start     # Start production server locally
 - `src/app/page.tsx` — Root page, composes all sections
 - `src/app/layout.tsx` — HTML shell, metadata, font
 - `src/app/globals.css` — Tailwind base + custom keyframes (fadeInUp, blink)
+- `src/app/api/weather/route.ts` — Live Jakarta weather via Open-Meteo (no API key; 15m cache)
+- `src/lib/weather.ts` — WMO code map, format helpers, Jakarta coords
 - `src/components/` — One file per section:
   - `Header.tsx` — Sticky nav with scroll shadow, mobile menu (`use client`)
-  - `HeroSection.tsx` — ID card hero with typing effect and barcode (`use client`)
+  - `HeroSection.tsx` — Hero with photo frame + live weather widget
+  - `WeatherWidget.tsx` — Terminal-styled weather (`chip` | `panel`, `use client`)
   - `AboutSection.tsx` — Stats grid + bio
   - `SkillsSection.tsx` — Animated skill bars via IntersectionObserver (`use client`)
   - `PortfolioSection.tsx` — Carousel with prev/next + dot indicators (`use client`)

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import TerminalChrome from './TerminalChrome';
+import WeatherWidget from './WeatherWidget';
 
 export default function HeroSection() {
   return (
@@ -51,6 +52,11 @@ export default function HeroSection() {
               cat experience.md
             </a>
           </div>
+
+          {/* Live Jakarta weather — mobile / stacked under CTAs; desktop hidden (chip on photo) */}
+          <div className="mt-8 sm:mt-10 max-w-sm lg:hidden">
+            <WeatherWidget variant="panel" />
+          </div>
         </div>
 
         {/* Right: terminal photo frame */}
@@ -73,6 +79,12 @@ export default function HeroSection() {
             <div className="text-terminal-blue font-bold text-sm sm:text-base">8+ years</div>
             <div className="text-terminal-faint mt-0.5">engineering depth</div>
           </div>
+
+          {/* Desktop: floating weather chip on photo */}
+          <WeatherWidget
+            variant="chip"
+            className="hidden lg:block absolute bottom-0 right-2 sm:-right-2 md:-right-[18px] max-w-[160px]"
+          />
         </div>
       </div>
     </section>
