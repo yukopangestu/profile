@@ -1,4 +1,4 @@
-/** Open-Meteo WMO weather interpretation codes → terminal-friendly labels */
+/** Open-Meteo (browser-direct, CORS-friendly, no API key) */
 
 export const JAKARTA = {
   name: 'Jakarta',
@@ -19,17 +19,19 @@ export interface WeatherData {
   updatedAt: string;
 }
 
-export interface WeatherApiResponse {
-  ok: true;
-  data: WeatherData;
+interface OpenMeteoCurrent {
+  temperature_2m: number;
+  relative_humidity_2m: number;
+  apparent_temperature: number;
+  weather_code: number;
+  wind_speed_10m: number;
 }
 
-export interface WeatherApiError {
-  ok: false;
-  error: string;
+interface OpenMeteoResponse {
+  current?: OpenMeteoCurrent;
+  error?: boolean;
+  reason?: string;
 }
-
-export type WeatherResponse = WeatherApiResponse | WeatherApiError;
 
 const WMO: Record<number, { description: string; icon: string }> = {
   0: { description: 'clear sky', icon: '☀' },
@@ -90,4 +92,54 @@ export function formatUpdatedAt(iso: string, now = Date.now()): string {
     hour: '2-digit',
     minute: '2-digit',
   });
+}
+
+export function openMeteoUrl(): string {
+  const params = new URLSearchParams({
+    latitude: String(JAKARTA.latitude),
+    longitude: String(JAKARTA.longitude),
+    current: [
+      'temperature_2m',
+      'relative_humidity_2m',
+      'apparent_temperature',
+      'weather_code',
+      'wind_speed_10m',
+    ].join(','),
+    timezone: JAKARTA.timezone,
+    wind_speed_unit: 'kmh',
+  });
+  return `https://api.open-meteo.com/v1/forecast?${params}`;
+}
+
+/** Fetch Jakarta weather directly from Open-Meteo (no backend). */
+export async function fetchJakartaWeather(signal?: AbortSignal): Promise<WeatherData> {
+  const res = await fetch(openMeteoUrl(), {
+    signal,
+    headers: { Accept: 'application/json' },
+  });
+
+  if (!res.ok) {
+    throw new Error(`open-meteo ${res.status}`);
+  }
+
+  const json = (await res.json()) as OpenMeteoResponse;
+
+  if (json.error || !json.current) {
+    throw new Error(json.reason ?? 'no current weather data');
+  }
+
+  const { current } = json;
+  const { description, icon } = interpretWeatherCode(current.weather_code);
+
+  return {
+    location: JAKARTA.name,
+    temperature: current.temperature_2m,
+    feelsLike: current.apparent_temperature,
+    humidity: current.relative_humidity_2m,
+    windSpeed: current.wind_speed_10m,
+    weatherCode: current.weather_code,
+    description,
+    icon,
+    updatedAt: new Date().toISOString(),
+  };
 }

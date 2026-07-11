@@ -3,11 +3,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import TerminalChrome from './TerminalChrome';
 import {
+  fetchJakartaWeather,
   formatTemp,
   formatUpdatedAt,
   formatWind,
   type WeatherData,
-  type WeatherResponse,
 } from '@/lib/weather';
 
 type Status = 'loading' | 'ready' | 'error';
@@ -28,19 +28,13 @@ export default function WeatherWidget({ variant = 'panel', className = '' }: Wea
     setStatus(prev => (prev === 'ready' ? 'ready' : 'loading'));
     setError(null);
     try {
-      const res = await fetch('/api/weather', { signal });
-      const json = (await res.json()) as WeatherResponse;
-      if (!json.ok) {
-        setError(json.error);
-        setStatus('error');
-        return;
-      }
-      setWeather(json.data);
+      const data = await fetchJakartaWeather(signal);
+      setWeather(data);
       setStatus('ready');
       setNow(Date.now());
     } catch (err) {
       if ((err as Error).name === 'AbortError') return;
-      setError('offline');
+      setError((err as Error).message || 'offline');
       setStatus('error');
     }
   }, []);
@@ -100,7 +94,7 @@ export default function WeatherWidget({ variant = 'panel', className = '' }: Wea
       <TerminalChrome title="weather --live jakarta" size="sm" />
       <div className="px-4 sm:px-5 py-4 sm:py-5 font-mono text-[12px] sm:text-[13px]">
         <div className="text-terminal-faint text-[11px] mb-3">
-          <span className="text-terminal-blue">$</span> curl wttr.in/Jakarta?format=j1
+          <span className="text-terminal-blue">$</span> curl open-meteo.com/…Jakarta
         </div>
 
         {status === 'loading' && (

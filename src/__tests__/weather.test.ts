@@ -1,16 +1,29 @@
 import {
+  fetchJakartaWeather,
   formatTemp,
   formatUpdatedAt,
   formatWind,
   interpretWeatherCode,
   JAKARTA,
+  openMeteoUrl,
 } from '@/lib/weather';
 
 describe('weather lib', () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   it('exposes Jakarta coordinates', () => {
     expect(JAKARTA.name).toBe('Jakarta');
     expect(JAKARTA.latitude).toBeCloseTo(-6.2088);
     expect(JAKARTA.longitude).toBeCloseTo(106.8456);
+  });
+
+  it('builds an open-meteo forecast URL for Jakarta', () => {
+    const url = openMeteoUrl();
+    expect(url).toContain('api.open-meteo.com/v1/forecast');
+    expect(url).toContain('latitude=-6.2088');
+    expect(url).toContain('longitude=106.8456');
   });
 
   it('maps known WMO codes', () => {
@@ -36,4 +49,26 @@ describe('weather lib', () => {
     expect(formatUpdatedAt(new Date(now - 5 * 60_000).toISOString(), now)).toBe('5 min ago');
     expect(formatUpdatedAt(new Date(now - 2 * 60 * 60_000).toISOString(), now)).toBe('2 hr ago');
   });
+
+  it('parses Open-Meteo responses into WeatherData', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        current: {
+          temperature_2m: 30.2,
+          relative_humidity_2m: 80,
+          apparent_temperature: 34,
+          weather_code: 0,
+          wind_speed_10m: 8,
+        },
+      }),
+    }) as jest.Mock;
+
+    const data = await fetchJakartaWeather();
+    expect(data.location).toBe('Jakarta');
+    expect(data.temperature).toBe(30.2);
+    expect(data.description).toBe('clear sky');
+    expect(data.icon).toBe('☀');
+  });
 });
+
