@@ -14,7 +14,7 @@ export default function HeroSection() {
         <div>
           <div className="inline-flex items-center gap-2 border border-term-strong rounded-full px-3.5 py-1.5 font-mono text-[11.5px] text-terminal-blue mb-6">
             <span className="w-[7px] h-[7px] rounded-full bg-terminal-green" />
-            open to opportunities
+            on developing right now
           </div>
 
           <div className="font-mono text-[13px] text-terminal-blue mb-[22px]">

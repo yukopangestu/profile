@@ -43,8 +43,8 @@ describe('HeroSection', () => {
     expect(document.getElementById('home')).toBeInTheDocument();
   });
 
-  it('renders open to opportunities badge', () => {
+  it('renders the status badge', () => {
     render(<HeroSection />);
-    expect(screen.getByText(/open to opportunities/i)).toBeInTheDocument();
+    expect(screen.getByText(/on developing right now/i)).toBeInTheDocument();
   });
 });
