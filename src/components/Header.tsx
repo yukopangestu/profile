@@ -24,7 +24,6 @@ export default function Header() {
 
     const observer = new IntersectionObserver(
       entries => {
-        // Prefer the most visible intersecting section near the top of the viewport
         const visible = entries
           .filter(e => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
@@ -34,7 +33,6 @@ export default function Header() {
         }
       },
       {
-        // Account for sticky header; activate when section enters the upper band
         rootMargin: '-20% 0px -55% 0px',
         threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
       }
@@ -42,6 +40,15 @@ export default function Header() {
 
     elements.forEach(el => observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setMenuOpen(false);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, []);
 
   const handleNav = (href: string, id: string) => {
@@ -62,15 +69,16 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-term-dim bg-[rgba(6,11,22,0.85)] backdrop-blur-md font-mono text-[13px]">
-      <div className="flex justify-between items-center px-6 md:px-14 py-[18px] max-w-content mx-auto">
+      <div className="flex justify-between items-center gap-4 px-5 sm:px-6 md:px-14 py-[18px] max-w-content mx-auto">
         <button
           onClick={() => handleNav('#home', 'home')}
-          className="text-terminal-blue font-bold hover:text-terminal-blue-bright transition-colors"
+          className="text-terminal-blue font-bold hover:text-terminal-blue-bright transition-colors shrink-0 text-[12px] sm:text-[13px]"
         >
           ~/yuko-pangestu
         </button>
 
-        <nav className="hidden md:flex items-center gap-[30px]" aria-label="Primary">
+        {/* Desktop nav — lg+ so tablet doesn't crush 5 links + CTA */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-[30px]" aria-label="Primary">
           {navItems.map(item => (
             <button
               key={item.href}
@@ -83,17 +91,18 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
           <a
             href="mailto:yuko.pangestu@gmail.com"
-            className="hidden md:inline-block border border-terminal-primary text-terminal-blue px-[18px] py-2 rounded hover:bg-terminal-primary hover:text-white transition-colors"
+            className="hidden lg:inline-block border border-terminal-primary text-terminal-blue px-[18px] py-2 rounded hover:bg-terminal-primary hover:text-white transition-colors"
           >
             hire --me
           </a>
           <button
-            className="md:hidden text-terminal-dim p-1 hover:text-terminal-text"
+            className="lg:hidden text-terminal-dim p-1 hover:text-terminal-text"
             onClick={() => setMenuOpen(o => !o)}
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
             <span className="font-mono text-sm">{menuOpen ? 'close' : 'menu'}</span>
           </button>
@@ -101,7 +110,10 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div id="mobile-menu" className="md:hidden flex flex-col px-6 pb-6 gap-1 border-t border-term-dim">
+        <div
+          id="mobile-menu"
+          className="lg:hidden flex flex-col px-5 sm:px-6 pb-6 gap-1 border-t border-term-dim"
+        >
           {navItems.map(item => (
             <button
               key={item.href}

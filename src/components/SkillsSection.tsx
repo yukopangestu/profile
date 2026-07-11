@@ -27,13 +27,13 @@ const skillGroups = [
 export default function SkillsSection() {
   return (
     <section id="skills" className="border-t border-term-dim">
-      <div className="max-w-content mx-auto px-6 md:px-14 py-16 md:py-[88px]">
+      <div className="max-w-content mx-auto px-5 sm:px-6 md:px-14 py-14 sm:py-16 md:py-[88px]">
         <div className="section-label">// what i bring</div>
-        <h2 className="m-0 mb-10 text-[32px] md:text-[44px] font-bold tracking-[-0.02em]">
+        <h2 className="m-0 mb-8 sm:mb-10 text-[28px] sm:text-[32px] md:text-[44px] font-bold tracking-[-0.02em]">
           Technical Ecosystem
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[22px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-[22px]">
           {skillGroups.map(({ file, title, description, tags }) => (
             <div
               key={title}
@@ -41,7 +41,7 @@ export default function SkillsSection() {
             >
               <TerminalChrome title={file} size="sm" />
               <div className="px-5 py-[22px]">
-                <h3 className="m-0 mb-2.5 text-[19px] font-bold">{title}</h3>
+                <h3 className="m-0 mb-2.5 text-[18px] sm:text-[19px] font-bold">{title}</h3>
                 <p className="m-0 mb-[18px] text-sm leading-[1.65] text-terminal-dim">
                   {description}
                 </p>

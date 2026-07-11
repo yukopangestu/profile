@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 section {
@@ -13,6 +14,7 @@ section {
 body {
   background: #060b16;
   color: #e6edf7;
+  overflow-x: hidden;
 }
 
 ::selection {

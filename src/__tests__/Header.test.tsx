@@ -7,8 +7,9 @@ describe('Header', () => {
     expect(screen.getByText('~/yuko-pangestu')).toBeInTheDocument();
   });
 
-  it('renders all nav links on desktop', () => {
+  it('renders all nav links', () => {
     render(<Header />);
+    // Desktop nav is always in the DOM (hidden via CSS below lg)
     expect(screen.getByText('./home')).toBeInTheDocument();
     expect(screen.getByText('./skills')).toBeInTheDocument();
     expect(screen.getByText('./portfolio')).toBeInTheDocument();
