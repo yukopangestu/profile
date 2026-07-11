@@ -32,7 +32,7 @@ export const experiences = [
       'Building full-stack product features with Java and AngularJS',
       'Hybrid full-time role based in Jakarta, Indonesia',
       'Shipping end-to-end web experiences across backend services and modern UI',
-      'Bringing fintech-scale engineering practices into day-to-day product delivery',
+      'Delivering high-quality, maintainable code that meets client standards and expectations',
     ],
   },
   {
