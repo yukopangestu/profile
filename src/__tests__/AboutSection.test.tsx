@@ -28,7 +28,8 @@ describe('AboutSection', () => {
 
   it('renders current status metrics card', () => {
     render(<AboutSection />);
-    expect(screen.getByText('B2B Fintech')).toBeInTheDocument();
+    expect(screen.getByText('Sobat Bisnis Group')).toBeInTheDocument();
+    expect(screen.getByText(/senior full stack developer/i)).toBeInTheDocument();
     expect(screen.getByText('$2M+')).toBeInTheDocument();
     expect(screen.getByText('10M+')).toBeInTheDocument();
     expect(screen.getByText('40%')).toBeInTheDocument();

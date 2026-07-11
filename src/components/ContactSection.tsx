@@ -100,9 +100,9 @@ export default function ContactSection() {
           <div className="leading-relaxed max-w-sm md:max-w-none">
             <span className="text-terminal-blue font-bold">~/yuko-pangestu</span>
             <span className="hidden sm:inline">
-              {' · '}technical lead · b2b fintech · jakarta
+              {' · '}senior full stack · sobat bisnis group · jakarta
             </span>
-            <span className="sm:hidden block mt-1">technical lead · jakarta</span>
+            <span className="sm:hidden block mt-1">senior full stack · jakarta</span>
           </div>
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 sm:gap-[22px]">
             {socials

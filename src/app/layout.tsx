@@ -15,10 +15,17 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Yuko Pangestu — Technical Lead & Full-Stack Architect',
+  title: 'Yuko Pangestu — Senior Full Stack Developer',
   description:
-    'Yuko Pangestu — Technical Lead specializing in backend architecture, microservices, and engineering leadership. Based in Jakarta, Indonesia.',
-  keywords: ['Technical Lead', 'Full Stack Developer', 'Jakarta', 'Go', 'PHP', 'Vue.js'],
+    'Yuko Pangestu — Senior Full Stack Developer specializing in Java, AngularJS, backend architecture, and engineering leadership. Based in Jakarta, Indonesia.',
+  keywords: [
+    'Senior Full Stack Developer',
+    'Technical Lead',
+    'Jakarta',
+    'Java',
+    'AngularJS',
+    'Go',
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

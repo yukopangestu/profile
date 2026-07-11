@@ -54,9 +54,9 @@ export default function AboutSection() {
             <TerminalChrome title="current --status" size="sm" />
             <div className="px-4 sm:px-6 py-5 sm:py-[26px]">
               <div className="font-mono text-[11.5px] text-terminal-faint mb-1.5">currently at</div>
-              <div className="text-[20px] sm:text-[22px] font-bold">B2B Fintech</div>
+              <div className="text-[20px] sm:text-[22px] font-bold">Sobat Bisnis Group</div>
               <div className="font-mono text-[11px] sm:text-xs text-terminal-blue mt-1 mb-5 sm:mb-6">
-                technical lead — software engineering
+                senior full stack developer — java · angularjs · hybrid
               </div>
               <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
                 {metrics.map(({ value, label }) => (

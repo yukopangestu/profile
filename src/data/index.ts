@@ -25,6 +25,17 @@ export const portfolioItems = [
 
 export const experiences = [
   {
+    role: 'Senior Full Stack Developer',
+    company: 'Sobat Bisnis Group',
+    period: 'Jun 2026 – Present',
+    achievements: [
+      'Building full-stack product features with Java and AngularJS',
+      'Hybrid full-time role based in Jakarta, Indonesia',
+      'Shipping end-to-end web experiences across backend services and modern UI',
+      'Bringing fintech-scale engineering practices into day-to-day product delivery',
+    ],
+  },
+  {
     role: 'Technical Lead',
     company: 'Paper.id',
     period: 'Feb 2023 – Oct 2025',

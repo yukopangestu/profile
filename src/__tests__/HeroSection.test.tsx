@@ -6,17 +6,12 @@ describe('HeroSection', () => {
     global.fetch = jest.fn().mockResolvedValue({
       ok: true,
       json: async () => ({
-        ok: true,
-        data: {
-          location: 'Jakarta',
-          temperature: 30,
-          feelsLike: 33,
-          humidity: 70,
-          windSpeed: 10,
-          weatherCode: 0,
-          description: 'clear sky',
-          icon: '☀',
-          updatedAt: new Date().toISOString(),
+        current: {
+          temperature_2m: 30,
+          relative_humidity_2m: 70,
+          apparent_temperature: 33,
+          weather_code: 0,
+          wind_speed_10m: 10,
         },
       }),
     }) as jest.Mock;
@@ -30,7 +25,7 @@ describe('HeroSection', () => {
 
   it('renders the role/location label', () => {
     render(<HeroSection />);
-    expect(screen.getAllByText(/technical lead/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/senior full stack/i).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/jakarta/i).length).toBeGreaterThan(0);
   });
 

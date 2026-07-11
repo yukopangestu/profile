@@ -21,7 +21,7 @@ export default function HeroSection() {
           <div className="font-mono text-[12px] sm:text-[13px] text-terminal-blue mb-5 sm:mb-[22px]">
             <span className="whitespace-nowrap">$ whoami</span>{' '}
             <span className="text-terminal-faint break-words">
-              — technical lead · software engineer · jakarta
+              — senior full stack · software engineer · jakarta
             </span>
           </div>
 

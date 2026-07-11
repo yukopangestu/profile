@@ -60,9 +60,9 @@ describe('experiences', () => {
     });
   });
 
-  it('most recent role is Technical Lead at Paper.id', () => {
-    expect(experiences[0].role).toBe('Technical Lead');
-    expect(experiences[0].company).toBe('Paper.id');
+  it('most recent role is Senior Full Stack Developer at Sobat Bisnis Group', () => {
+    expect(experiences[0].role).toBe('Senior Full Stack Developer');
+    expect(experiences[0].company).toBe('Sobat Bisnis Group');
   });
 
   it('periods are in descending chronological order', () => {
