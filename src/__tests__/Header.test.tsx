@@ -51,4 +51,24 @@ describe('Header', () => {
     fireEvent.click(menuButton);
     expect(screen.getByText('menu')).toBeInTheDocument();
   });
+
+  it('marks ./home as the active nav item by default', () => {
+    render(<Header />);
+    const home = screen.getByText('./home');
+    expect(home).toHaveAttribute('aria-current', 'true');
+  });
+
+  it('highlights a nav item when clicked', () => {
+    // stub sections so scroll navigation has targets
+    const skills = document.createElement('section');
+    skills.id = 'skills';
+    document.body.appendChild(skills);
+
+    render(<Header />);
+    fireEvent.click(screen.getByText('./skills'));
+    expect(screen.getByText('./skills')).toHaveAttribute('aria-current', 'true');
+    expect(screen.getByText('./home')).not.toHaveAttribute('aria-current');
+
+    skills.remove();
+  });
 });
