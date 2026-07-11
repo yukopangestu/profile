@@ -4,27 +4,27 @@ import Header from '@/components/Header';
 describe('Header', () => {
   it('renders the logo', () => {
     render(<Header />);
-    expect(screen.getByText(/YP/)).toBeInTheDocument();
+    expect(screen.getByText('~/yuko-pangestu')).toBeInTheDocument();
   });
 
   it('renders all nav links on desktop', () => {
     render(<Header />);
-    expect(screen.getByText('Home')).toBeInTheDocument();
-    expect(screen.getByText('Skills')).toBeInTheDocument();
-    expect(screen.getByText('Portfolio')).toBeInTheDocument();
-    expect(screen.getByText('Experience')).toBeInTheDocument();
-    expect(screen.getByText('Contact')).toBeInTheDocument();
+    expect(screen.getByText('./home')).toBeInTheDocument();
+    expect(screen.getByText('./skills')).toBeInTheDocument();
+    expect(screen.getByText('./portfolio')).toBeInTheDocument();
+    expect(screen.getByText('./experience')).toBeInTheDocument();
+    expect(screen.getByText('./contact')).toBeInTheDocument();
   });
 
-  it('renders the Hire Me CTA', () => {
+  it('renders the hire --me CTA', () => {
     render(<Header />);
-    const hireMeLinks = screen.getAllByText('Hire Me');
+    const hireMeLinks = screen.getAllByText('hire --me');
     expect(hireMeLinks.length).toBeGreaterThan(0);
   });
 
-  it('Hire Me links to the correct email', () => {
+  it('hire --me links to the correct email', () => {
     render(<Header />);
-    const hireMeLinks = screen.getAllByRole('link', { name: /hire me/i });
+    const hireMeLinks = screen.getAllByRole('link', { name: /hire --me/i });
     hireMeLinks.forEach(link => {
       expect(link).toHaveAttribute('href', 'mailto:yuko.pangestu@gmail.com');
     });
@@ -32,8 +32,6 @@ describe('Header', () => {
 
   it('mobile menu is hidden by default', () => {
     render(<Header />);
-    const mobileMenu = document.getElementById('mobile-menu');
-    // Mobile menu items exist in DOM but nav toggle controls visibility
     const menuButton = screen.getByLabelText('Toggle menu');
     expect(menuButton).toBeInTheDocument();
   });
@@ -41,9 +39,7 @@ describe('Header', () => {
   it('mobile menu toggles open on button click', () => {
     render(<Header />);
     const menuButton = screen.getByLabelText('Toggle menu');
-    // Before click: menu icon shows "menu"
     expect(screen.getByText('menu')).toBeInTheDocument();
-    // After click: menu icon changes to "close"
     fireEvent.click(menuButton);
     expect(screen.getByText('close')).toBeInTheDocument();
   });

@@ -25,15 +25,15 @@ describe('ExperienceSection', () => {
     render(<ExperienceSection />);
     const companies = [...new Set(experiences.slice(0, 4).map(e => e.company))];
     companies.forEach(company => {
-      expect(screen.getAllByText(company).length).toBeGreaterThan(0);
+      expect(screen.getAllByText(new RegExp(company)).length).toBeGreaterThan(0);
     });
   });
 
   it('renders earlier roles section', () => {
     render(<ExperienceSection />);
-    expect(screen.getByText(/Earlier Roles/i)).toBeInTheDocument();
+    expect(screen.getByText(/earlier roles/i)).toBeInTheDocument();
     experiences.slice(4).forEach(exp => {
-      expect(screen.getByText(new RegExp(exp.role))).toBeInTheDocument();
+      expect(screen.getByText(exp.role)).toBeInTheDocument();
     });
   });
 

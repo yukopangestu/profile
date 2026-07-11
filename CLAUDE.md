@@ -33,12 +33,13 @@ npm run start     # Start production server locally
 - `public/hero_img.jpg` — Profile photo used in hero ID card
 - `next.config.js` — Allows remote images from i.imgur.com
 
-### Design System
-- **Theme**: Blue-based (`blue-900`, `blue-700`, `blue-50`, `white`)
-- **Section headings**: `text-4xl font-bold`
-- **Body text**: `text-base`
-- **Subtitles**: `text-lg text-gray-400`
-- **Max widths**: `max-w-5xl` (wide sections), `max-w-3xl` (experience), `max-w-2xl` (hero/portfolio/contact)
+### Design System — Midnight Terminal
+- **Theme**: Dark terminal (`#060b16` bg, `#0b1322` surface, `#5b9dff` accent, `#2f6fe0` primary)
+- **Fonts**: Space Grotesk (body), JetBrains Mono (labels, nav, terminal chrome)
+- **Aesthetic**: CLI/terminal metaphor — `// comments`, `$ whoami`, terminal window chrome, monospace CTAs
+- **Section labels**: `// what i bring`, `// selected works`, etc. via `.section-label`
+- **Max width**: `max-w-content` (1240px)
+- **Shared**: `TerminalChrome` component for window chrome dots + title bar
 
 ### Vercel Deployment
 - Live URL: **https://www.yukopangestu.com** — use this to verify changes when localhost is unavailable

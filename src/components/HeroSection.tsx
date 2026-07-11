@@ -1,74 +1,75 @@
 import Image from 'next/image';
+import TerminalChrome from './TerminalChrome';
 
 export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] flex items-center px-8 md:px-12 py-20 overflow-hidden bg-background"
+      className="relative overflow-hidden bg-[radial-gradient(ellipse_60%_55%_at_72%_15%,rgba(47,111,224,0.16),transparent)]"
     >
-      <div className="max-w-screen-2xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Left: Text */}
-        <div className="lg:col-span-7 z-10">
-          <span className="text-primary font-bold text-xs tracking-[0.05em] uppercase mb-4 block">
-            Technical Lead · Software Engineer · Jakarta
-          </span>
-          <h1 className="text-on-surface font-black text-5xl md:text-7xl tracking-[-0.02em] leading-[1.1] mb-8">
-            Yuko<br />
-            <span className="text-primary">
-              Pangestu<span className="text-primary-container">.</span>
+      <div className="absolute inset-0 hero-grid pointer-events-none" />
+
+      <div className="relative grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center max-w-content mx-auto px-6 md:px-14 pt-20 md:pt-24 pb-16 md:pb-22">
+        {/* Left */}
+        <div>
+          <div className="inline-flex items-center gap-2 border border-term-strong rounded-full px-3.5 py-1.5 font-mono text-[11.5px] text-terminal-blue mb-6">
+            <span className="w-[7px] h-[7px] rounded-full bg-terminal-green" />
+            open to opportunities
+          </div>
+
+          <div className="font-mono text-[13px] text-terminal-blue mb-[22px]">
+            $ whoami{' '}
+            <span className="text-terminal-faint">
+              — technical lead · software engineer · jakarta
             </span>
+          </div>
+
+          <h1 className="m-0 text-[56px] sm:text-[72px] md:text-[92px] font-bold leading-[0.98] tracking-[-0.03em]">
+            Yuko
+            <br />
+            Pangestu
+            <span className="text-terminal-primary animate-blink">_</span>
           </h1>
-          <p className="text-on-surface-variant text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
+
+          <p className="max-w-[560px] mt-8 text-[16px] md:text-[17.5px] leading-[1.65] text-terminal-muted">
             I build resilient, high-throughput systems and lead cross-functional engineering teams.
             8+ years of turning complex technical challenges into clean, scalable solutions.
           </p>
-          <div className="flex flex-wrap gap-4">
+
+          <div className="flex flex-wrap gap-3.5 mt-10 font-mono text-[13.5px]">
             <a
               href="#portfolio"
-              className="hero-gradient text-on-primary px-8 py-4 rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-95 transition-all duration-200 flex items-center gap-2 text-sm"
+              className="bg-terminal-primary text-white px-7 py-3.5 rounded font-medium hover:bg-terminal-primary-hover transition-colors"
             >
-              View Portfolio
-              <span className="material-symbols-outlined text-base">arrow_forward</span>
+              view ./portfolio →
             </a>
             <a
               href="#experience"
-              className="bg-surface-container-low text-primary px-8 py-4 rounded-xl font-bold hover:bg-surface-container-high transition-colors active:scale-95 text-sm"
+              className="border border-term-soft text-terminal-soft px-7 py-3.5 rounded hover:border-terminal-blue hover:text-white transition-colors"
             >
-              My Experience
+              cat experience.md
             </a>
           </div>
         </div>
 
-        {/* Right: Photo card */}
-        <div className="lg:col-span-5 relative h-full flex justify-center lg:justify-end">
-          <div className="relative w-full aspect-[4/5] max-w-md">
-            {/* Ambient blobs */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-primary-container/10 rounded-full blur-3xl pointer-events-none" />
-
-            {/* Portrait */}
-            <div className="relative w-full h-full bg-surface-container-low rounded-[2rem] overflow-hidden shadow-2xl shadow-on-surface/5">
+        {/* Right: terminal photo frame */}
+        <div className="relative">
+          <div className="relative border border-term-strong rounded-[10px] overflow-hidden bg-terminal-surface">
+            <TerminalChrome title="yuko@jakarta:~" />
+            <div className="relative w-full h-[320px] md:h-[420px]">
               <Image
                 src="/hero_img.jpg"
                 alt="Yuko Pangestu"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-top saturate-[0.9]"
                 priority
               />
             </div>
+          </div>
 
-            {/* Floating metric chip */}
-            <div className="absolute bottom-10 -left-6 glass-panel p-5 rounded-2xl shadow-xl shadow-on-surface/5 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-on-primary flex-shrink-0">
-                <span className="material-symbols-outlined">code_blocks</span>
-              </div>
-              <div>
-                <div className="text-on-surface font-bold text-lg">8+ Years</div>
-                <div className="text-on-surface-variant text-xs font-medium uppercase tracking-wider">
-                  Engineering Depth
-                </div>
-              </div>
-            </div>
+          <div className="absolute -bottom-[18px] -left-[8px] md:-left-[22px] bg-terminal-surface border border-term-strong rounded-lg px-5 py-3.5 font-mono text-xs shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
+            <div className="text-terminal-blue font-bold text-base">8+ years</div>
+            <div className="text-terminal-faint mt-0.5">engineering depth</div>
           </div>
         </div>
       </div>

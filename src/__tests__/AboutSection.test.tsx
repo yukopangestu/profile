@@ -15,7 +15,7 @@ describe('AboutSection', () => {
 
   it('renders bio paragraphs', () => {
     render(<AboutSection />);
-    expect(screen.getByText(/Technical Lead at Paper\.id/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Technical Lead/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/microservices/i)).toBeInTheDocument();
   });
 
@@ -26,9 +26,9 @@ describe('AboutSection', () => {
     expect(screen.getByText('99.9%')).toBeInTheDocument();
   });
 
-  it('renders Paper.id metrics card', () => {
+  it('renders current status metrics card', () => {
     render(<AboutSection />);
-    expect(screen.getByText('Paper.id')).toBeInTheDocument();
+    expect(screen.getByText('B2B Fintech')).toBeInTheDocument();
     expect(screen.getByText('$2M+')).toBeInTheDocument();
     expect(screen.getByText('10M+')).toBeInTheDocument();
     expect(screen.getByText('40%')).toBeInTheDocument();

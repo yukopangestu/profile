@@ -10,24 +10,71 @@ section {
   scroll-margin-top: 72px;
 }
 
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-  vertical-align: middle;
+body {
+  background: #060b16;
+  color: #e6edf7;
 }
 
-.hero-gradient {
-  background: linear-gradient(135deg, #004ac6 0%, #2563eb 100%);
+::selection {
+  background: rgba(47, 111, 224, 0.35);
+  color: #e6edf7;
 }
 
-.text-gradient {
-  background: linear-gradient(135deg, #004ac6 0%, #2563eb 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Terminal chrome dots */
+.term-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
 }
 
-.glass-panel {
-  background: rgba(251, 248, 255, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+.term-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #26365a;
+}
+
+.term-dot.active {
+  background: #2f6fe0;
+}
+
+/* Subtle grid used in hero */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(88, 140, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 140, 255, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Section label // comment style */
+.section-label {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 12.5px;
+  color: #5b9dff;
+  margin-bottom: 14px;
+}
+
+/* Border color utilities for rgba values Tailwind can't express cleanly */
+.border-term {
+  border-color: rgba(88, 140, 255, 0.18);
+}
+
+.border-term-dim {
+  border-color: rgba(88, 140, 255, 0.14);
+}
+
+.border-term-strong {
+  border-color: rgba(88, 140, 255, 0.3);
+}
+
+.border-term-mid {
+  border-color: rgba(88, 140, 255, 0.25);
+}
+
+.border-term-soft {
+  border-color: rgba(88, 140, 255, 0.35);
+}
+
+.hover\:border-term-hover:hover {
+  border-color: rgba(88, 140, 255, 0.5);
 }
