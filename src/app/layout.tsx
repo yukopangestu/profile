@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+import BackToTop from '@/components/BackToTop';
 import './globals.css';
 
 const spaceGrotesk = Space_Grotesk({
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans bg-terminal-bg text-terminal-text antialiased`}
       >
         {children}
+        <BackToTop />
       </body>
     </html>
   );
