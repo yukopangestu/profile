@@ -10,7 +10,7 @@ describe('PortfolioSection', () => {
 
   it('renders the section heading', () => {
     render(<PortfolioSection />);
-    expect(screen.getByText(/Selected Works/i)).toBeInTheDocument();
+    expect(screen.getByText(/selected works/i)).toBeInTheDocument();
     expect(screen.getByText(/architectural precision/i)).toBeInTheDocument();
   });
 

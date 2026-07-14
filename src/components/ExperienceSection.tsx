@@ -5,139 +5,84 @@ const earlierRoles = experiences.slice(4);
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 px-8 md:px-12 bg-surface">
-      <div className="max-w-screen-2xl mx-auto">
-        {/* Header */}
-        <div className="mb-20">
-          <span className="text-primary font-bold text-xs tracking-[0.05em] uppercase mb-4 block">
-            Professional Journey
-          </span>
-          <h2 className="text-5xl md:text-6xl font-black tracking-[-0.02em] text-on-surface leading-tight max-w-3xl">
-            Precision in Code.<br />
-            Authority in <span className="text-primary">Leadership.</span>
-          </h2>
-          <p className="mt-6 text-lg text-on-surface-variant max-w-2xl leading-relaxed">
-            8+ years of engineering high-performance systems and leading cross-functional teams to
-            deliver scalable digital architectures.
-          </p>
-        </div>
+    <section id="experience" className="border-t border-term-dim bg-terminal-alt">
+      <div className="max-w-content mx-auto px-5 sm:px-6 md:px-14 py-14 sm:py-16 md:py-[88px]">
+        <div className="section-label">// professional journey</div>
+        <h2 className="m-0 mb-4 max-w-[720px] text-[28px] sm:text-[32px] md:text-[44px] font-bold leading-[1.12] tracking-[-0.02em]">
+          Precision in Code.
+          <br />
+          Authority in Leadership.
+        </h2>
+        <p className="m-0 mb-10 sm:mb-12 md:mb-[52px] max-w-[600px] text-[15px] sm:text-[15.5px] leading-[1.65] text-terminal-dim">
+          8+ years of engineering high-performance systems and leading cross-functional teams to
+          deliver scalable digital architectures.
+        </p>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-outline-variant/20 -translate-x-1/2" />
-
-          <div className="space-y-24">
-            {recentRoles.map((exp, i) => {
-              const isLeft = i % 2 === 0;
-              return (
-                <div
-                  key={i}
-                  className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-start"
-                >
-                  {/* Label side */}
-                  <div className={`pl-12 md:pl-0 ${isLeft ? 'md:text-right md:pr-10' : 'md:order-2 md:pl-10'}`}>
-                    <div
-                      className={`flex items-center gap-4 mb-2 ${
-                        isLeft ? 'md:justify-end' : ''
-                      }`}
-                    >
-                      {isLeft ? (
-                        <>
-                          <span className="text-[0.75rem] font-bold tracking-[0.05em] text-on-surface-variant/60 uppercase">
-                            {exp.period}
-                          </span>
-                          <div className="hidden md:block w-12 h-[1px] bg-primary" />
-                        </>
-                      ) : (
-                        <>
-                          <div className="hidden md:block w-12 h-[1px] bg-outline-variant/40" />
-                          <span className="text-[0.75rem] font-bold tracking-[0.05em] text-on-surface-variant/60 uppercase">
-                            {exp.period}
-                          </span>
-                        </>
-                      )}
-                    </div>
-                    <h3 className="text-2xl font-bold text-on-surface">{exp.role}</h3>
-                    <p className="text-primary font-bold text-lg">{exp.company}</p>
-                  </div>
-
-                  {/* Content card */}
-                  <div
-                    className={`relative bg-surface-container-lowest p-8 rounded-xl shadow-[0_8px_48px_rgba(0,20,83,0.06)] hover:-translate-y-1 transition-transform duration-300 ml-12 md:ml-0 ${
-                      !isLeft ? 'md:order-1' : ''
-                    }`}
-                  >
-                    {/* Timeline node */}
-                    <div
-                      className={`absolute top-10 w-4 h-4 rounded-full ring-8 ring-surface z-10 shadow-[0_0_12px_rgba(0,74,198,0.3)] ${
-                        i < 2
-                          ? 'bg-primary'
-                          : 'bg-outline-variant'
-                      } ${
-                        isLeft
-                          ? 'left-[-42px] md:left-[-97px]'
-                          : 'left-[-42px] md:left-auto md:right-[-97px]'
-                      }`}
-                    />
-
-                    <ul className="space-y-4">
-                      {exp.achievements.map((item, j) => (
-                        <li key={j} className="flex gap-4">
-                          <span
-                            className={`material-symbols-outlined text-sm mt-0.5 flex-shrink-0 ${
-                              i === 0 ? 'text-primary' : 'text-outline-variant'
-                            }`}
-                          >
-                            {i === 0 ? 'check_circle' : 'radio_button_checked'}
-                          </span>
-                          <p className="text-on-surface-variant leading-relaxed text-sm">{item}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              );
-            })}
-
-            {/* Earlier roles — compact */}
-            <div className="relative pl-12 md:pl-0">
-              <div className="absolute left-4 md:left-1/2 top-0 w-4 h-4 rounded-full bg-outline-variant/40 ring-8 ring-surface z-10 -translate-x-1/2" />
-              <div className="md:ml-[calc(50%+3rem)] max-w-xl">
-                <span className="text-[0.75rem] font-bold tracking-[0.05em] text-on-surface-variant/60 uppercase block mb-6">
-                  2016 — 2018 · Earlier Roles
-                </span>
-                <div className="space-y-4">
-                  {earlierRoles.map((exp, i) => (
-                    <div key={i} className="bg-surface-container-low p-6 rounded-xl">
-                      <h4 className="font-bold text-on-surface text-sm">
-                        {exp.role} · {exp.company}
-                      </h4>
-                      <p className="text-on-surface-variant text-sm mt-2 leading-relaxed">
-                        {exp.period} · {exp.achievements[0]}
-                      </p>
-                    </div>
-                  ))}
+        <div className="flex flex-col">
+          {recentRoles.map((exp, i) => (
+            <div
+              key={i}
+              className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-3 lg:gap-10 py-7 sm:py-8 md:py-9 border-t border-term-dim"
+            >
+              <div className="min-w-0">
+                <div className="font-mono text-xs text-terminal-blue">{exp.period}</div>
+                <div className="text-[18px] sm:text-[21px] font-bold mt-2">{exp.role}</div>
+                <div className="font-mono text-[12px] sm:text-[12.5px] text-terminal-faint mt-1">
+                  @ {exp.company}
                 </div>
               </div>
+              <div className="flex flex-col gap-2.5 sm:gap-[11px]">
+                {exp.achievements.map((item, j) => (
+                  <div
+                    key={j}
+                    className="flex gap-2.5 sm:gap-3 items-baseline text-[14px] sm:text-[14.5px] leading-[1.6] text-terminal-muted"
+                  >
+                    <span className="font-mono text-terminal-primary text-xs shrink-0">▸</span>
+                    <span className="min-w-0">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
+          ))}
+        </div>
+
+        {/* Earlier roles */}
+        <div className="border-t border-term-dim pt-8 sm:pt-9">
+          <div className="font-mono text-xs text-terminal-faint mb-5">
+            2016 — 2018 · earlier roles
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            {earlierRoles.map((exp, i) => (
+              <div key={i} className="border border-term rounded-md p-4 sm:p-5 min-w-0">
+                <div className="font-bold text-[15px]">{exp.role}</div>
+                <div className="font-mono text-[11px] sm:text-[11.5px] text-terminal-blue mt-1 mb-2.5 break-words">
+                  {exp.company} · {exp.period}
+                </div>
+                <div className="text-[13px] leading-[1.6] text-terminal-dim">
+                  {exp.achievements[0]}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Stats strip */}
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 bg-inverse-surface rounded-xl p-12 md:p-20 text-white">
-          <div>
-            <h3 className="text-6xl font-black mb-4">8+</h3>
-            <p className="text-sm uppercase tracking-widest opacity-60">Years of Experience</p>
-          </div>
-          <div>
-            <h3 className="text-6xl font-black mb-4">20+</h3>
-            <p className="text-sm uppercase tracking-widest opacity-60">Projects Delivered</p>
-          </div>
-          <div>
-            <h3 className="text-6xl font-black mb-4">10M+</h3>
-            <p className="text-sm uppercase tracking-widest opacity-60">Monthly Transactions</p>
-          </div>
+        {/* Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-[22px] mt-10 sm:mt-[52px]">
+          {[
+            { value: '8+', label: 'years of experience' },
+            { value: '20+', label: 'projects delivered' },
+            { value: '10M+', label: 'monthly transactions' },
+          ].map(({ value, label }) => (
+            <div
+              key={label}
+              className="text-center border border-term rounded-lg py-6 sm:py-7 px-4"
+            >
+              <div className="text-[32px] sm:text-[40px] font-bold text-terminal-blue">{value}</div>
+              <div className="font-mono text-[11px] sm:text-[11.5px] text-terminal-faint mt-1.5">
+                {label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

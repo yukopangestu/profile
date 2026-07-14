@@ -9,8 +9,7 @@ describe('SkillsSection', () => {
 
   it('renders the section heading', () => {
     render(<SkillsSection />);
-    expect(screen.getByRole('heading', { name: /Technical/i })).toBeInTheDocument();
-    expect(screen.getByText('Ecosystem')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Technical Ecosystem/i })).toBeInTheDocument();
   });
 
   it('renders all three skill groups', () => {
@@ -33,5 +32,12 @@ describe('SkillsSection', () => {
     expect(screen.getByText(/10M\+ transactions/i)).toBeInTheDocument();
     expect(screen.getByText(/70%/i)).toBeInTheDocument();
     expect(screen.getByText(/15\+ engineers/i)).toBeInTheDocument();
+  });
+
+  it('renders terminal file titles', () => {
+    render(<SkillsSection />);
+    expect(screen.getByText('backend.go')).toBeInTheDocument();
+    expect(screen.getByText('storage.sql')).toBeInTheDocument();
+    expect(screen.getByText('lead.yaml')).toBeInTheDocument();
   });
 });

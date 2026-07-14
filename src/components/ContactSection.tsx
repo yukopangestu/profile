@@ -1,171 +1,125 @@
 const socials = [
-  {
-    icon: 'terminal',
-    href: 'https://github.com/yukopangestu',
-    label: 'GitHub',
-  },
-  {
-    icon: 'work',
-    href: 'https://www.linkedin.com/in/yukopangestu/',
-    label: 'LinkedIn',
-  },
-  {
-    icon: 'article',
-    href: 'https://medium.com/@yuko.pangestu',
-    label: 'Medium',
-  },
-  {
-    icon: 'mail',
-    href: 'mailto:yuko.pangestu@gmail.com',
-    label: 'Email',
-  },
+  { href: 'https://github.com/yukopangestu', label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/yukopangestu/', label: 'LinkedIn' },
+  { href: 'https://medium.com/@yuko.pangestu', label: 'Medium' },
+  { href: 'mailto:yuko.pangestu@gmail.com', label: 'Email' },
 ];
 
 export default function ContactSection() {
   return (
     <>
-      <section id="contact" className="py-24 px-8 md:px-12 bg-surface-container-low">
-        <div className="max-w-screen-2xl mx-auto">
-          <div className="mb-16">
-            <p className="text-primary font-bold tracking-[0.05em] text-xs uppercase mb-4">
-              Get in Touch
-            </p>
-            <h2 className="text-on-surface font-black text-5xl md:text-6xl tracking-tight leading-tight max-w-3xl">
-              Let&apos;s Connect<span className="text-primary">.</span>
-            </h2>
-            <p className="mt-6 text-on-surface-variant text-lg max-w-2xl leading-relaxed">
-              I&apos;m always open to new opportunities, collaborations, and meaningful
-              conversations about technology and leadership.
-            </p>
-          </div>
+      {/* Contact */}
+      <section id="contact" className="border-t border-term-dim">
+        <div className="max-w-content mx-auto px-5 sm:px-6 md:px-14 py-14 sm:py-16 md:py-[88px]">
+          <div className="section-label">// get in touch</div>
+          <h2 className="m-0 mb-8 sm:mb-11 text-[28px] sm:text-[32px] md:text-[44px] font-bold tracking-[-0.02em]">
+            Let&apos;s Connect<span className="text-terminal-primary">.</span>
+          </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            {/* Contact info + socials */}
-            <div className="lg:col-span-5 space-y-10">
-              <div className="flex items-start gap-6">
-                <div className="bg-surface-container-highest p-4 rounded-xl text-primary flex-shrink-0">
-                  <span className="material-symbols-outlined">alternate_email</span>
-                </div>
-                <div>
-                  <h3 className="text-on-surface font-bold text-lg">Direct Email</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+            <div className="min-w-0">
+              <p className="m-0 mb-7 sm:mb-[34px] max-w-[480px] text-[15px] sm:text-[15.5px] leading-[1.7] text-terminal-muted">
+                I&apos;m always open to new opportunities, collaborations, and meaningful
+                conversations about technology and leadership.
+              </p>
+              <div className="flex flex-col gap-4 sm:gap-[18px] font-mono text-[13px] sm:text-[13.5px]">
+                <div className="flex flex-col sm:flex-row sm:flex-wrap gap-1 sm:gap-3.5 sm:items-baseline min-w-0">
+                  <span className="text-terminal-blue shrink-0">email →</span>
                   <a
                     href="mailto:yuko.pangestu@gmail.com"
-                    className="text-on-surface-variant mt-1 block hover:text-primary transition-colors text-sm"
+                    className="text-terminal-text hover:text-terminal-blue transition-colors break-all"
                   >
                     yuko.pangestu@gmail.com
                   </a>
                 </div>
-              </div>
-
-              <div className="flex items-start gap-6">
-                <div className="bg-surface-container-highest p-4 rounded-xl text-primary flex-shrink-0">
-                  <span className="material-symbols-outlined">location_on</span>
-                </div>
-                <div>
-                  <h3 className="text-on-surface font-bold text-lg">Location</h3>
-                  <p className="text-on-surface-variant mt-1 text-sm">Jakarta, Indonesia</p>
-                </div>
-              </div>
-
-              {/* Social links */}
-              <div className="bg-surface-container-lowest p-8 rounded-xl space-y-6">
-                <h3 className="text-on-surface font-bold text-lg">Digital Presence</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {socials.map(({ icon, href, label }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target={href.startsWith('mailto') ? undefined : '_blank'}
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg hover:bg-primary/5 transition-colors group"
-                    >
-                      <span className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform text-xl">
-                        {icon}
-                      </span>
-                      <span className="font-medium text-on-surface-variant group-hover:text-primary transition-colors text-sm">
-                        {label}
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              {/* Quote card */}
-              <div className="relative overflow-hidden h-44 rounded-xl bg-inverse-surface">
-                <div className="absolute inset-0 bg-primary/20 mix-blend-overlay" />
-                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,_#ffffff_1px,_transparent_1px)] bg-[length:20px_20px]" />
-                <div className="absolute bottom-6 left-8 text-on-primary pr-8">
-                  <p className="text-[0.65rem] uppercase tracking-widest font-bold opacity-70">
-                    Philosophy
-                  </p>
-                  <p className="text-lg font-bold leading-tight mt-1">
-                    Code is the modern architecture of human experience.
-                  </p>
+                <div className="flex flex-col sm:flex-row sm:flex-wrap gap-1 sm:gap-3.5 sm:items-baseline">
+                  <span className="text-terminal-blue shrink-0">location →</span>
+                  <span className="text-terminal-text">Jakarta, Indonesia</span>
                 </div>
               </div>
             </div>
 
-            {/* CTA gradient card */}
-            <div className="lg:col-span-7">
-              <div className="relative overflow-hidden rounded-[2rem] hero-gradient p-12 md:p-16 text-center text-on-primary shadow-2xl shadow-primary/30 h-full flex flex-col justify-center min-h-[400px]">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-48 -mt-48 blur-3xl pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full -ml-48 -mb-48 blur-3xl pointer-events-none" />
-                <div className="relative z-10">
-                  <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-6">
-                    Ready to build something great?
-                  </h2>
-                  <p className="text-on-primary/80 text-lg max-w-lg mx-auto mb-10">
-                    I bring 8+ years of engineering depth and leadership experience. Let&apos;s
-                    talk about how I can help your team ship faster and build better.
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-4">
-                    <a
-                      href="mailto:yuko.pangestu@gmail.com"
-                      className="bg-white text-primary px-10 py-4 rounded-xl font-bold hover:bg-surface-bright active:scale-95 transition-all shadow-lg text-sm"
-                    >
-                      Send an Email
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/yukopangestu/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-primary-container/20 border border-white/20 text-on-primary px-10 py-4 rounded-xl font-bold hover:bg-white/10 active:scale-95 transition-all text-sm"
-                    >
-                      View LinkedIn
-                    </a>
-                  </div>
-                </div>
+            <div className="min-w-0">
+              <div className="font-mono text-xs text-terminal-faint mb-[18px]">
+                // digital presence
+              </div>
+              <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5 font-mono text-[12px] sm:text-[13px]">
+                {socials.map(({ href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={href.startsWith('mailto') ? undefined : '_blank'}
+                    rel="noopener noreferrer"
+                    className="border border-term-mid rounded-md px-3 sm:px-[18px] py-3.5 sm:py-4 text-terminal-soft flex justify-between items-center gap-2 hover:border-terminal-blue hover:text-white transition-colors min-w-0"
+                  >
+                    <span className="truncate">{label}</span>
+                    <span className="text-terminal-blue shrink-0">↗</span>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Final CTA */}
+      <section className="border-t border-term-dim bg-[radial-gradient(ellipse_50%_70%_at_50%_100%,rgba(47,111,224,0.18),transparent)]">
+        <div className="max-w-content mx-auto px-5 sm:px-6 md:px-14 py-16 sm:py-20 md:py-24 text-center">
+          <div className="font-mono text-[11px] sm:text-[12.5px] text-terminal-blue mb-4 sm:mb-[18px] px-2 leading-relaxed">
+            // philosophy: code is the modern architecture of human experience
+          </div>
+          <h2 className="m-0 mx-auto mb-4 sm:mb-5 max-w-[640px] text-[28px] sm:text-[36px] md:text-[52px] font-bold leading-[1.08] tracking-[-0.02em]">
+            Ready to build something great?
+          </h2>
+          <p className="m-0 mx-auto mb-8 sm:mb-[38px] max-w-[540px] text-[15px] sm:text-[15.5px] leading-[1.7] text-terminal-muted">
+            I bring 8+ years of engineering depth and leadership experience. Let&apos;s talk about
+            how I can help your team ship faster and build better.
+          </p>
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-3.5 justify-center font-mono text-[13px] sm:text-[13.5px]">
+            <a
+              href="mailto:yuko.pangestu@gmail.com"
+              className="bg-terminal-primary text-white px-6 sm:px-[30px] py-3.5 sm:py-[15px] rounded font-medium hover:bg-terminal-primary-hover transition-colors"
+            >
+              send an email
+            </a>
+            <a
+              href="https://www.linkedin.com/in/yukopangestu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-term-soft text-terminal-soft px-6 sm:px-[30px] py-3.5 sm:py-[15px] rounded hover:border-terminal-blue hover:text-white transition-colors"
+            >
+              view linkedin
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer className="w-full py-16 px-8 bg-[#192b6b]">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 max-w-screen-2xl mx-auto text-center md:text-left">
-          <div>
-            <div className="text-lg font-bold text-[#fbf8ff]">Yuko Pangestu</div>
-            <p className="text-[#fbf8ff]/60 text-sm tracking-wide mt-1">
-              Technical Lead · B2B Fintech · Jakarta
-            </p>
+      <footer className="border-t border-term-dim">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-5 md:gap-6 max-w-content mx-auto px-5 sm:px-6 md:px-14 py-7 sm:py-8 font-mono text-[11px] sm:text-xs text-terminal-faint text-center md:text-left">
+          <div className="leading-relaxed max-w-sm md:max-w-none">
+            <span className="text-terminal-blue font-bold">~/yuko-pangestu</span>
+            <span className="hidden sm:inline">
+              {' · '}senior full stack · sobat bisnis group · jakarta
+            </span>
+            <span className="sm:hidden block mt-1">senior full stack · jakarta</span>
           </div>
-          <div className="flex flex-wrap justify-center gap-8">
-            {socials.map(({ href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target={href.startsWith('mailto') ? undefined : '_blank'}
-                rel="noopener noreferrer"
-                className="text-[#fbf8ff]/60 hover:text-[#2563eb] transition-colors text-sm"
-              >
-                {label}
-              </a>
-            ))}
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 sm:gap-[22px]">
+            {socials
+              .filter(s => s.label !== 'Email')
+              .map(({ href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-terminal-dim hover:text-terminal-text transition-colors lowercase"
+                >
+                  {label}
+                </a>
+              ))}
           </div>
-          <div className="text-[#fbf8ff]/60 text-sm">
-            © {new Date().getFullYear()} Yuko Pangestu. All rights reserved.
-          </div>
+          <div>© {new Date().getFullYear()} yuko pangestu. all rights reserved.</div>
         </div>
       </footer>
     </>

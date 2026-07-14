@@ -67,7 +67,7 @@ describe('ContactSection', () => {
 
   it('renders footer with copyright', () => {
     render(<ContactSection />);
-    expect(screen.getAllByText(/Yuko Pangestu/).length).toBeGreaterThan(0);
-    expect(screen.getByText(/All rights reserved/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/yuko-pangestu|yuko pangestu/i).length).toBeGreaterThan(0);
+    expect(screen.getByText(/all rights reserved/i)).toBeInTheDocument();
   });
 });

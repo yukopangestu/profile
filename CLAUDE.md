@@ -21,9 +21,12 @@ npm run start     # Start production server locally
 - `src/app/page.tsx` — Root page, composes all sections
 - `src/app/layout.tsx` — HTML shell, metadata, font
 - `src/app/globals.css` — Tailwind base + custom keyframes (fadeInUp, blink)
+- `src/lib/weather.ts` — Open-Meteo client fetch (browser-direct, no API key), WMO map, format helpers
 - `src/components/` — One file per section:
   - `Header.tsx` — Sticky nav with scroll shadow, mobile menu (`use client`)
-  - `HeroSection.tsx` — ID card hero with typing effect and barcode (`use client`)
+  - `HeroSection.tsx` — Hero with photo frame + live weather widget
+  - `WeatherWidget.tsx` — Terminal-styled weather (`chip` | `panel`, client → Open-Meteo)
+
   - `AboutSection.tsx` — Stats grid + bio
   - `SkillsSection.tsx` — Animated skill bars via IntersectionObserver (`use client`)
   - `PortfolioSection.tsx` — Carousel with prev/next + dot indicators (`use client`)
@@ -32,13 +35,18 @@ npm run start     # Start production server locally
 - `src/data/index.ts` — All content data (skills, portfolio items, experiences)
 - `public/hero_img.jpg` — Profile photo used in hero ID card
 - `next.config.js` — Allows remote images from i.imgur.com
+- `src/lib/blog.ts` — Reads/parses Markdown posts from `content/blog/` (gray-matter frontmatter)
+- `content/blog/*.md` — Blog posts (Markdown + frontmatter: `title`, `date`, `excerpt`). No database — add a file, commit, push to publish.
+- `src/app/blog/page.tsx` — Blog index (lists posts)
+- `src/app/blog/[slug]/page.tsx` — Blog post detail (renders Markdown via `react-markdown` + `remark-gfm`, statically generated via `generateStaticParams`)
 
-### Design System
-- **Theme**: Blue-based (`blue-900`, `blue-700`, `blue-50`, `white`)
-- **Section headings**: `text-4xl font-bold`
-- **Body text**: `text-base`
-- **Subtitles**: `text-lg text-gray-400`
-- **Max widths**: `max-w-5xl` (wide sections), `max-w-3xl` (experience), `max-w-2xl` (hero/portfolio/contact)
+### Design System — Midnight Terminal
+- **Theme**: Dark terminal (`#060b16` bg, `#0b1322` surface, `#5b9dff` accent, `#2f6fe0` primary)
+- **Fonts**: Space Grotesk (body), JetBrains Mono (labels, nav, terminal chrome)
+- **Aesthetic**: CLI/terminal metaphor — `// comments`, `$ whoami`, terminal window chrome, monospace CTAs
+- **Section labels**: `// what i bring`, `// selected works`, etc. via `.section-label`
+- **Max width**: `max-w-content` (1240px)
+- **Shared**: `TerminalChrome` component for window chrome dots + title bar
 
 ### Vercel Deployment
 - Live URL: **https://www.yukopangestu.com** — use this to verify changes when localhost is unavailable

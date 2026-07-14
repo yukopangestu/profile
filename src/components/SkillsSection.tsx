@@ -1,20 +1,22 @@
+import TerminalChrome from './TerminalChrome';
+
 const skillGroups = [
   {
-    icon: 'terminal',
+    file: 'backend.go',
     title: 'Backend Engineering',
     description:
       'Designing high-throughput APIs and microservices. Built systems processing 10M+ transactions monthly.',
     tags: ['Go', 'PHP', 'RabbitMQ', 'REST'],
   },
   {
-    icon: 'database',
+    file: 'storage.sql',
     title: 'Data & Storage',
     description:
       'Advanced query optimization and caching strategies. Reduced DB load by 70% through smart indexing.',
     tags: ['MySQL', 'NoSQL', 'Redis', 'Query Tuning'],
   },
   {
-    icon: 'groups',
+    file: 'lead.yaml',
     title: 'Tech Leadership',
     description:
       'Leading cross-functional teams of 15+ engineers. Hiring, mentoring, and setting technical direction.',
@@ -24,38 +26,35 @@ const skillGroups = [
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-24 px-8 md:px-12 bg-surface-container-low">
-      <div className="max-w-screen-2xl mx-auto">
-        <div className="mb-16">
-          <span className="text-primary font-bold text-xs tracking-[0.05em] uppercase mb-4 block">
-            What I Bring
-          </span>
-          <h2 className="text-on-surface font-black text-3xl md:text-4xl tracking-tight mb-4">
-            Technical <span className="text-primary">Ecosystem</span>
-          </h2>
-          <div className="h-1 w-20 bg-primary rounded-full" />
-        </div>
+    <section id="skills" className="border-t border-term-dim">
+      <div className="max-w-content mx-auto px-5 sm:px-6 md:px-14 py-14 sm:py-16 md:py-[88px]">
+        <div className="section-label">// what i bring</div>
+        <h2 className="m-0 mb-8 sm:mb-10 text-[28px] sm:text-[32px] md:text-[44px] font-bold tracking-[-0.02em]">
+          Technical Ecosystem
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {skillGroups.map(({ icon, title, description, tags }) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-[22px]">
+          {skillGroups.map(({ file, title, description, tags }) => (
             <div
               key={title}
-              className="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-[0_8px_48px_rgba(0,20,83,0.06)] hover:-translate-y-1 transition-all duration-300"
+              className="bg-terminal-surface border border-term rounded-lg overflow-hidden hover:border-term-hover transition-colors"
             >
-              <span className="material-symbols-outlined text-primary text-4xl mb-6 block">
-                {icon}
-              </span>
-              <h3 className="text-on-surface font-bold text-xl mb-4">{title}</h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed mb-6">{description}</p>
-              <div className="flex flex-wrap gap-2">
-                {tags.map(tag => (
-                  <span
-                    key={tag}
-                    className="bg-surface-container-high px-3 py-1 rounded-sm text-xs font-bold text-on-surface"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              <TerminalChrome title={file} size="sm" />
+              <div className="px-5 py-[22px]">
+                <h3 className="m-0 mb-2.5 text-[18px] sm:text-[19px] font-bold">{title}</h3>
+                <p className="m-0 mb-[18px] text-sm leading-[1.65] text-terminal-dim">
+                  {description}
+                </p>
+                <div className="flex flex-wrap gap-[7px] font-mono text-[11px]">
+                  {tags.map(tag => (
+                    <span
+                      key={tag}
+                      className="border border-term-strong text-terminal-blue px-[9px] py-1 rounded-sm"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
