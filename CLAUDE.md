@@ -68,4 +68,5 @@ To revert: copy those files back to the repo root and remove the Next.js files.
 ## Workflow
 
 - Always `git pull` before starting any work, to avoid conflicts with changes pushed elsewhere
+- For any UI change or improvement, check the mobile viewport (e.g. 375x812) in addition to desktop before considering it done — this site has previously shipped fixed/floating elements that overlapped content only at mobile widths
 - After every prompt, commit and push changes to `main`
