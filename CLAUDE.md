@@ -67,4 +67,5 @@ To revert: copy those files back to the repo root and remove the Next.js files.
 
 ## Workflow
 
+- Always `git pull` before starting any work, to avoid conflicts with changes pushed elsewhere
 - After every prompt, commit and push changes to `main`
