@@ -1,22 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import HeroSection from '@/components/HeroSection';
 
-describe('HeroSection', () => {
-  beforeEach(() => {
-    global.fetch = jest.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({
-        current: {
-          temperature_2m: 30,
-          relative_humidity_2m: 70,
-          apparent_temperature: 33,
-          weather_code: 0,
-          wind_speed_10m: 10,
-        },
-      }),
-    }) as jest.Mock;
-  });
+jest.mock('@/components/WeatherWidget', () => {
+  return function MockWeatherWidget() {
+    return <div data-testid="weather-widget">weather</div>;
+  };
+});
 
+describe('HeroSection', () => {
   it('renders the name', () => {
     render(<HeroSection />);
     expect(screen.getByText(/Yuko/)).toBeInTheDocument();
@@ -70,6 +61,6 @@ describe('HeroSection', () => {
 
   it('includes the weather widget', () => {
     render(<HeroSection />);
-    expect(screen.getAllByText(/weather/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByTestId('weather-widget').length).toBeGreaterThan(0);
   });
 });
