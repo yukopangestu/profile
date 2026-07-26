@@ -28,8 +28,8 @@
     var(--np-bg);
   color: var(--np-text);
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .nocturne-portfolio a {
