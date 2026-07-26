@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, computed, effect, HostListener, inject, PLATFORM_ID, signal } from '@angular/core';
+import { Component, computed, effect, HostListener, inject, PLATFORM_ID, signal, ViewEncapsulation } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   PORTFOLIO_CATEGORIES,
@@ -28,6 +28,11 @@ const NAV = [
   imports: [RouterLink, ProjectCardComponent],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css',
+  // This stylesheet already self-scopes every selector under .nocturne-portfolio
+  // (ported from a plain global stylesheet). ProjectCardComponent renders its
+  // own encapsulated template, so Angular's default per-component style
+  // scoping would never let these rules reach its elements — hence None here.
+  encapsulation: ViewEncapsulation.None,
 })
 export class PortfolioComponent {
   private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
