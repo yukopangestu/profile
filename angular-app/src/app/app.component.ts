@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+import { WeatherWidgetComponent } from './components/weather-widget/weather-widget.component';
+import { BackToTopComponent } from './components/back-to-top/back-to-top.component';
 import { SkillsSectionComponent } from './components/skills-section/skills-section.component';
 import { AboutSectionComponent } from './components/about-section/about-section.component';
 import { ExperienceSectionComponent } from './components/experience-section/experience-section.component';
@@ -10,6 +13,9 @@ import { ContactSectionComponent } from './components/contact-section/contact-se
   standalone: true,
   imports: [
     RouterOutlet,
+    HeaderComponent,
+    WeatherWidgetComponent,
+    BackToTopComponent,
     SkillsSectionComponent,
     AboutSectionComponent,
     ExperienceSectionComponent,
