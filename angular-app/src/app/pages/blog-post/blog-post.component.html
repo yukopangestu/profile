@@ -1,0 +1,32 @@
+<app-header />
+<main class="max-w-content mx-auto px-5 sm:px-6 md:px-14 pt-14 sm:pt-16 md:pt-[88px] pb-14 sm:pb-16 md:pb-[88px]">
+  @if (post() === undefined) {
+    <!-- loading -->
+  } @else if (post() === null) {
+    <div class="max-w-[720px]">
+      <a routerLink="/blog" class="font-mono text-xs text-terminal-blue hover:text-terminal-blue-bright transition-colors">
+        ← back to blog
+      </a>
+      <p class="mt-6 font-mono text-sm text-terminal-dim">// post not found</p>
+    </div>
+  } @else {
+    <div class="max-w-[720px]">
+      <a routerLink="/blog" class="font-mono text-xs text-terminal-blue hover:text-terminal-blue-bright transition-colors">
+        ← back to blog
+      </a>
+
+      <article class="mt-6">
+        <time class="font-mono text-xs text-terminal-faint">{{ formatDate(post()!.date) }}</time>
+        <h1 class="m-0 mt-2 mb-8 sm:mb-10 text-[26px] sm:text-[32px] md:text-[40px] font-bold tracking-[-0.02em]">
+          {{ post()!.title }}
+        </h1>
+
+        <div
+          class="prose prose-invert max-w-none prose-headings:tracking-[-0.01em] prose-headings:font-bold prose-a:text-terminal-blue prose-a:no-underline hover:prose-a:underline prose-strong:text-terminal-text prose-code:text-terminal-blue prose-code:before:content-none prose-code:after:content-none prose-blockquote:border-l-term-strong prose-blockquote:text-terminal-muted prose-p:text-terminal-muted prose-li:text-terminal-muted prose-hr:border-term-dim"
+          [innerHTML]="contentHtml()"
+        ></div>
+      </article>
+    </div>
+  }
+</main>
+<app-contact-section />

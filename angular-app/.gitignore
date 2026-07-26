@@ -6,6 +6,9 @@
 /out-tsc
 /bazel-out
 
+# Generated from content/blog/*.md by scripts/build-blog.mjs
+/public/data
+
 # Node
 /node_modules
 npm-debug.log
