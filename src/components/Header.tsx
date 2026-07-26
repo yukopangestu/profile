@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 const navItems = [
   { label: './home', href: '#home', id: 'home' },
   { label: './skills', href: '#skills', id: 'skills' },
-  { label: './portfolio', href: '#portfolio', id: 'portfolio' },
+  { label: './portfolio', href: '/portfolio', id: 'portfolio' },
   { label: './experience', href: '#experience', id: 'experience' },
   { label: './blog', href: '/blog', id: 'blog' },
   { label: './contact', href: '#contact', id: 'contact' },
@@ -67,9 +67,14 @@ export default function Header() {
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
-  const navClass = (id: string, base = '') =>
+  const isItemActive = (item: (typeof navItems)[number]) => {
+    if (item.href.startsWith('/')) return pathname === item.href || pathname.startsWith(`${item.href}/`);
+    return isHome && activeId === item.id;
+  };
+
+  const navClass = (item: (typeof navItems)[number], base = '') =>
     `${base} transition-colors ${
-      isHome && activeId === id
+      isItemActive(item)
         ? 'text-terminal-text'
         : 'text-terminal-dim hover:text-terminal-text'
     }`;
@@ -84,7 +89,8 @@ export default function Header() {
           key={item.href}
           href={href}
           onClick={() => setMenuOpen(false)}
-          className={navClass(item.id, base)}
+          className={navClass(item, base)}
+          aria-current={isItemActive(item) ? 'page' : undefined}
         >
           {item.label}
         </Link>
@@ -95,8 +101,8 @@ export default function Header() {
       <button
         key={item.href}
         onClick={() => handleAnchorNav(item.href, item.id)}
-        className={navClass(item.id, base)}
-        aria-current={activeId === item.id ? 'true' : undefined}
+        className={navClass(item, base)}
+        aria-current={isItemActive(item) ? 'true' : undefined}
       >
         {item.label}
       </button>

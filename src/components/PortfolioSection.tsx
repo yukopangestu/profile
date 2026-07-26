@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { portfolioItems } from '@/data';
 
 export default function PortfolioSection() {
@@ -11,7 +12,10 @@ export default function PortfolioSection() {
         </h2>
         <p className="m-0 mb-8 sm:mb-11 max-w-[560px] text-[15px] sm:text-[15.5px] leading-[1.65] text-terminal-dim">
           A collection of engineering projects focused on scalability, performance, and
-          human-centric design.
+          human-centric design.{' '}
+          <Link href="/portfolio" className="text-terminal-blue hover:text-terminal-blue-bright transition-colors">
+            View full case studies →
+          </Link>
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-[22px]">
