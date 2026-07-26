@@ -1,17 +1,17 @@
 /* Scoped Nocturne tokens for /portfolio — from the design artifact */
 .nocturne-portfolio {
-  --np-bg: #161826;
-  --np-surface: #232532;
-  --np-text: #e9e9ed;
-  --np-accent: #9184d9;
-  --np-accent-300: #d2cefd;
-  --np-accent-800: #423a6a;
-  --np-accent-100: #f5f4ff;
-  --np-neutral-800: #3f424d;
-  --np-neutral-100: #f3f5fe;
-  --np-neutral-900: #292b31;
-  --np-divider: color-mix(in srgb, #e9e9ed 16%, transparent);
-  --np-section: #262a60;
+  --np-bg: #060b16;
+  --np-surface: #0b1322;
+  --np-text: #e6edf7;
+  --np-accent: #5b9dff;
+  --np-accent-300: #8ebcff;
+  --np-accent-800: #1c3a63;
+  --np-accent-100: #eaf2ff;
+  --np-neutral-800: #26365a;
+  --np-neutral-100: #dbe6fb;
+  --np-neutral-900: #080f1d;
+  --np-divider: color-mix(in srgb, #e6edf7 16%, transparent);
+  --np-section: #16294d;
   --np-space-2: 5.6px;
   --np-space-3: 8.4px;
   --np-space-4: 11.2px;
@@ -19,12 +19,12 @@
   --np-space-8: 22.4px;
   --np-radius-md: 8px;
   --np-radius-lg: 14px;
-  --np-shadow-md: 0 0 0 1px #595d6c, 0 6px 18px rgba(0, 0, 0, 0.55);
-  --np-shadow-lg: 0 0 0 1px #9397ab, 0 16px 40px rgba(0, 0, 0, 0.65);
+  --np-shadow-md: 0 0 0 1px #35507f, 0 6px 18px rgba(0, 0, 0, 0.55);
+  --np-shadow-lg: 0 0 0 1px #6f93c9, 0 16px 40px rgba(0, 0, 0, 0.65);
 
   min-height: 100vh;
   background:
-    radial-gradient(1200px 600px at 12% -10%, #232746 0%, transparent 60%),
+    radial-gradient(1200px 600px at 12% -10%, #0f1c33 0%, transparent 60%),
     var(--np-bg);
   color: var(--np-text);
   font-family: var(--font-inter), system-ui, sans-serif;
@@ -193,7 +193,7 @@
 .nocturne-portfolio .np-card-media {
   position: relative;
   aspect-ratio: 16 / 10;
-  background: linear-gradient(140deg, #1b1e30, #232746);
+  background: linear-gradient(140deg, #080f1d, #12213b);
   border-bottom: 1px solid var(--np-divider);
   overflow: hidden;
 }
