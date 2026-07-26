@@ -1,35 +1,4 @@
-import { portfolioItems, experiences } from '@/data';
-
-describe('portfolioItems', () => {
-  it('has at least one item', () => {
-    expect(portfolioItems.length).toBeGreaterThan(0);
-  });
-
-  it('each item has required fields', () => {
-    portfolioItems.forEach(item => {
-      expect(item).toHaveProperty('id');
-      expect(item).toHaveProperty('category');
-      expect(item).toHaveProperty('title');
-      expect(item).toHaveProperty('image');
-      expect(item).toHaveProperty('description');
-    });
-  });
-
-  it('each item has non-empty strings', () => {
-    portfolioItems.forEach(item => {
-      expect(item.category.trim()).not.toBe('');
-      expect(item.title.trim()).not.toBe('');
-      expect(item.image.trim()).not.toBe('');
-      expect(item.description.trim()).not.toBe('');
-    });
-  });
-
-  it('each item has a unique id', () => {
-    const ids = portfolioItems.map(item => item.id);
-    const uniqueIds = new Set(ids);
-    expect(uniqueIds.size).toBe(ids.length);
-  });
-});
+import { experiences } from '@/data';
 
 describe('experiences', () => {
   it('has at least one entry', () => {

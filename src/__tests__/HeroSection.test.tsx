@@ -26,10 +26,10 @@ describe('HeroSection', () => {
     expect(img).toBeInTheDocument();
   });
 
-  it('renders the View Portfolio link pointing to #portfolio', () => {
+  it('renders the View Portfolio link pointing to /portfolio', () => {
     render(<HeroSection />);
     const link = screen.getByRole('link', { name: /view \.\/portfolio/i });
-    expect(link).toHaveAttribute('href', '#portfolio');
+    expect(link).toHaveAttribute('href', '/portfolio');
   });
 
   it('renders the experience link pointing to #experience', () => {

@@ -40,7 +40,7 @@ export default function HeroSection() {
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-3.5 mt-8 sm:mt-10 font-mono text-[13px] sm:text-[13.5px]">
             <a
-              href="#portfolio"
+              href="/portfolio"
               className="bg-terminal-primary text-white px-6 sm:px-7 py-3.5 rounded font-medium hover:bg-terminal-primary-hover transition-colors text-center"
             >
               view ./portfolio →

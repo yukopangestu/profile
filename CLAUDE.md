@@ -29,10 +29,12 @@ npm run start     # Start production server locally
 
   - `AboutSection.tsx` — Stats grid + bio
   - `SkillsSection.tsx` — Animated skill bars via IntersectionObserver (`use client`)
-  - `PortfolioSection.tsx` — Carousel with prev/next + dot indicators (`use client`)
   - `ExperienceSection.tsx` — Vertical timeline
   - `ContactSection.tsx` — Email, location, social links, footer
-- `src/data/index.ts` — All content data (skills, portfolio items, experiences)
+  - `PortfolioPageClient.tsx` — Full case-study portfolio UI (`use client`)
+- `src/data/index.ts` — Home content data (experiences)
+- `src/data/portfolio.ts` — Bilingual portfolio projects for `/portfolio`
+- `src/app/portfolio/page.tsx` — Portfolio case-study page
 - `public/hero_img.jpg` — Profile photo used in hero ID card
 - `next.config.js` — Allows remote images from i.imgur.com
 - `src/lib/blog.ts` — Reads/parses Markdown posts from `content/blog/` (gray-matter frontmatter)

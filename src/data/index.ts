@@ -1,28 +1,3 @@
-export const portfolioItems = [
-  {
-    id: 1,
-    category: 'Digital Agency',
-    title: 'Outpost Interactive',
-    image: 'https://i.imgur.com/mjGlkKP.png',
-    description: 'Creating websites from concept to launch, delivering engaging user experiences.',
-  },
-  {
-    id: 2,
-    category: 'In house Project',
-    title: 'Bandingin.com',
-    image: 'https://i.imgur.com/FAfriKi.png',
-    description: 'Creating websites from concept to launch, delivering engaging user experiences.',
-  },
-  {
-    id: 3,
-    category: 'Digital Agency',
-    title: 'Indowebdeveloper',
-    image: 'https://i.imgur.com/wCIAxrk.png',
-    description:
-      'Optimized critical database queries reducing page load times from 5s to 300ms. Implemented advanced caching strategies that decreased database load by 70%.',
-  },
-];
-
 export const experiences = [
   {
     role: 'Senior Full Stack Developer',
