@@ -274,6 +274,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     years: '2016',
     domain: 'homecare.id',
     name: 'Homecare.id',
+    img: 'https://i.imgur.com/cxpHhNN.png',
     role: { en: 'Frontend Web Developer', id: 'Frontend Web Developer' },
     summary: {
       en: 'Healthcare platform front end — home-visit services presented clearly enough to be trusted with a family member.',
