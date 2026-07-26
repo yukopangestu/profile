@@ -239,6 +239,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     years: '2016',
     domain: 'pesanlab.com',
     name: 'Pesanlab.com',
+    img: 'https://i.imgur.com/79ze4Yy.png',
     role: { en: 'Frontend Web Developer', id: 'Frontend Web Developer' },
     summary: {
       en: 'Lab-test booking site — the front end of a service where a confused user simply does not complete the booking.',
