@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-space-grotesk: 'Space Grotesk', system-ui, sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+section {
+  scroll-margin-top: 72px;
+}
+
+body {
+  background: #060b16;
+  color: #e6edf7;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(47, 111, 224, 0.35);
+  color: #e6edf7;
+}
+
+/* Terminal chrome dots */
+.term-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.term-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #26365a;
+}
+
+.term-dot.active {
+  background: #2f6fe0;
+}
+
+/* Subtle grid used in hero */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(88, 140, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 140, 255, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Section label // comment style */
+.section-label {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 12.5px;
+  color: #5b9dff;
+  margin-bottom: 14px;
+}
+
+/* Border color utilities for rgba values Tailwind can't express cleanly */
+.border-term {
+  border-color: rgba(88, 140, 255, 0.18);
+}
+
+.border-term-dim {
+  border-color: rgba(88, 140, 255, 0.14);
+}
+
+.border-term-strong {
+  border-color: rgba(88, 140, 255, 0.3);
+}
+
+.border-term-mid {
+  border-color: rgba(88, 140, 255, 0.25);
+}
+
+.border-term-soft {
+  border-color: rgba(88, 140, 255, 0.35);
+}
+
+.hover\:border-term-hover:hover {
+  border-color: rgba(88, 140, 255, 0.5);
+}
