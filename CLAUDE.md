@@ -53,7 +53,13 @@ Two npm optional-dependency bugs (https://github.com/npm/cli/issues/4828) can si
 - `ng serve` fails with `Cannot find module '@rollup/rollup-win32-x64-msvc'`
 - Jest fails to resolve *any* module (even its own defaults) because `unrs-resolver` can't find `@unrs/resolver-binding-win32-x64-msvc`
 
-Both packages are already pinned in `package.json` devDependencies specifically to work around this — if it recurs, reinstalling should be enough; no code change needed.
+`@rollup/rollup-win32-x64-msvc` and `@unrs/resolver-binding-win32-x64-msvc` are listed in `package.json` under `optionalDependencies` so Vercel's Linux build doesn't hard-fail on them (they were briefly regular `devDependencies`, which broke the very first production deploy with `EBADPLATFORM` — do not move them back). That's enough to fix the `unrs-resolver` side reliably; the `rollup` one still doesn't always auto-install as optional due to the underlying npm bug. If `ng serve`/`npm start` fails locally with the rollup error, run:
+
+```bash
+npm install @rollup/rollup-win32-x64-msvc --no-save
+```
+
+`--no-save` keeps it out of `package.json` — it's a local workaround, not a project dependency.
 
 ## Workflow
 
