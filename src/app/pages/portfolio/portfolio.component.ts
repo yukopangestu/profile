@@ -11,7 +11,6 @@ import {
   type PortfolioLang,
 } from '../../data/portfolio.data';
 import { ProjectCardComponent } from '../../components/project-card/project-card.component';
-import { PesanlabPreviewComponent } from '../../components/pesanlab-preview/pesanlab-preview.component';
 
 type FilterKey = 'all' | PortfolioCategory;
 
@@ -26,7 +25,7 @@ const NAV = [
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [RouterLink, ProjectCardComponent, PesanlabPreviewComponent],
+  imports: [RouterLink, ProjectCardComponent],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css',
   // This stylesheet already self-scopes every selector under .nocturne-portfolio
