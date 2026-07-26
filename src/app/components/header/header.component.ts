@@ -19,6 +19,11 @@ const navItems: NavItem[] = [
   { label: './contact', href: '#contact', id: 'contact' },
 ];
 
+/** router.url and NavigationEnd.urlAfterRedirects can include a #fragment or ?query — strip both so path comparisons (e.g. isHome) aren't thrown off by a URL like "/#experience". */
+function stripFragmentAndQuery(url: string): string {
+  return url.split('#')[0].split('?')[0] || '/';
+}
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -36,10 +41,10 @@ export class HeaderComponent {
   pathname = toSignal(
     this.router.events.pipe(
       filter((e): e is NavigationEnd => e instanceof NavigationEnd),
-      map(e => e.urlAfterRedirects),
-      startWith(this.router.url)
+      map(e => stripFragmentAndQuery(e.urlAfterRedirects)),
+      startWith(stripFragmentAndQuery(this.router.url))
     ),
-    { initialValue: this.router.url }
+    { initialValue: stripFragmentAndQuery(this.router.url) }
   );
 
   isHome = () => this.pathname() === '/';
