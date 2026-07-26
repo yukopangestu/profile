@@ -1,0 +1,279 @@
+<div class="nocturne-portfolio">
+  <header
+    style="position: sticky; top: 0; z-index: 40; backdrop-filter: blur(14px); background: color-mix(in srgb, #161826 82%, transparent); border-bottom: 1px solid var(--np-divider);"
+  >
+    <div
+      style="max-width: 1180px; margin: 0 auto; display: flex; align-items: center; gap: var(--np-space-4); padding: var(--np-space-3) var(--np-space-4);"
+    >
+      <a
+        routerLink="/"
+        class="np-mono"
+        style="font-size: 13px; margin-right: auto; display: flex; align-items: center; gap: 2px; flex-shrink: 0;"
+      >
+        <span style="opacity: 0.5;">~/yuko-pangestu/</span>
+        <span>portfolio</span>
+        <span class="np-cursor">_</span>
+      </a>
+
+      <nav class="np-desktop-nav np-mono" aria-label="Primary" style="display: flex; gap: var(--np-space-4); font-size: 12.5px;">
+        @for (item of nav; track item.href) {
+          <a [href]="item.href" [class]="'np-nav-link' + (item.active ? ' is-active' : '')">
+            {{ item.label }}
+          </a>
+        }
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: var(--np-space-2); flex-shrink: 0;">
+        <div class="np-seg np-mono" role="group" aria-label="Language">
+          <button
+            type="button"
+            class="np-seg-opt"
+            [attr.aria-current]="lang() === 'en' ? 'true' : null"
+            (click)="setLang('en')"
+          >
+            en
+          </button>
+          <button
+            type="button"
+            class="np-seg-opt"
+            [attr.aria-current]="lang() === 'id' ? 'true' : null"
+            (click)="setLang('id')"
+          >
+            id
+          </button>
+        </div>
+        <a class="np-btn np-btn-primary np-desktop-nav" [href]="mailto">hire --me</a>
+        <button
+          type="button"
+          class="np-mobile-toggle np-btn np-btn-secondary"
+          style="display: none;"
+          aria-label="Toggle menu"
+          [attr.aria-expanded]="menuOpen()"
+          (click)="toggleMenu()"
+        >
+          {{ menuOpen() ? 'close' : 'menu' }}
+        </button>
+      </div>
+    </div>
+
+    @if (menuOpen()) {
+      <div
+        class="np-mono"
+        style="display: flex; flex-direction: column; gap: 4px; padding: 0 var(--np-space-4) var(--np-space-4); border-top: 1px solid var(--np-divider);"
+      >
+        @for (item of nav; track item.href) {
+          <a
+            [href]="item.href"
+            [class]="'np-nav-link' + (item.active ? ' is-active' : '')"
+            style="padding: 10px 0; border-bottom: 1px solid var(--np-divider); font-size: 13px;"
+            (click)="closeMenu()"
+          >
+            {{ item.label }}
+          </a>
+        }
+        <a class="np-btn np-btn-primary" [href]="mailto" style="margin-top: 10px; text-align: center;">
+          hire --me
+        </a>
+      </div>
+    }
+  </header>
+
+  <div style="max-width: 1180px; margin: 0 auto; padding: var(--np-space-8) var(--np-space-4) var(--np-space-6);">
+    <div class="np-mono" style="font-size: 12.5px; color: var(--np-accent); margin-bottom: var(--np-space-3);">
+      {{ copy().kicker }}
+    </div>
+    <h1 style="font-size: clamp(32px, 5vw, 62px); line-height: 1.04; letter-spacing: -0.03em; font-weight: 500; margin: 0; max-width: 17ch;">
+      {{ copy().title }}
+    </h1>
+    <p style="margin: var(--np-space-4) 0 0; max-width: 62ch; font-size: 16.5px; line-height: 1.62; color: color-mix(in srgb, var(--np-text) 76%, transparent);">
+      {{ copy().lede }}
+    </p>
+    <div style="display: flex; flex-wrap: wrap; gap: var(--np-space-2); margin-top: var(--np-space-4);">
+      <a class="np-btn np-btn-primary" [href]="mailto">{{ copy().ctaMail }}</a>
+      <a class="np-btn np-btn-secondary" href="https://www.linkedin.com/in/yukopangestu/" target="_blank" rel="noreferrer">
+        {{ copy().ctaLinkedin }}
+      </a>
+      <a class="np-btn np-btn-secondary" href="https://github.com/yukopangestu" target="_blank" rel="noreferrer">
+        github
+      </a>
+    </div>
+  </div>
+
+  <div style="max-width: 1180px; margin: 0 auto; padding: 0 var(--np-space-4);">
+    <div
+      class="np-metrics"
+      style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--np-divider); border: 1px solid var(--np-divider); border-radius: var(--np-radius-md); overflow: hidden;"
+    >
+      @for (m of metricsForLang(); track m.label) {
+        <div style="background: var(--np-bg); padding: var(--np-space-4) var(--np-space-4) var(--np-space-3);">
+          <div style="font-size: 30px; line-height: 1; letter-spacing: -0.02em; font-weight: 500; font-variant-numeric: tabular-nums;">
+            {{ m.value }}
+          </div>
+          <div class="np-mono" style="font-size: 11px; letter-spacing: 0.04em; margin-top: 8px; color: color-mix(in srgb, var(--np-text) 52%, transparent);">
+            {{ m.label }}
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <main id="works" style="max-width: 1180px; margin: 0 auto; padding: var(--np-space-6) var(--np-space-4) var(--np-space-8);">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--np-space-3); margin-bottom: var(--np-space-4);">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-right: auto;">
+        @for (f of filterOptions(); track f.key) {
+          <button
+            type="button"
+            [class]="'np-chip' + (filter() === f.key ? ' is-active' : '')"
+            (click)="setFilter(f.key)"
+          >
+            {{ f.label }}
+          </button>
+        }
+      </div>
+      <div class="np-mono" style="font-size: 12px; color: color-mix(in srgb, var(--np-text) 50%, transparent);">
+        {{ copy().count(list().length) }}
+      </div>
+    </div>
+
+    <div class="np-works-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: var(--np-space-4);">
+      @for (p of list(); track p.slug; let i = $index) {
+        <app-project-card
+          [project]="p"
+          [lang]="lang()"
+          [readMore]="copy().readMore"
+          [delayMs]="i * 40"
+          (open)="openDialog(p.slug)"
+        />
+      }
+    </div>
+  </main>
+
+  @if (openProject(); as open) {
+    <div class="np-dialog-backdrop" role="presentation" (click)="closeDialog()">
+      <div
+        class="np-dialog"
+        role="dialog"
+        aria-modal="true"
+        [attr.aria-labelledby]="dialogTitleId"
+        (click)="$event.stopPropagation()"
+      >
+        <div
+          class="np-mono"
+          style="display: flex; align-items: center; gap: var(--np-space-3); padding: var(--np-space-3) var(--np-space-4); border-bottom: 1px solid var(--np-divider); font-size: 12px;"
+        >
+          <span style="color: color-mix(in srgb, var(--np-text) 45%, transparent);">~/portfolio/</span>
+          <span style="color: var(--np-accent);">{{ open.slug }}</span>
+          <button
+            type="button"
+            class="np-btn np-btn-secondary np-btn-icon"
+            style="margin-left: auto;"
+            [attr.aria-label]="copy().close"
+            (click)="closeDialog()"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div style="padding: var(--np-space-4) var(--np-space-4) var(--np-space-6); display: flex; flex-direction: column; gap: var(--np-space-4);">
+          <div>
+            <div class="np-mono" style="font-size: 11.5px; color: var(--np-accent-300);">
+              {{ open.role[lang()] }} · {{ open.years }}
+            </div>
+            <h2 [id]="dialogTitleId" style="margin: 8px 0 0; font-size: clamp(26px, 4vw, 34px); font-weight: 500; letter-spacing: -0.02em;">
+              {{ open.name }}
+            </h2>
+          </div>
+
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.68; color: color-mix(in srgb, var(--np-text) 82%, transparent);">
+            {{ open.detail[lang()] }}
+          </p>
+
+          <div
+            class="np-figures"
+            style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--np-divider); border: 1px solid var(--np-divider); border-radius: var(--np-radius-md); overflow: hidden;"
+          >
+            @for (f of open.figures; track f.label[lang()]) {
+              <div style="background: var(--np-surface); padding: var(--np-space-3);">
+                <div style="font-size: 22px; font-weight: 500; font-variant-numeric: tabular-nums;">{{ f.value }}</div>
+                <div class="np-mono" style="font-size: 10.5px; margin-top: 5px; color: color-mix(in srgb, var(--np-text) 50%, transparent);">
+                  {{ f.label[lang()] }}
+                </div>
+              </div>
+            }
+          </div>
+
+          <div>
+            <div class="np-mono" style="font-size: 11.5px; color: color-mix(in srgb, var(--np-text) 50%, transparent); margin-bottom: 10px;">
+              {{ copy().highlights }}
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 9px;">
+              @for (pt of open.points[lang()]; track pt) {
+                <div style="display: flex; gap: 10px; font-size: 14.5px; line-height: 1.55; color: color-mix(in srgb, var(--np-text) 80%, transparent);">
+                  <span class="np-mono" style="color: var(--np-accent);">▸</span>
+                  <span>{{ pt }}</span>
+                </div>
+              }
+            </div>
+          </div>
+
+          <div>
+            <div class="np-mono" style="font-size: 11.5px; color: color-mix(in srgb, var(--np-text) 50%, transparent); margin-bottom: 10px;">
+              {{ copy().stack }}
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              @for (s of open.stack; track s) {
+                <span class="np-tag np-tag-accent">{{ s }}</span>
+              }
+            </div>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: var(--np-space-2); margin-top: var(--np-space-2);">
+            <a class="np-btn np-btn-primary" [href]="askAboutHref(open.name)">{{ copy().askAbout }}</a>
+            <button type="button" class="np-btn np-btn-secondary" (click)="closeDialog()">{{ copy().close }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <section style="border-top: 1px solid var(--np-divider); background: linear-gradient(180deg, transparent, color-mix(in srgb, #262a60 45%, transparent));">
+    <div
+      class="np-cta-grid"
+      style="max-width: 1180px; margin: 0 auto; padding: var(--np-space-8) var(--np-space-4); display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--np-space-6); align-items: end;"
+    >
+      <div>
+        <div class="np-mono" style="font-size: 12.5px; color: var(--np-accent); margin-bottom: var(--np-space-3);">
+          {{ copy().ctaKicker }}
+        </div>
+        <h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); font-weight: 500; letter-spacing: -0.02em; max-width: 20ch; line-height: 1.1;">
+          {{ copy().ctaTitle }}
+        </h2>
+        <p style="margin: var(--np-space-3) 0 0; max-width: 52ch; font-size: 15.5px; line-height: 1.6; color: color-mix(in srgb, var(--np-text) 74%, transparent);">
+          {{ copy().ctaBody }}
+        </p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: var(--np-space-2);">
+        <a class="np-btn np-btn-primary np-btn-block" [href]="mailto">{{ copy().ctaMail }}</a>
+        <a class="np-btn np-btn-secondary np-btn-block" href="https://www.linkedin.com/in/yukopangestu/" target="_blank" rel="noreferrer">
+          {{ copy().ctaLinkedin }}
+        </a>
+        <div class="np-mono" style="font-size: 11.5px; color: color-mix(in srgb, var(--np-text) 45%, transparent); margin-top: 6px;">
+          {{ copy().location }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid var(--np-divider);">
+    <div
+      class="np-mono"
+      style="max-width: 1180px; margin: 0 auto; padding: var(--np-space-4); display: flex; flex-wrap: wrap; gap: var(--np-space-3); align-items: center; font-size: 11.5px; color: color-mix(in srgb, var(--np-text) 45%, transparent);"
+    >
+      <span style="margin-right: auto;">~/yuko-pangestu · senior full stack · jakarta</span>
+      <a href="https://github.com/yukopangestu" target="_blank" rel="noreferrer">github</a>
+      <a href="https://www.linkedin.com/in/yukopangestu/" target="_blank" rel="noreferrer">linkedin</a>
+      <a href="https://medium.com/@yuko.pangestu" target="_blank" rel="noreferrer">medium</a>
+      <span>© 2026</span>
+    </div>
+  </footer>
+</div>

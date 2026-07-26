@@ -1,0 +1,56 @@
+<button
+  type="button"
+  class="np-card"
+  [style.animationDelay]="delayMs + 'ms'"
+  (click)="open.emit()"
+>
+  <div class="np-card-media">
+    @if (project.img) {
+      <img [src]="project.img" [alt]="project.name" />
+    } @else {
+      <div class="np-mono" style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: var(--np-space-4);">
+        <div style="font-size: 11px; color: color-mix(in srgb, var(--np-text) 38%, transparent);">
+          $ open
+        </div>
+        <div style="font-size: 19px; color: var(--np-accent-300); margin-top: 6px; word-break: break-all;">
+          {{ project.domain }}
+        </div>
+        <div style="height: 1px; margin-top: 14px; background: linear-gradient(to right, transparent, color-mix(in srgb, var(--np-accent) 55%, transparent) 20%, transparent 92%);"></div>
+      </div>
+    }
+    <div
+      class="np-mono"
+      style="position: absolute; top: 10px; left: 10px; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; background: color-mix(in srgb, #161826 78%, transparent); border: 1px solid var(--np-divider); color: var(--np-accent-300);"
+    >
+      {{ project.cat }}
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px; padding: var(--np-space-4);">
+    <div style="display: flex; align-items: baseline; gap: var(--np-space-2);">
+      <h3 style="margin: 0; font-size: 20px; font-weight: 500; letter-spacing: -0.01em;">
+        {{ project.name }}
+      </h3>
+      <span
+        class="np-mono"
+        style="margin-left: auto; font-size: 11.5px; font-variant-numeric: tabular-nums; color: color-mix(in srgb, var(--np-text) 45%, transparent); white-space: nowrap;"
+      >
+        {{ project.years }}
+      </span>
+    </div>
+    <div class="np-mono" style="font-size: 11.5px; color: var(--np-accent-300);">
+      {{ project.role[lang] }}
+    </div>
+    <p style="margin: 0; font-size: 14px; line-height: 1.6; color: color-mix(in srgb, var(--np-text) 72%, transparent);">
+      {{ project.summary[lang] }}
+    </p>
+    <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px;">
+      @for (s of project.stack; track s) {
+        <span class="np-tag np-tag-neutral">{{ s }}</span>
+      }
+    </div>
+    <div class="np-mono" style="display: flex; align-items: center; gap: 6px; margin-top: 6px; font-size: 12px; color: var(--np-accent);">
+      {{ readMore }}
+    </div>
+  </div>
+</button>
