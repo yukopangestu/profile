@@ -184,6 +184,10 @@
             </h2>
           </div>
 
+          @if (open.slug === 'pesanlab') {
+            <app-pesanlab-preview />
+          }
+
           <p style="margin: 0; font-size: 15.5px; line-height: 1.68; color: color-mix(in srgb, var(--np-text) 82%, transparent);">
             {{ open.detail[lang()] }}
           </p>
