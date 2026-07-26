@@ -1,0 +1,68 @@
+<section id="experience" class="border-t border-term-dim bg-terminal-alt">
+  <div class="max-w-content mx-auto px-5 sm:px-6 md:px-14 py-14 sm:py-16 md:py-[88px]">
+    <div class="section-label">// professional journey</div>
+    <h2 class="m-0 mb-4 max-w-[720px] text-[28px] sm:text-[32px] md:text-[44px] font-bold leading-[1.12] tracking-[-0.02em]">
+      Precision in Code.
+      <br />
+      Authority in Leadership.
+    </h2>
+    <p class="m-0 mb-10 sm:mb-12 md:mb-[52px] max-w-[600px] text-[15px] sm:text-[15.5px] leading-[1.65] text-terminal-dim">
+      8+ years of engineering high-performance systems and leading cross-functional teams to
+      deliver scalable digital architectures.
+    </p>
+
+    <div class="flex flex-col">
+      @for (exp of recentRoles; track exp.company + exp.period) {
+        <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-3 lg:gap-10 py-7 sm:py-8 md:py-9 border-t border-term-dim">
+          <div class="min-w-0">
+            <div class="font-mono text-xs text-terminal-blue">{{ exp.period }}</div>
+            <div class="text-[18px] sm:text-[21px] font-bold mt-2">{{ exp.role }}</div>
+            <div class="font-mono text-[12px] sm:text-[12.5px] text-terminal-faint mt-1">
+              &#64; {{ exp.company }}
+            </div>
+          </div>
+          <div class="flex flex-col gap-2.5 sm:gap-[11px]">
+            @for (item of exp.achievements; track item) {
+              <div class="flex gap-2.5 sm:gap-3 items-baseline text-[14px] sm:text-[14.5px] leading-[1.6] text-terminal-muted">
+                <span class="font-mono text-terminal-primary text-xs shrink-0">▸</span>
+                <span class="min-w-0">{{ item }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Earlier roles -->
+    <div class="border-t border-term-dim pt-8 sm:pt-9">
+      <div class="font-mono text-xs text-terminal-faint mb-5">
+        2016 — 2018 · earlier roles
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        @for (exp of earlierRoles; track exp.company + exp.period) {
+          <div class="border border-term rounded-md p-4 sm:p-5 min-w-0">
+            <div class="font-bold text-[15px]">{{ exp.role }}</div>
+            <div class="font-mono text-[11px] sm:text-[11.5px] text-terminal-blue mt-1 mb-2.5 break-words">
+              {{ exp.company }} · {{ exp.period }}
+            </div>
+            <div class="text-[13px] leading-[1.6] text-terminal-dim">
+              {{ exp.achievements[0] }}
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-[22px] mt-10 sm:mt-[52px]">
+      @for (stat of overallStats; track stat.label) {
+        <div class="text-center border border-term rounded-lg py-6 sm:py-7 px-4">
+          <div class="text-[32px] sm:text-[40px] font-bold text-terminal-blue">{{ stat.value }}</div>
+          <div class="font-mono text-[11px] sm:text-[11.5px] text-terminal-faint mt-1.5">
+            {{ stat.label }}
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
