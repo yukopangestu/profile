@@ -1,86 +1,29 @@
 <div class="nocturne-portfolio">
-  <header
-    style="position: sticky; top: 0; z-index: 40; backdrop-filter: blur(14px); background: color-mix(in srgb, #060b16 82%, transparent); border-bottom: 1px solid var(--np-divider);"
-  >
-    <div
-      style="max-width: 1180px; margin: 0 auto; display: flex; align-items: center; gap: var(--np-space-4); padding: var(--np-space-3) var(--np-space-4);"
-    >
-      <a
-        routerLink="/"
-        class="np-mono"
-        style="font-size: 13px; margin-right: auto; display: flex; align-items: center; gap: 2px; flex-shrink: 0;"
-      >
-        <span style="opacity: 0.5;">~/yuko-pangestu/</span>
-        <span>portfolio</span>
-        <span class="np-cursor">_</span>
-      </a>
-
-      <nav class="np-desktop-nav np-mono" aria-label="Primary" style="display: flex; gap: var(--np-space-4); font-size: 12.5px;">
-        @for (item of nav; track item.href) {
-          <a [href]="item.href" [class]="'np-nav-link' + (item.active ? ' is-active' : '')">
-            {{ item.label }}
-          </a>
-        }
-      </nav>
-
-      <div style="display: flex; align-items: center; gap: var(--np-space-2); flex-shrink: 0;">
-        <div class="np-seg np-mono" role="group" aria-label="Language">
-          <button
-            type="button"
-            class="np-seg-opt"
-            [attr.aria-current]="lang() === 'en' ? 'true' : null"
-            (click)="setLang('en')"
-          >
-            en
-          </button>
-          <button
-            type="button"
-            class="np-seg-opt"
-            [attr.aria-current]="lang() === 'id' ? 'true' : null"
-            (click)="setLang('id')"
-          >
-            id
-          </button>
-        </div>
-        <a class="np-btn np-btn-primary np-desktop-nav" [href]="mailto">hire --me</a>
-        <button
-          type="button"
-          class="np-mobile-toggle np-btn np-btn-secondary"
-          style="display: none;"
-          aria-label="Toggle menu"
-          [attr.aria-expanded]="menuOpen()"
-          (click)="toggleMenu()"
-        >
-          {{ menuOpen() ? 'close' : 'menu' }}
-        </button>
-      </div>
-    </div>
-
-    @if (menuOpen()) {
-      <div
-        class="np-mono"
-        style="display: flex; flex-direction: column; gap: 4px; padding: 0 var(--np-space-4) var(--np-space-4); border-top: 1px solid var(--np-divider);"
-      >
-        @for (item of nav; track item.href) {
-          <a
-            [href]="item.href"
-            [class]="'np-nav-link' + (item.active ? ' is-active' : '')"
-            style="padding: 10px 0; border-bottom: 1px solid var(--np-divider); font-size: 13px;"
-            (click)="closeMenu()"
-          >
-            {{ item.label }}
-          </a>
-        }
-        <a class="np-btn np-btn-primary" [href]="mailto" style="margin-top: 10px; text-align: center;">
-          hire --me
-        </a>
-      </div>
-    }
-  </header>
+  <app-header />
 
   <div style="max-width: 1180px; margin: 0 auto; padding: var(--np-space-8) var(--np-space-4) var(--np-space-6);">
-    <div class="np-mono" style="font-size: 12.5px; color: var(--np-accent); margin-bottom: var(--np-space-3);">
-      {{ copy().kicker }}
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: var(--np-space-3); margin-bottom: var(--np-space-3);">
+      <div class="np-mono" style="font-size: 12.5px; color: var(--np-accent);">
+        {{ copy().kicker }}
+      </div>
+      <div class="np-seg np-mono" role="group" aria-label="Language">
+        <button
+          type="button"
+          class="np-seg-opt"
+          [attr.aria-current]="lang() === 'en' ? 'true' : null"
+          (click)="setLang('en')"
+        >
+          en
+        </button>
+        <button
+          type="button"
+          class="np-seg-opt"
+          [attr.aria-current]="lang() === 'id' ? 'true' : null"
+          (click)="setLang('id')"
+        >
+          id
+        </button>
+      </div>
     </div>
     <h1 style="font-size: clamp(32px, 5vw, 62px); line-height: 1.04; letter-spacing: -0.03em; font-weight: 500; margin: 0; max-width: 17ch;">
       {{ copy().title }}

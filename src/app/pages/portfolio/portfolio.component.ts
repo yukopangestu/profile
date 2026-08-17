@@ -1,6 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, computed, effect, HostListener, inject, PLATFORM_ID, signal, ViewEncapsulation } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, computed, effect, inject, PLATFORM_ID, signal, ViewEncapsulation } from '@angular/core';
 import {
   PORTFOLIO_CATEGORIES,
   PORTFOLIO_COPY,
@@ -11,21 +10,14 @@ import {
   type PortfolioLang,
 } from '../../data/portfolio.data';
 import { ProjectCardComponent } from '../../components/project-card/project-card.component';
+import { HeaderComponent } from '../../components/header/header.component';
 
 type FilterKey = 'all' | PortfolioCategory;
-
-const NAV = [
-  { label: './home', href: '/#home', active: false },
-  { label: './skills', href: '/#skills', active: false },
-  { label: './portfolio', href: '/portfolio', active: true },
-  { label: './experience', href: '/#experience', active: false },
-  { label: './blog', href: '/blog', active: false },
-];
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [RouterLink, ProjectCardComponent],
+  imports: [ProjectCardComponent, HeaderComponent],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css',
   // This stylesheet already self-scopes every selector under .nocturne-portfolio
@@ -37,7 +29,6 @@ const NAV = [
 export class PortfolioComponent {
   private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
-  nav = NAV;
   categories = PORTFOLIO_CATEGORIES;
   projects = PORTFOLIO_PROJECTS;
   metrics = PORTFOLIO_METRICS;
@@ -48,7 +39,6 @@ export class PortfolioComponent {
   lang = signal<PortfolioLang>('en');
   filter = signal<FilterKey>('all');
   openSlug = signal<string | null>(null);
-  menuOpen = signal(false);
 
   copy = computed(() => PORTFOLIO_COPY[this.lang()]);
   metricsForLang = computed(() => this.metrics[this.lang()]);
@@ -87,11 +77,6 @@ export class PortfolioComponent {
     });
   }
 
-  @HostListener('window:resize')
-  onResize(): void {
-    if (this.isBrowser && window.innerWidth > 720) this.menuOpen.set(false);
-  }
-
   setLang(lang: PortfolioLang): void {
     this.lang.set(lang);
   }
@@ -99,14 +84,6 @@ export class PortfolioComponent {
   setFilter(key: FilterKey): void {
     this.filter.set(key);
     this.openSlug.set(null);
-  }
-
-  toggleMenu(): void {
-    this.menuOpen.set(!this.menuOpen());
-  }
-
-  closeMenu(): void {
-    this.menuOpen.set(false);
   }
 
   openDialog(slug: string): void {
