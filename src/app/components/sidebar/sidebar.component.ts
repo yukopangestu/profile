@@ -29,6 +29,7 @@ function stripFragmentAndQuery(url: string): string {
   standalone: true,
   imports: [RouterLink, NgTemplateOutlet],
   templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent {
   private router = inject(Router);
