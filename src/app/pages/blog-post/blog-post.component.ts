@@ -4,14 +4,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { of } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
-import { HeaderComponent } from '../../components/header/header.component';
 import { ContactSectionComponent } from '../../components/contact-section/contact-section.component';
 import { BlogService, type BlogPost } from '../../services/blog.service';
 
 @Component({
   selector: 'app-blog-post',
   standalone: true,
-  imports: [RouterLink, HeaderComponent, ContactSectionComponent],
+  imports: [RouterLink, ContactSectionComponent],
   templateUrl: './blog-post.component.html',
 })
 export class BlogPostComponent {

@@ -10,14 +10,13 @@ import {
   type PortfolioLang,
 } from '../../data/portfolio.data';
 import { ProjectCardComponent } from '../../components/project-card/project-card.component';
-import { HeaderComponent } from '../../components/header/header.component';
 
 type FilterKey = 'all' | PortfolioCategory;
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [ProjectCardComponent, HeaderComponent],
+  imports: [ProjectCardComponent],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css',
   // This stylesheet already self-scopes every selector under .nocturne-portfolio

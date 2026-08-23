@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../components/header/header.component';
 import { HeroSectionComponent } from '../../components/hero-section/hero-section.component';
 import { SkillsSectionComponent } from '../../components/skills-section/skills-section.component';
 import { AboutSectionComponent } from '../../components/about-section/about-section.component';
@@ -10,7 +9,6 @@ import { ContactSectionComponent } from '../../components/contact-section/contac
   selector: 'app-home',
   standalone: true,
   imports: [
-    HeaderComponent,
     HeroSectionComponent,
     SkillsSectionComponent,
     AboutSectionComponent,

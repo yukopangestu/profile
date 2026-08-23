@@ -1,0 +1,139 @@
+<ng-template #desktopItemTpl let-item let-i="index">
+  @if (isPageLink(item)) {
+    <a
+      [routerLink]="item.href"
+      [class]="sidebarItemClass(item)"
+      [attr.aria-current]="isItemActive(item) ? 'page' : null"
+    >
+      <span class="text-[10px] text-terminal-faint">{{ (i + 1).toString().padStart(2, '0') }}</span>
+      <span>{{ item.label }}</span>
+    </a>
+  } @else if (!isHome()) {
+    <a
+      [href]="offHomeAnchorHref(item)"
+      [class]="sidebarItemClass(item)"
+      [attr.aria-current]="isItemActive(item) ? 'page' : null"
+    >
+      <span class="text-[10px] text-terminal-faint">{{ (i + 1).toString().padStart(2, '0') }}</span>
+      <span>{{ item.label }}</span>
+    </a>
+  } @else {
+    <button
+      (click)="handleAnchorNav(item.href, item.id)"
+      [class]="sidebarItemClass(item)"
+      [attr.aria-current]="isItemActive(item) ? 'true' : null"
+    >
+      <span class="text-[10px] text-terminal-faint">{{ (i + 1).toString().padStart(2, '0') }}</span>
+      <span>{{ item.label }}</span>
+    </button>
+  }
+</ng-template>
+
+<ng-template #mobileItemTpl let-item>
+  @if (isPageLink(item)) {
+    <a
+      [routerLink]="item.href"
+      (click)="menuOpen.set(false)"
+      [class]="navClass(item, 'text-left py-3 border-b border-term-dim last:border-0')"
+      [attr.aria-current]="isItemActive(item) ? 'page' : null"
+      >{{ item.label }}</a
+    >
+  } @else if (!isHome()) {
+    <a
+      [href]="offHomeAnchorHref(item)"
+      (click)="menuOpen.set(false)"
+      [class]="navClass(item, 'text-left py-3 border-b border-term-dim last:border-0')"
+      [attr.aria-current]="isItemActive(item) ? 'page' : null"
+      >{{ item.label }}</a
+    >
+  } @else {
+    <button
+      (click)="handleAnchorNav(item.href, item.id)"
+      [class]="navClass(item, 'text-left py-3 border-b border-term-dim last:border-0')"
+      [attr.aria-current]="isItemActive(item) ? 'true' : null"
+    >
+      {{ item.label }}
+    </button>
+  }
+</ng-template>
+
+<!-- Desktop persistent sidebar -->
+<aside class="hidden lg:flex lg:flex-col lg:sticky lg:top-0 lg:h-screen lg:w-[260px] lg:shrink-0 border-r border-term-dim bg-terminal-bg font-mono text-[13px]">
+  <div class="px-6 py-6 border-b border-term-dim">
+    @if (isHome()) {
+      <button
+        (click)="handleAnchorNav('#home', 'home')"
+        class="text-terminal-blue font-bold hover:text-terminal-blue-bright transition-colors text-[13px]"
+      >
+        ~/yuko-pangestu
+      </button>
+    } @else {
+      <a
+        routerLink="/"
+        class="text-terminal-blue font-bold hover:text-terminal-blue-bright transition-colors text-[13px]"
+      >
+        ~/yuko-pangestu
+      </a>
+    }
+    <div class="text-[11px] tracking-[0.06em] uppercase text-terminal-dim mt-2">Senior Full Stack · Jakarta</div>
+  </div>
+
+  <nav class="flex-1 overflow-y-auto py-1" aria-label="Primary">
+    @for (item of navItems; track item.href; let i = $index) {
+      <ng-container [ngTemplateOutlet]="desktopItemTpl" [ngTemplateOutletContext]="{ $implicit: item, index: i }" />
+    }
+  </nav>
+
+  <div class="px-6 py-5 border-t border-term-dim">
+    <a
+      href="mailto:yuko.pangestu@gmail.com"
+      class="block border border-terminal-primary text-terminal-blue px-4 py-2 rounded text-center hover:bg-terminal-primary hover:text-white transition-colors"
+    >
+      hire --me
+    </a>
+  </div>
+</aside>
+
+<!-- Mobile top bar -->
+<header class="lg:hidden sticky top-0 z-50 border-b border-term-dim bg-[rgba(6,11,22,0.85)] backdrop-blur-md font-mono text-[13px]">
+  <div class="flex justify-between items-center gap-4 px-5 sm:px-6 py-[18px]">
+    @if (isHome()) {
+      <button
+        (click)="handleAnchorNav('#home', 'home')"
+        class="text-terminal-blue font-bold hover:text-terminal-blue-bright transition-colors shrink-0 text-[12px] sm:text-[13px]"
+      >
+        ~/yuko-pangestu
+      </button>
+    } @else {
+      <a
+        routerLink="/"
+        class="text-terminal-blue font-bold hover:text-terminal-blue-bright transition-colors shrink-0 text-[12px] sm:text-[13px]"
+      >
+        ~/yuko-pangestu
+      </a>
+    }
+
+    <button
+      class="text-terminal-dim p-1 hover:text-terminal-text"
+      (click)="toggleMenu()"
+      aria-label="Toggle menu"
+      [attr.aria-expanded]="menuOpen()"
+    >
+      <span class="font-mono text-sm">{{ menuOpen() ? 'close' : 'menu' }}</span>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <div id="mobile-menu" class="flex flex-col px-5 sm:px-6 pb-6 gap-1 border-t border-term-dim">
+      @for (item of navItems; track item.href) {
+        <ng-container [ngTemplateOutlet]="mobileItemTpl" [ngTemplateOutletContext]="{ $implicit: item }" />
+      }
+      <a
+        href="mailto:yuko.pangestu@gmail.com"
+        class="border border-terminal-primary text-terminal-blue px-[18px] py-3 rounded text-center mt-3 hover:bg-terminal-primary hover:text-white transition-colors"
+      >
+        hire --me
+      </a>
+    </div>
+  }
+</header>

@@ -25,12 +25,12 @@ function stripFragmentAndQuery(url: string): string {
 }
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-sidebar',
   standalone: true,
   imports: [RouterLink, NgTemplateOutlet],
-  templateUrl: './header.component.html',
+  templateUrl: './sidebar.component.html',
 })
-export class HeaderComponent {
+export class SidebarComponent {
   private router = inject(Router);
   private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
@@ -92,7 +92,8 @@ export class HeaderComponent {
     if (!this.isBrowser) return;
     const target = document.querySelector(href);
     if (!target) return;
-    const top = target.getBoundingClientRect().top + window.scrollY - 72;
+    const offset = window.innerWidth >= 1024 ? 24 : 72;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: 'smooth' });
   }
 
@@ -116,6 +117,14 @@ export class HeaderComponent {
       ? 'text-terminal-text'
       : 'text-terminal-dim hover:text-terminal-text';
     return `${base} transition-colors ${state}`;
+  }
+
+  sidebarItemClass(item: NavItem): string {
+    const active = this.isItemActive(item);
+    const state = active
+      ? 'text-terminal-text border-l-terminal-blue bg-terminal-surface'
+      : 'text-terminal-dim border-l-transparent hover:text-terminal-text hover:bg-terminal-surface';
+    return `grid grid-cols-[26px_1fr] items-center gap-2 px-6 py-3 border-l-2 border-b border-term-dim text-left w-full transition-colors ${state}`;
   }
 
   offHomeAnchorHref(item: NavItem): string {
