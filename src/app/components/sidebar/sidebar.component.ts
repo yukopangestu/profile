@@ -3,20 +3,33 @@ import { Component, effect, HostListener, inject, PLATFORM_ID, signal } from '@a
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter, map, startWith } from 'rxjs';
+import { TerminalChromeComponent } from '../terminal-chrome/terminal-chrome.component';
 
 interface NavItem {
   label: string;
   href: string;
   id: string;
+  modal?: boolean;
 }
 
 const navItems: NavItem[] = [
   { label: './home', href: '#home', id: 'home' },
-  { label: './skills', href: '#skills', id: 'skills' },
   { label: './portfolio', href: '/portfolio', id: 'portfolio' },
-  { label: './experience', href: '#experience', id: 'experience' },
   { label: './blog', href: '/blog', id: 'blog' },
-  { label: './contact', href: '#contact', id: 'contact' },
+  { label: './contact', href: '#contact', id: 'contact', modal: true },
+];
+
+const contactInfo = {
+  name: 'Yuko Pangestu',
+  role: 'Senior Full Stack Developer',
+  location: 'Jakarta, Indonesia',
+  email: 'yuko.pangestu@gmail.com',
+};
+
+const contactSocials = [
+  { href: 'https://github.com/yukopangestu', label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/yukopangestu/', label: 'LinkedIn' },
+  { href: 'mailto:yuko.pangestu@gmail.com', label: 'email me' },
 ];
 
 /** router.url and NavigationEnd.urlAfterRedirects can include a #fragment or ?query — strip both so path comparisons (e.g. isHome) aren't thrown off by a URL like "/#experience". */
@@ -27,7 +40,7 @@ function stripFragmentAndQuery(url: string): string {
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterLink, NgTemplateOutlet],
+  imports: [RouterLink, NgTemplateOutlet, TerminalChromeComponent],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
 })
@@ -36,8 +49,11 @@ export class SidebarComponent {
   private isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   navItems = navItems;
+  contactInfo = contactInfo;
+  contactSocials = contactSocials;
   menuOpen = signal(false);
   activeId = signal('home');
+  contactCardOpen = signal(false);
 
   pathname = toSignal(
     this.router.events.pipe(
@@ -80,11 +96,30 @@ export class SidebarComponent {
       elements.forEach(el => observer.observe(el));
       onCleanup(() => observer.disconnect());
     });
+
+    effect(() => {
+      if (!this.isBrowser) return;
+      document.body.classList.toggle('overflow-hidden', this.contactCardOpen());
+    });
   }
 
   @HostListener('window:resize')
   onResize(): void {
     if (this.isBrowser && window.innerWidth >= 1024) this.menuOpen.set(false);
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.contactCardOpen()) this.closeContactCard();
+  }
+
+  openContactCard(): void {
+    this.contactCardOpen.set(true);
+    this.menuOpen.set(false);
+  }
+
+  closeContactCard(): void {
+    this.contactCardOpen.set(false);
   }
 
   handleAnchorNav(href: string, id: string): void {
@@ -107,6 +142,9 @@ export class SidebarComponent {
   }
 
   isItemActive(item: NavItem): boolean {
+    if (item.modal) {
+      return this.contactCardOpen();
+    }
     if (this.isPageLink(item)) {
       return this.pathname() === item.href || this.pathname().startsWith(`${item.href}/`);
     }

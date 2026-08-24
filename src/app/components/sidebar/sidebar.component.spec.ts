@@ -15,9 +15,8 @@ describe('SidebarComponent', () => {
   it('renders all nav links', async () => {
     await renderSidebar();
     expect(screen.getAllByText('./home').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('./skills').length).toBeGreaterThan(0);
     expect(screen.getAllByText('./portfolio').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('./experience').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('./blog').length).toBeGreaterThan(0);
     expect(screen.getAllByText('./contact').length).toBeGreaterThan(0);
   });
 
@@ -64,18 +63,23 @@ describe('SidebarComponent', () => {
     expect(active).toBeTruthy();
   });
 
-  it('highlights a nav item when clicked', async () => {
-    const skills = document.createElement('section');
-    skills.id = 'skills';
-    document.body.appendChild(skills);
-
+  it('opens the contact ID card popup when ./contact is clicked', async () => {
     await renderSidebar();
-    const [desktopSkills] = screen.getAllByText('./skills');
-    fireEvent.click(desktopSkills);
-    const skillsItems = screen.getAllByText('./skills');
-    const active = skillsItems.find(el => el.closest('[aria-current]')?.getAttribute('aria-current') === 'true');
-    expect(active).toBeTruthy();
+    expect(screen.queryByRole('dialog', { name: 'Contact card' })).not.toBeInTheDocument();
 
-    skills.remove();
+    const [desktopContact] = screen.getAllByText('./contact');
+    fireEvent.click(desktopContact);
+
+    expect(screen.getByRole('dialog', { name: 'Contact card' })).toBeInTheDocument();
+    expect(screen.getByText('yuko.pangestu@gmail.com')).toBeInTheDocument();
+  });
+
+  it('closes the contact ID card popup on the close button', async () => {
+    await renderSidebar();
+    const [desktopContact] = screen.getAllByText('./contact');
+    fireEvent.click(desktopContact);
+
+    fireEvent.click(screen.getByLabelText('Close'));
+    expect(screen.queryByRole('dialog', { name: 'Contact card' })).not.toBeInTheDocument();
   });
 });

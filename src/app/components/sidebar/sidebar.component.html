@@ -1,5 +1,14 @@
 <ng-template #desktopItemTpl let-item let-i="index">
-  @if (isPageLink(item)) {
+  @if (item.modal) {
+    <button
+      (click)="openContactCard()"
+      [class]="sidebarItemClass(item)"
+      [attr.aria-current]="isItemActive(item) ? 'true' : null"
+    >
+      <span class="text-[10px] text-terminal-faint">{{ (i + 1).toString().padStart(2, '0') }}</span>
+      <span>{{ item.label }}</span>
+    </button>
+  } @else if (isPageLink(item)) {
     <a
       [routerLink]="item.href"
       [class]="sidebarItemClass(item)"
@@ -30,7 +39,15 @@
 </ng-template>
 
 <ng-template #mobileItemTpl let-item>
-  @if (isPageLink(item)) {
+  @if (item.modal) {
+    <button
+      (click)="openContactCard()"
+      [class]="navClass(item, 'text-left py-3 border-b border-term-dim last:border-0')"
+      [attr.aria-current]="isItemActive(item) ? 'true' : null"
+    >
+      {{ item.label }}
+    </button>
+  } @else if (isPageLink(item)) {
     <a
       [routerLink]="item.href"
       (click)="menuOpen.set(false)"
@@ -137,3 +154,78 @@
     </div>
   }
 </header>
+
+<!-- Contact ID card popup -->
+@if (contactCardOpen()) {
+  <div
+    class="fixed inset-0 z-[70] flex items-center justify-center p-5 bg-[rgba(6,11,22,0.75)] backdrop-blur-sm"
+    (click)="closeContactCard()"
+    role="presentation"
+  >
+    <div
+      class="relative w-full max-w-[540px] border border-term-strong rounded-xl bg-terminal-surface overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.6)] font-mono"
+      (click)="$event.stopPropagation()"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Contact card"
+    >
+      <app-terminal-chrome title="contact.id" />
+
+      <button
+        (click)="closeContactCard()"
+        class="absolute top-4 right-5 text-terminal-faint hover:text-terminal-text text-sm"
+        aria-label="Close"
+      >
+        close
+      </button>
+
+      <div class="px-9 pt-9 pb-7">
+        <div class="flex items-center gap-6">
+          <img
+            src="/hero_img.jpg"
+            alt="Yuko Pangestu"
+            class="w-24 h-24 rounded-lg object-cover object-top border border-term-strong saturate-[0.9] shrink-0"
+          />
+          <div class="min-w-0">
+            <div class="text-terminal-text font-bold text-[22px] truncate">{{ contactInfo.name }}</div>
+            <div class="text-terminal-blue text-[14px] mt-1.5">{{ contactInfo.role }}</div>
+          </div>
+        </div>
+
+        <div class="mt-7 border-t border-dashed border-term-dim pt-5 flex flex-col gap-3.5 text-[14px]">
+          <div class="flex justify-between gap-3">
+            <span class="text-terminal-faint uppercase tracking-wide">location</span>
+            <span class="text-terminal-text">{{ contactInfo.location }}</span>
+          </div>
+          <div class="flex justify-between gap-3 min-w-0">
+            <span class="text-terminal-faint uppercase tracking-wide shrink-0">email</span>
+            <a
+              [href]="'mailto:' + contactInfo.email"
+              class="text-terminal-text hover:text-terminal-blue transition-colors truncate"
+            >
+              {{ contactInfo.email }}
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-7 flex gap-3">
+          @for (social of contactSocials; track social.label) {
+            <a
+              [href]="social.href"
+              [target]="social.href.startsWith('mailto') ? null : '_blank'"
+              rel="noopener noreferrer"
+              class="flex-1 text-center border border-term-mid rounded-md px-3 py-3 text-[13px] text-terminal-soft hover:border-terminal-blue hover:text-white transition-colors"
+            >
+              {{ social.label }}
+            </a>
+          }
+        </div>
+      </div>
+
+      <div class="px-9 pb-7">
+        <div class="h-9 w-full rounded-sm bg-[repeating-linear-gradient(90deg,#e6edf7_0px,#e6edf7_2px,transparent_2px,transparent_5px)] opacity-20"></div>
+        <div class="mt-2 text-[11px] text-terminal-faint tracking-[0.2em]">ID · YP · AUTHORIZED CONTACT</div>
+      </div>
+    </div>
+  </div>
+}
