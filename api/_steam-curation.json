@@ -1,0 +1,8 @@
+{
+  "_comment": "Manual curation keyed by Steam appid (string). Nothing here is available from the Steam Web API. status: 'now playing' | 'completed' | 'backlog' | 'played'. tags: short freeform labels. note: one-liner shown only on the featured (now playing) card.",
+  "570": {
+    "status": "played",
+    "tags": ["moba"],
+    "note": "Ribuan jam, masih belum jago."
+  }
+}
