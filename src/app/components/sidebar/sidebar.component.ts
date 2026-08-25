@@ -16,7 +16,7 @@ const navItems: NavItem[] = [
   { label: './home', href: '#home', id: 'home' },
   { label: './portfolio', href: '/portfolio', id: 'portfolio' },
   { label: './blog', href: '/blog', id: 'blog' },
-  { label: './hobby', href: '/hobby', id: 'hobby' },
+  { label: './my-games', href: '/hobby', id: 'hobby' },
   { label: './contact', href: '#contact', id: 'contact', modal: true },
 ];
 
