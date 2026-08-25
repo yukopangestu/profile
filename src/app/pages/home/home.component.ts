@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 import { HeroSectionComponent } from '../../components/hero-section/hero-section.component';
 import { SkillsSectionComponent } from '../../components/skills-section/skills-section.component';
 import { AboutSectionComponent } from '../../components/about-section/about-section.component';
@@ -17,4 +19,11 @@ import { ContactSectionComponent } from '../../components/contact-section/contac
   ],
   templateUrl: './home.component.html',
 })
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+
+  ngOnInit(): void {
+    if (!this.isBrowser) return;
+    injectSpeedInsights();
+  }
+}
