@@ -153,9 +153,14 @@
 
           <div class="border border-term rounded-lg p-6 sm:p-8 font-mono text-[12.5px] sm:text-[13.5px]">
             @for (game of topByHours(); track game.appid) {
-              <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 py-2.5 border-b border-term-dim last:border-0">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 py-2.5 border-b border-term-dim last:border-0">
                 <span class="text-terminal-soft sm:w-[220px] sm:shrink-0 truncate" [title]="game.name">{{ game.name }}</span>
-                <span class="text-terminal-primary tracking-[-1px] overflow-x-auto whitespace-nowrap">{{ topBarFor(game) }}</span>
+                <div class="flex-1 min-w-0 h-2 rounded-sm bg-terminal-bg overflow-hidden">
+                  <div
+                    class="h-full bg-terminal-primary"
+                    [style.width.%]="(game.hoursTotal / topMaxHours()) * 100"
+                  ></div>
+                </div>
                 <span class="text-terminal-faint sm:ml-auto shrink-0">{{ game.hoursTotal }}j</span>
               </div>
             }

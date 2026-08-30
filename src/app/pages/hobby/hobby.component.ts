@@ -1,13 +1,6 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
-import { SteamGameCard, SteamLibraryResponse, SteamService, SteamTopGame } from '../../services/steam.service';
+import { SteamLibraryResponse, SteamService } from '../../services/steam.service';
 import { TerminalChromeComponent } from '../../components/terminal-chrome/terminal-chrome.component';
-
-const BAR_WIDTH = 24;
-
-function asciiBar(value: number, max: number): string {
-  const filled = max > 0 ? Math.round((value / max) * BAR_WIDTH) : 0;
-  return '█'.repeat(Math.max(filled, value > 0 ? 1 : 0)) + '░'.repeat(BAR_WIDTH - Math.max(filled, value > 0 ? 1 : 0));
-}
 
 function relativeDaysAgo(unixSeconds: number): string {
   if (!unixSeconds) return 'belum pernah dimainkan';
@@ -53,14 +46,6 @@ export class HobbyComponent implements OnInit {
 
   relativeTime(unixSeconds: number): string {
     return relativeDaysAgo(unixSeconds);
-  }
-
-  barFor(game: SteamGameCard): string {
-    return asciiBar(game.hoursTotal, this.recentMaxHours());
-  }
-
-  topBarFor(game: SteamTopGame): string {
-    return asciiBar(game.hoursTotal, this.topMaxHours());
   }
 
   onCoverError(event: Event): void {
