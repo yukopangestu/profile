@@ -14,14 +14,10 @@
       </p>
 
       @if (stats(); as s) {
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-[22px] mt-10 sm:mt-12">
+        <div class="grid grid-cols-3 gap-3 sm:gap-[22px] mt-10 sm:mt-12">
           <div class="text-center border border-term rounded-lg py-6 sm:py-7 px-3">
             <div class="text-[28px] sm:text-[36px] font-bold text-terminal-blue">{{ s.totalGames }}</div>
             <div class="font-mono text-[10.5px] sm:text-[11.5px] text-terminal-faint mt-1.5">total game</div>
-          </div>
-          <div class="text-center border border-term rounded-lg py-6 sm:py-7 px-3">
-            <div class="text-[28px] sm:text-[36px] font-bold text-terminal-blue">{{ s.totalHours }}</div>
-            <div class="font-mono text-[10.5px] sm:text-[11.5px] text-terminal-faint mt-1.5">total jam</div>
           </div>
           <div class="text-center border border-term rounded-lg py-6 sm:py-7 px-3">
             <div class="text-[28px] sm:text-[36px] font-bold text-terminal-blue">{{ s.yearsEquivalent }}</div>
@@ -74,7 +70,6 @@
               <div class="p-6 sm:p-8">
                 <div class="text-[20px] sm:text-[26px] font-bold">{{ np.name }}</div>
                 <div class="flex flex-wrap gap-x-6 gap-y-2 mt-4 font-mono text-[12.5px] text-terminal-dim">
-                  <span>{{ np.hoursTotal }} jam total</span>
                   <span>{{ relativeTime(np.lastPlayedAt) }}</span>
                   @if (np.achievementPercent !== null) {
                     <span>{{ np.achievementPercent }}% achievement</span>
@@ -118,7 +113,7 @@
                 <div class="p-4">
                   <div class="text-[14px] font-bold truncate" [title]="game.name">{{ game.name }}</div>
                   <div class="font-mono text-[11px] text-terminal-faint mt-1.5">
-                    {{ game.hoursTotal }} jam total · dimainkan {{ relativeTime(game.lastPlayedAt) }}
+                    dimainkan {{ relativeTime(game.lastPlayedAt) }}
                   </div>
                   <div class="h-1.5 rounded-full bg-terminal-bg mt-3 overflow-hidden">
                     <div
