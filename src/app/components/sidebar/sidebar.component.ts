@@ -110,7 +110,7 @@ export class SidebarComponent {
 
       Promise.all(
         contactSocials.map(async social => {
-          const dataUrl = await toDataURL(social.href, { width: 96, margin: 1, color: { dark: '#0b1322', light: '#ffffff' } });
+          const dataUrl = await toDataURL(social.href, { width: 160, margin: 1, color: { dark: '#0b1322', light: '#ffffff' } });
           return [social.label, dataUrl] as const;
         })
       ).then(entries => this.socialQrCodes.set(Object.fromEntries(entries)));

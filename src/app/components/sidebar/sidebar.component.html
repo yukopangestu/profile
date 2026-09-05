@@ -208,11 +208,11 @@
           </div>
         </div>
 
-        <div class="mt-7 flex gap-3">
+        <div class="mt-7 flex gap-2 sm:gap-3">
           @for (social of contactSocials; track social.label) {
-            <div class="flex-1 flex flex-col items-center gap-2">
+            <div class="flex-1 flex flex-col items-center gap-2 min-w-0">
               <span class="text-[11px] uppercase tracking-wide text-terminal-faint text-center">{{ social.label }}</span>
-              <div class="w-16 h-16 rounded border border-term-dim bg-white p-1 flex items-center justify-center">
+              <div class="w-full aspect-square max-w-24 rounded border border-term-dim bg-white p-1.5 flex items-center justify-center">
                 @if (socialQrCodes()[social.label]; as qr) {
                   <img [src]="qr" [alt]="'QR code ke ' + social.label" class="w-full h-full" />
                 } @else {
