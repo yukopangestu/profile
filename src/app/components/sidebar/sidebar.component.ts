@@ -3,6 +3,7 @@ import { Component, effect, HostListener, inject, PLATFORM_ID, signal } from '@a
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter, map, startWith } from 'rxjs';
+import { toDataURL } from 'qrcode';
 import { TerminalChromeComponent } from '../terminal-chrome/terminal-chrome.component';
 
 interface NavItem {
@@ -55,6 +56,7 @@ export class SidebarComponent {
   menuOpen = signal(false);
   activeId = signal('home');
   contactCardOpen = signal(false);
+  socialQrCodes = signal<Record<string, string>>({});
 
   pathname = toSignal(
     this.router.events.pipe(
@@ -101,6 +103,17 @@ export class SidebarComponent {
     effect(() => {
       if (!this.isBrowser) return;
       document.body.classList.toggle('overflow-hidden', this.contactCardOpen());
+    });
+
+    effect(() => {
+      if (!this.isBrowser || !this.contactCardOpen() || Object.keys(this.socialQrCodes()).length > 0) return;
+
+      Promise.all(
+        contactSocials.map(async social => {
+          const dataUrl = await toDataURL(social.href, { width: 96, margin: 1, color: { dark: '#0b1322', light: '#ffffff' } });
+          return [social.label, dataUrl] as const;
+        })
+      ).then(entries => this.socialQrCodes.set(Object.fromEntries(entries)));
     });
   }
 

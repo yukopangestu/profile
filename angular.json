@@ -39,6 +39,9 @@
             },
             "prerender": true,
             "outputMode": "server",
+            "allowedCommonJsDependencies": [
+              "qrcode"
+            ],
             "ssr": {
               "entry": "src/server.ts"
             }

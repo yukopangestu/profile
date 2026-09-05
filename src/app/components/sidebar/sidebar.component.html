@@ -210,14 +210,23 @@
 
         <div class="mt-7 flex gap-3">
           @for (social of contactSocials; track social.label) {
-            <a
-              [href]="social.href"
-              [target]="social.href.startsWith('mailto') ? null : '_blank'"
-              rel="noopener noreferrer"
-              class="flex-1 text-center border border-term-mid rounded-md px-3 py-3 text-[13px] text-terminal-soft hover:border-terminal-blue hover:text-white transition-colors"
-            >
-              {{ social.label }}
-            </a>
+            <div class="flex-1 flex flex-col items-center gap-2">
+              <a
+                [href]="social.href"
+                [target]="social.href.startsWith('mailto') ? null : '_blank'"
+                rel="noopener noreferrer"
+                class="w-full min-h-16 flex items-center justify-center text-center border border-term-mid rounded-md px-3 py-3 text-[13px] text-terminal-soft hover:border-terminal-blue hover:text-white transition-colors"
+              >
+                {{ social.label }}
+              </a>
+              <div class="w-16 h-16 rounded border border-term-dim bg-white p-1 flex items-center justify-center">
+                @if (socialQrCodes()[social.label]; as qr) {
+                  <img [src]="qr" [alt]="'QR code ke ' + social.label" class="w-full h-full" />
+                } @else {
+                  <span class="text-[9px] text-terminal-faint">···</span>
+                }
+              </div>
+            </div>
           }
         </div>
       </div>
