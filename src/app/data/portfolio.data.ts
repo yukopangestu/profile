@@ -168,6 +168,45 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     stack: ['Java', 'AngularJS', 'REST', 'MySQL'],
   },
   {
+    slug: 'biomedilab',
+    cat: 'product',
+    years: '2026 — now',
+    domain: 'sobatbisnis.group',
+    name: 'Biomedilab',
+    img: '/portfolio/biomedilab.jpg',
+    role: { en: 'Senior Full Stack Developer', id: 'Senior Full Stack Developer' },
+    summary: {
+      en: 'Clinic admin panel for Biomedilab — appointments, patient registration, employees, master catalogue and multi-branch management in one place.',
+      id: 'Admin panel klinik untuk Biomedilab — appointment, registrasi pasien, karyawan, master katalog, dan manajemen cabang dalam satu tempat.',
+    },
+    detail: {
+      en: 'Built at Sobat Bisnis Group for Biomedilab on the same platform as Akasia 365MC. Front desk and management use it to run the clinic day to day: booking appointments, registering patients, managing staff, maintaining the service catalogue, and keeping each branch configured on its own.',
+      id: 'Dibangun di Sobat Bisnis Group untuk Biomedilab di atas platform yang sama dengan Akasia 365MC. Front desk dan manajemen memakainya untuk menjalankan klinik sehari-hari: mengatur appointment, meregistrasi pasien, mengelola karyawan, merawat katalog layanan, serta mengatur tiap cabang secara terpisah.',
+    },
+    figures: [
+      { value: '5', label: { en: 'core modules', id: 'modul inti' } },
+      { value: 'Multi', label: { en: 'branch', id: 'cabang' } },
+      { value: 'Clinic', label: { en: 'health sector', id: 'sektor kesehatan' } },
+    ],
+    points: {
+      en: [
+        'Appointment scheduling for clinic services.',
+        'Patient registration and record management.',
+        'Employee management for clinic staff.',
+        'Master catalogue for services and products.',
+        'Branch management system for running multiple clinic locations.',
+      ],
+      id: [
+        'Pengaturan appointment untuk layanan klinik.',
+        'Registrasi pasien dan pengelolaan data pasien.',
+        'Manajemen karyawan klinik.',
+        'Master katalog untuk layanan dan produk.',
+        'Sistem manajemen cabang untuk mengelola beberapa lokasi klinik.',
+      ],
+    },
+    stack: ['Java', 'AngularJS', 'REST', 'MySQL'],
+  },
+  {
     slug: 'bandingin',
     cat: 'in-house',
     years: '2018 — 2019',
