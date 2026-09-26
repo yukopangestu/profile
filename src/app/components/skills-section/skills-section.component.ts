@@ -30,6 +30,13 @@ const skillGroups: SkillGroup[] = [
       'Leading cross-functional teams of 15+ engineers. Hiring, mentoring, and setting technical direction.',
     tags: ['Architecture', 'CI/CD', 'Vue.js', 'Agile'],
   },
+  {
+    file: 'product.md',
+    title: 'Product Sense',
+    description:
+      'Starting from the user problem, not the ticket. Shaping scope with product and design, and shipping what actually moves the needle.',
+    tags: ['User Empathy', 'Scoping', 'Discovery', 'Iteration'],
+  },
 ];
 
 @Component({

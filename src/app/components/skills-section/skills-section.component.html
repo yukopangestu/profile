@@ -5,7 +5,7 @@
       Technical Ecosystem
     </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-[22px]">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-[22px]">
       @for (group of skillGroups; track group.title) {
         <div class="bg-terminal-surface border border-term rounded-lg overflow-hidden hover:border-term-hover transition-colors">
           <app-terminal-chrome [title]="group.file" size="sm" />
