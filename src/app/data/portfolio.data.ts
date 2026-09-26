@@ -129,6 +129,45 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     stack: ['Java', 'AngularJS', 'REST', 'MySQL'],
   },
   {
+    slug: 'akasia365mc',
+    cat: 'product',
+    years: '2026 — now',
+    domain: 'sobatbisnis.group',
+    name: 'Akasia 365MC',
+    img: '/portfolio/akasia365mc.jpg',
+    role: { en: 'Senior Full Stack Developer', id: 'Senior Full Stack Developer' },
+    summary: {
+      en: 'Admin panel for a beauty clinic chain — appointments, patient registration, employees, master catalogue and multi-branch management in one place.',
+      id: 'Admin panel untuk jaringan klinik kecantikan — appointment, registrasi pasien, karyawan, master katalog, dan manajemen cabang dalam satu tempat.',
+    },
+    detail: {
+      en: 'Built at Sobat Bisnis Group for Akasia 365MC, a beauty clinic operating across several branches. The admin panel is where front desk and management run the clinic day to day: booking appointments, registering patients, managing staff, maintaining the treatment and product catalogue, and keeping each branch configured on its own.',
+      id: 'Dibangun di Sobat Bisnis Group untuk Akasia 365MC, klinik kecantikan dengan beberapa cabang. Admin panel ini dipakai front desk dan manajemen untuk menjalankan klinik sehari-hari: mengatur appointment, meregistrasi pasien, mengelola karyawan, merawat katalog treatment dan produk, serta mengatur tiap cabang secara terpisah.',
+    },
+    figures: [
+      { value: '5', label: { en: 'core modules', id: 'modul inti' } },
+      { value: 'Multi', label: { en: 'branch', id: 'cabang' } },
+      { value: 'Clinic', label: { en: 'beauty sector', id: 'sektor kecantikan' } },
+    ],
+    points: {
+      en: [
+        'Appointment scheduling for treatments and consultations.',
+        'Patient registration and record management.',
+        'Employee management for clinic staff.',
+        'Master catalogue for treatments and products.',
+        'Branch management system for running multiple clinic locations.',
+      ],
+      id: [
+        'Pengaturan appointment untuk treatment dan konsultasi.',
+        'Registrasi pasien dan pengelolaan data pasien.',
+        'Manajemen karyawan klinik.',
+        'Master katalog untuk treatment dan produk.',
+        'Sistem manajemen cabang untuk mengelola beberapa lokasi klinik.',
+      ],
+    },
+    stack: ['Java', 'AngularJS', 'REST', 'MySQL'],
+  },
+  {
     slug: 'bandingin',
     cat: 'in-house',
     years: '2018 — 2019',
