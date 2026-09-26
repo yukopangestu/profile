@@ -10,7 +10,7 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 section {
@@ -26,7 +26,7 @@ section {
 body {
   background: #060b16;
   color: #e6edf7;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 ::selection {
