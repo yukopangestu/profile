@@ -23,78 +23,6 @@ export const PORTFOLIO_CATEGORIES: PortfolioCategory[] = ['product', 'agency', '
 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   {
-    slug: 'paper-id-platform',
-    cat: 'product',
-    years: '2019 — 2025',
-    domain: 'paper.id',
-    name: 'Paper.id Platform',
-    role: { en: 'Technical Lead', id: 'Technical Lead' },
-    summary: {
-      en: 'Invoicing and receivables platform for Indonesian SMEs. Led the platform architecture and the team behind 10M+ transactions a month.',
-      id: 'Platform invoicing dan piutang untuk UKM Indonesia. Memimpin arsitektur platform dan tim di balik 10 juta+ transaksi per bulan.',
-    },
-    detail: {
-      en: 'Six years across three roles on the same product — from building REST APIs to leading a cross-functional team of 15+ engineers across Backend, Frontend and QA. Owned the technical roadmap, the microservices migration and the engineering standards the team ships against.',
-      id: 'Enam tahun melewati tiga peran di produk yang sama — dari membangun REST API sampai memimpin tim lintas fungsi 15+ engineer di Backend, Frontend, dan QA. Memegang roadmap teknis, migrasi microservices, dan standar engineering yang dipakai tim.',
-    },
-    figures: [
-      { value: '10M+', label: { en: 'transactions / month', id: 'transaksi / bulan' } },
-      { value: '15+', label: { en: 'engineers led', id: 'engineer dipimpin' } },
-      { value: '40%', label: { en: 'faster deployments', id: 'deployment lebih cepat' } },
-    ],
-    points: {
-      en: [
-        'Architected a microservices platform handling 10M+ transactions monthly.',
-        'Cut deployment time by 40% through CI/CD pipeline optimisation.',
-        'Hired 8 senior engineers, raising team capability by 30%.',
-        'Established coding standards and review processes, cutting bugs by 35%.',
-      ],
-      id: [
-        'Merancang platform microservices yang menangani 10 juta+ transaksi per bulan.',
-        'Memangkas waktu deployment 40% lewat optimasi pipeline CI/CD.',
-        'Merekrut 8 senior engineer, menaikkan kapabilitas tim 30%.',
-        'Menyusun coding standard dan proses review, menurunkan bug 35%.',
-      ],
-    },
-    stack: ['Go', 'PHP', 'RabbitMQ', 'MySQL', 'Redis', 'Vue.js', 'CI/CD'],
-  },
-  {
-    slug: 'paper-payment-gateway',
-    cat: 'product',
-    years: '2022 — 2023',
-    domain: 'payments.paper.id',
-    name: 'Payment Gateway Integration',
-    role: { en: 'Senior Backend Engineer', id: 'Senior Backend Engineer' },
-    summary: {
-      en: 'Payment rails processing $2M+ in daily transactions, built for uptime first and migrated off the monolith without downtime.',
-      id: 'Jalur pembayaran yang memproses $2 juta+ transaksi harian, dibangun dengan uptime sebagai prioritas dan dimigrasikan dari monolith tanpa downtime.',
-    },
-    detail: {
-      en: 'Designed and integrated the payment gateway layer for a platform where every minute of downtime is money. The same effort carried the monolith-to-microservices migration and a round of query work that took critical pages from five seconds to a fraction of one.',
-      id: 'Merancang dan mengintegrasikan lapisan payment gateway untuk platform di mana tiap menit downtime berarti uang. Pekerjaan yang sama membawa migrasi monolith ke microservices dan optimasi query yang memangkas halaman kritis dari lima detik jadi sepersekian detik.',
-    },
-    figures: [
-      { value: '$2M+', label: { en: 'daily transactions', id: 'transaksi harian' } },
-      { value: '99.9%', label: { en: 'uptime', id: 'uptime' } },
-      { value: '60%', label: { en: 'faster response', id: 'respons lebih cepat' } },
-    ],
-    points: {
-      en: [
-        'Designed payment gateway integration processing $2M+ in daily transactions.',
-        'Led the monolith-to-microservices migration, improving response time by 60%.',
-        'Optimised database queries, cutting load time from 5s to 300ms.',
-        'Maintained 99.9% uptime for critical payment services.',
-      ],
-      id: [
-        'Merancang integrasi payment gateway yang memproses $2 juta+ transaksi harian.',
-        'Memimpin migrasi monolith ke microservices, mempercepat response time 60%.',
-        'Mengoptimasi query database, memangkas load time dari 5 detik ke 300ms.',
-        'Menjaga uptime 99,9% untuk layanan pembayaran kritikal.',
-      ],
-    },
-    stack: ['Go', 'MySQL', 'Redis', 'REST', 'RabbitMQ'],
-  },
-  {
     slug: 'sobat-bisnis',
     cat: 'product',
     years: '2026 — now',
@@ -205,6 +133,78 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       ],
     },
     stack: ['Java', 'AngularJS', 'REST', 'MySQL'],
+  },
+  {
+    slug: 'paper-id-platform',
+    cat: 'product',
+    years: '2019 — 2025',
+    domain: 'paper.id',
+    name: 'Paper.id Platform',
+    role: { en: 'Technical Lead', id: 'Technical Lead' },
+    summary: {
+      en: 'Invoicing and receivables platform for Indonesian SMEs. Led the platform architecture and the team behind 10M+ transactions a month.',
+      id: 'Platform invoicing dan piutang untuk UKM Indonesia. Memimpin arsitektur platform dan tim di balik 10 juta+ transaksi per bulan.',
+    },
+    detail: {
+      en: 'Six years across three roles on the same product — from building REST APIs to leading a cross-functional team of 15+ engineers across Backend, Frontend and QA. Owned the technical roadmap, the microservices migration and the engineering standards the team ships against.',
+      id: 'Enam tahun melewati tiga peran di produk yang sama — dari membangun REST API sampai memimpin tim lintas fungsi 15+ engineer di Backend, Frontend, dan QA. Memegang roadmap teknis, migrasi microservices, dan standar engineering yang dipakai tim.',
+    },
+    figures: [
+      { value: '10M+', label: { en: 'transactions / month', id: 'transaksi / bulan' } },
+      { value: '15+', label: { en: 'engineers led', id: 'engineer dipimpin' } },
+      { value: '40%', label: { en: 'faster deployments', id: 'deployment lebih cepat' } },
+    ],
+    points: {
+      en: [
+        'Architected a microservices platform handling 10M+ transactions monthly.',
+        'Cut deployment time by 40% through CI/CD pipeline optimisation.',
+        'Hired 8 senior engineers, raising team capability by 30%.',
+        'Established coding standards and review processes, cutting bugs by 35%.',
+      ],
+      id: [
+        'Merancang platform microservices yang menangani 10 juta+ transaksi per bulan.',
+        'Memangkas waktu deployment 40% lewat optimasi pipeline CI/CD.',
+        'Merekrut 8 senior engineer, menaikkan kapabilitas tim 30%.',
+        'Menyusun coding standard dan proses review, menurunkan bug 35%.',
+      ],
+    },
+    stack: ['Go', 'PHP', 'RabbitMQ', 'MySQL', 'Redis', 'Vue.js', 'CI/CD'],
+  },
+  {
+    slug: 'paper-payment-gateway',
+    cat: 'product',
+    years: '2022 — 2023',
+    domain: 'payments.paper.id',
+    name: 'Payment Gateway Integration',
+    role: { en: 'Senior Backend Engineer', id: 'Senior Backend Engineer' },
+    summary: {
+      en: 'Payment rails processing $2M+ in daily transactions, built for uptime first and migrated off the monolith without downtime.',
+      id: 'Jalur pembayaran yang memproses $2 juta+ transaksi harian, dibangun dengan uptime sebagai prioritas dan dimigrasikan dari monolith tanpa downtime.',
+    },
+    detail: {
+      en: 'Designed and integrated the payment gateway layer for a platform where every minute of downtime is money. The same effort carried the monolith-to-microservices migration and a round of query work that took critical pages from five seconds to a fraction of one.',
+      id: 'Merancang dan mengintegrasikan lapisan payment gateway untuk platform di mana tiap menit downtime berarti uang. Pekerjaan yang sama membawa migrasi monolith ke microservices dan optimasi query yang memangkas halaman kritis dari lima detik jadi sepersekian detik.',
+    },
+    figures: [
+      { value: '$2M+', label: { en: 'daily transactions', id: 'transaksi harian' } },
+      { value: '99.9%', label: { en: 'uptime', id: 'uptime' } },
+      { value: '60%', label: { en: 'faster response', id: 'respons lebih cepat' } },
+    ],
+    points: {
+      en: [
+        'Designed payment gateway integration processing $2M+ in daily transactions.',
+        'Led the monolith-to-microservices migration, improving response time by 60%.',
+        'Optimised database queries, cutting load time from 5s to 300ms.',
+        'Maintained 99.9% uptime for critical payment services.',
+      ],
+      id: [
+        'Merancang integrasi payment gateway yang memproses $2 juta+ transaksi harian.',
+        'Memimpin migrasi monolith ke microservices, mempercepat response time 60%.',
+        'Mengoptimasi query database, memangkas load time dari 5 detik ke 300ms.',
+        'Menjaga uptime 99,9% untuk layanan pembayaran kritikal.',
+      ],
+    },
+    stack: ['Go', 'MySQL', 'Redis', 'REST', 'RabbitMQ'],
   },
   {
     slug: 'bandingin',
