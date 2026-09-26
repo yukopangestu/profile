@@ -28,7 +28,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     years: '2026 — now',
     domain: 'sobatbisnis.group',
     name: 'Sobat Bisnis Group',
-    role: { en: 'Senior Full Stack Developer', id: 'Senior Full Stack Developer' },
+    role: { en: 'Senior Product Engineer', id: 'Senior Product Engineer' },
     summary: {
       en: 'Current work: full-stack product features in Java and AngularJS, shipped end to end from backend services to the UI.',
       id: 'Pekerjaan sekarang: fitur produk full-stack dengan Java dan AngularJS, dikerjakan end to end dari layanan backend sampai UI.',
@@ -63,7 +63,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     domain: 'sobatbisnis.group',
     name: 'Akasia 365MC',
     img: '/portfolio/akasia365mc.jpg',
-    role: { en: 'Senior Full Stack Developer', id: 'Senior Full Stack Developer' },
+    role: { en: 'Senior Product Engineer', id: 'Senior Product Engineer' },
     summary: {
       en: 'Admin panel for a beauty clinic chain — appointments, patient registration, employees, master catalogue and multi-branch management in one place.',
       id: 'Admin panel untuk jaringan klinik kecantikan — appointment, registrasi pasien, karyawan, master katalog, dan manajemen cabang dalam satu tempat.',
@@ -102,7 +102,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     domain: 'sobatbisnis.group',
     name: 'Biomedilab',
     img: '/portfolio/biomedilab.jpg',
-    role: { en: 'Senior Full Stack Developer', id: 'Senior Full Stack Developer' },
+    role: { en: 'Senior Product Engineer', id: 'Senior Product Engineer' },
     summary: {
       en: 'Clinic admin panel for Biomedilab — appointments, patient registration, employees, master catalogue and multi-branch management in one place.',
       id: 'Admin panel klinik untuk Biomedilab — appointment, registrasi pasien, karyawan, master katalog, dan manajemen cabang dalam satu tempat.',

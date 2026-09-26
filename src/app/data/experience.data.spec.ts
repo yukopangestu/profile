@@ -29,8 +29,8 @@ describe('experiences', () => {
     });
   });
 
-  it('most recent role is Senior Full Stack Developer at Sobat Bisnis Group', () => {
-    expect(experiences[0].role).toBe('Senior Full Stack Developer');
+  it('most recent role is Senior Product Engineer at Sobat Bisnis Group', () => {
+    expect(experiences[0].role).toBe('Senior Product Engineer');
     expect(experiences[0].company).toBe('Sobat Bisnis Group');
   });
 

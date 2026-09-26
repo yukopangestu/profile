@@ -22,7 +22,7 @@ const navItems: NavItem[] = [
 
 const contactInfo = {
   name: 'Yuko Pangestu',
-  role: 'Senior Full Stack Developer',
+  role: 'Senior Product Engineer',
   location: 'Jakarta, Indonesia',
   email: 'yuko.pangestu@gmail.com',
 };

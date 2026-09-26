@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal portfolio website for Yuko Pangestu, Senior Full Stack Developer. Built with Angular 19 (standalone components, SSR + prerendering), TypeScript, and Tailwind CSS. Hosted on Vercel at yukopangestu.com.
+Personal portfolio website for Yuko Pangestu, Senior Product Engineer. Built with Angular 19 (standalone components, SSR + prerendering), TypeScript, and Tailwind CSS. Hosted on Vercel at yukopangestu.com.
 
 ## Development Commands
 

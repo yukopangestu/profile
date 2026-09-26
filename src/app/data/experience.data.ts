@@ -7,7 +7,7 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    role: 'Senior Full Stack Developer',
+    role: 'Senior Product Engineer',
     company: 'Sobat Bisnis Group',
     period: 'Jun 2026 – Present',
     achievements: [

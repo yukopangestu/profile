@@ -19,7 +19,7 @@ describe('HeroSectionComponent', () => {
 
   it('renders the role/location label', async () => {
     await renderHero();
-    expect(screen.getAllByText(/senior full stack/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/senior product engineer/i).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/jakarta/i).length).toBeGreaterThan(0);
   });
 

@@ -29,7 +29,7 @@ describe('AboutSectionComponent', () => {
   it('renders current status metrics card', async () => {
     await render(AboutSectionComponent);
     expect(screen.getByText('Sobat Bisnis Group')).toBeInTheDocument();
-    expect(screen.getByText(/senior full stack developer/i)).toBeInTheDocument();
+    expect(screen.getByText(/senior product engineer/i)).toBeInTheDocument();
     expect(screen.getByText('$2M+')).toBeInTheDocument();
     expect(screen.getByText('10M+')).toBeInTheDocument();
     expect(screen.getByText('40%')).toBeInTheDocument();
